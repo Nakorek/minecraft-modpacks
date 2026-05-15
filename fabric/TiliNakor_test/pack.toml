@@ -1,0 +1,13 @@
+name = "Tili Nakor Test"
+author = "Nakorek"
+version = "1.0.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "f9b881497865a1566edb2939c7bf73b215107897ce49a0a903ded164cc6cfac8"
+
+[versions]
+fabric = "0.19.2"
+minecraft = "1.21.11"

@@ -1,0 +1,166 @@
+hash-format = "sha256"
+
+[[files]]
+file = "mods/balm.pw.toml"
+hash = "974d8b38f628b9ecf976c98332a87d24ddc220848abd9c55f7f7c0bafb5be5a1"
+metafile = true
+
+[[files]]
+file = "mods/bobby.pw.toml"
+hash = "5e097f95b8818e0999b4e867351745441f90c9bcf2a9c68cd19d5d708da4a4a1"
+metafile = true
+
+[[files]]
+file = "mods/carpet.pw.toml"
+hash = "fbb61854650a7cdf7eb2244e0599bae2f0541864a9b7cf74f8272972e6bdb18e"
+metafile = true
+
+[[files]]
+file = "mods/cloth-config.pw.toml"
+hash = "a06ef129798265e0d7249426fb0ed5c506725b0460dc3dfdb975b8978480895e"
+metafile = true
+
+[[files]]
+file = "mods/easy-shulker-boxes.pw.toml"
+hash = "08c9613a4fa61f4d22c3f1a04f3503fb2bb6a34d3b1bce43a275719dcd6a0efc"
+metafile = true
+
+[[files]]
+file = "mods/elytra-trims.pw.toml"
+hash = "3ffdd9c3e396bebf6ae85e406ddc146424cd2c43e34e2cc46262ab0e0d0b34ab"
+metafile = true
+
+[[files]]
+file = "mods/euphoria-patches.pw.toml"
+hash = "78f9dd976afe8b6b9144f7e700d344eab21769ca756a910b9d8d8d292c42ff2a"
+metafile = true
+
+[[files]]
+file = "mods/fabric-api.pw.toml"
+hash = "2ccce9c28059ea90a5457771de06a69b0a2d1f06d48f8add48a38f1a2307da3c"
+metafile = true
+
+[[files]]
+file = "mods/fabric-language-kotlin.pw.toml"
+hash = "337d97b990f76c91584b12600651ae7bd47a0824e45070b3d9330b0922149fc0"
+metafile = true
+
+[[files]]
+file = "mods/ferrite-core.pw.toml"
+hash = "816b735b2ad505476201800a99f527e61b392b712b9d20ca9edcce05f412fe87"
+metafile = true
+
+[[files]]
+file = "mods/flashback.pw.toml"
+hash = "b2c53aed3289306764df0306664a0dd896599ced6402a5024b6063f761e85505"
+metafile = true
+
+[[files]]
+file = "mods/flowermap.pw.toml"
+hash = "2ea44891a488b09747f62818108b6aa90a97a48f20cea70abc96aae4958f6516"
+metafile = true
+
+[[files]]
+file = "mods/forge-config-api-port.pw.toml"
+hash = "b22f1d052eee2810fda73d850dd6f425a1214965e03a5a9dada421abfe74603b"
+metafile = true
+
+[[files]]
+file = "mods/iris.pw.toml"
+hash = "5127c58dc92fe8860d29ad2d05e7c2ea7b973390f41aec73dd2017953f2d1a3e"
+metafile = true
+
+[[files]]
+file = "mods/krypton.pw.toml"
+hash = "8f6e0157b42ba668c0ba9aa7eff94b3b91a8f58bcd357e574d70a7b160d4337c"
+metafile = true
+
+[[files]]
+file = "mods/litematica.pw.toml"
+hash = "ac318bf9665269c3010bc2370dccca8426000b61d5e9ea5e1ed742505eab83ec"
+metafile = true
+
+[[files]]
+file = "mods/lithium.pw.toml"
+hash = "8c7aec9e376eb3f10da62109594e1ac6b7bc92da8e9c080f8f8f5a736051f339"
+metafile = true
+
+[[files]]
+file = "mods/malilib.pw.toml"
+hash = "351d586aabd1993a34ad855778ceee464937a70746506aa18cc82beaf7f9a21b"
+metafile = true
+
+[[files]]
+file = "mods/minihud.pw.toml"
+hash = "33838027d34e8c563a429092e396d4b0bd4f5a2396212793a5f4cc6aad6a9331"
+metafile = true
+
+[[files]]
+file = "mods/modmenu.pw.toml"
+hash = "c3069d6c3ef1d13c9ba064824777c4d74dd504cad358cb0b6f06f6266fc143c8"
+metafile = true
+
+[[files]]
+file = "mods/moremousetweaks.pw.toml"
+hash = "5e5437a58abc25274e84983d5997fbe90089b1ed8608349b030c7049fb95c17b"
+metafile = true
+
+[[files]]
+file = "mods/mouse-tweaks.pw.toml"
+hash = "44f00c1a0e3d4f8717e805c30c862a597e7856472e72637800fd1a38d73fbd08"
+metafile = true
+
+[[files]]
+file = "mods/peek.pw.toml"
+hash = "d61d6e22cd8f496cecf479ff9050d2dc4fbf3255214438139f77155b9772da9f"
+metafile = true
+
+[[files]]
+file = "mods/placeholder-api.pw.toml"
+hash = "f90c7332fd1a0b2eae94dabfe4794946ba015f40d0143b7ddbe584ac9e76cdae"
+metafile = true
+
+[[files]]
+file = "mods/puzzles-lib.pw.toml"
+hash = "c40d8e77ffbe90eaef56e4acbb1f74850792a7541254c77d65ba382e765e61be"
+metafile = true
+
+[[files]]
+file = "mods/servux.pw.toml"
+hash = "6930417928f17fae1151a5e4c5ed439c032fa8163a0115e5b0df2993cedb547c"
+metafile = true
+
+[[files]]
+file = "mods/simple-hud-enhanced.pw.toml"
+hash = "a831425758d20f3fdddb7121216c5e5363f1abfa5b09bc28594a2cd8e4b89f43"
+metafile = true
+
+[[files]]
+file = "mods/sodium.pw.toml"
+hash = "254b74c0c222319a6fbaf776b2e2b6b5d1d2b626176ab195257f5f483eaeab32"
+metafile = true
+
+[[files]]
+file = "mods/spark.pw.toml"
+hash = "fc9e8b3b78f2b454d260f7cefa26834a352e146cdcfd44a6637544df335087a1"
+metafile = true
+
+[[files]]
+file = "mods/tweakeroo.pw.toml"
+hash = "c995c55c7ea92d577fbcc5bb40ef481b715e993dd113ef597943ab7bcfef0ce6"
+metafile = true
+
+[[files]]
+file = "mods/waystones.pw.toml"
+hash = "88b2211504efdc62eb41ad69abde250bc85da0c66fb6a7ddde874df42afe8fc6"
+metafile = true
+
+[[files]]
+file = "mods/xaeros-minimap.pw.toml"
+hash = "49ad6d41c076dbde4d1d1664ae98e2e280ebb57785c2751e3b70cab542016ef1"
+metafile = true
+
+[[files]]
+file = "mods/xaeros-world-map.pw.toml"
+hash = "79007fa65840c898bc18d75660fe987ac33cc8d9a2e4375818f6270332db097c"
+metafile = true
