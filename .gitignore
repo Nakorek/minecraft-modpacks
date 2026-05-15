@@ -1,0 +1,10 @@
+# Pliki wygenerowane przez packwiz - nie commitujemy do gita
+*.mrpack
+
+# Pliki tymczasowe i cache
+.DS_Store
+Thumbs.db
+
+# Foldery edytorów
+.vscode/
+.idea/
