@@ -21,6 +21,11 @@ hash = "a06ef129798265e0d7249426fb0ed5c506725b0460dc3dfdb975b8978480895e"
 metafile = true
 
 [[files]]
+file = "mods/continuity.pw.toml"
+hash = "d53b229a5588d33a8dac8682cba4371b22b2cbe2541c7129506cfbd44daaf6f8"
+metafile = true
+
+[[files]]
 file = "mods/easy-shulker-boxes.pw.toml"
 hash = "08c9613a4fa61f4d22c3f1a04f3503fb2bb6a34d3b1bce43a275719dcd6a0efc"
 metafile = true
