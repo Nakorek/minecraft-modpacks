@@ -1,6 +1,11 @@
 hash-format = "sha256"
 
 [[files]]
+file = "mods/axiom.pw.toml"
+hash = "c2411710d5a3ed705cc19f0442b5ecceba146910968c2b02af7080ea3ddfe33e"
+metafile = true
+
+[[files]]
 file = "mods/balm.pw.toml"
 hash = "974d8b38f628b9ecf976c98332a87d24ddc220848abd9c55f7f7c0bafb5be5a1"
 metafile = true
