@@ -1,0 +1,13 @@
+name = "Survival Fly"
+filename = "survivalfly-1.2.6_fabric+mc1.21.11.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "aa206da5c79dabeeb7a4b6e486736f8c44660f84"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7431763
+project-id = 1279479
