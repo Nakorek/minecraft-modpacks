@@ -42,7 +42,7 @@ metafile = true
 
 [[files]]
 file = "mods/fabric-api.pw.toml"
-hash = "2ccce9c28059ea90a5457771de06a69b0a2d1f06d48f8add48a38f1a2307da3c"
+hash = "730542bd1f0e45a70d399d6fe06deb8572d07d46ccc10973a090ddcc70657c0c"
 metafile = true
 
 [[files]]
@@ -68,6 +68,16 @@ metafile = true
 [[files]]
 file = "mods/forge-config-api-port.pw.toml"
 hash = "b22f1d052eee2810fda73d850dd6f425a1214965e03a5a9dada421abfe74603b"
+metafile = true
+
+[[files]]
+file = "mods/freecam-by-zergatul.pw.toml"
+hash = "aa1a8e12a4ef84e11151346098fd14577181297597ac44be437c9305541eb020"
+metafile = true
+
+[[files]]
+file = "mods/instamine-deepslate.pw.toml"
+hash = "27edf73eeefbb06072ef65517428e6a5b6b35eb76db20760350c738d659c1011"
 metafile = true
 
 [[files]]
@@ -148,6 +158,11 @@ metafile = true
 [[files]]
 file = "mods/spark.pw.toml"
 hash = "fc9e8b3b78f2b454d260f7cefa26834a352e146cdcfd44a6637544df335087a1"
+metafile = true
+
+[[files]]
+file = "mods/survival-fly.pw.toml"
+hash = "11faf073f960162ba4a15aba82e5e208a7056ba999cebe527e3daff190d91ba8"
 metafile = true
 
 [[files]]
