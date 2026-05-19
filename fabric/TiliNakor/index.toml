@@ -81,6 +81,11 @@ hash = "aa1a8e12a4ef84e11151346098fd14577181297597ac44be437c9305541eb020"
 metafile = true
 
 [[files]]
+file = "mods/immediatelyfast.pw.toml"
+hash = "9e7bacd24307639764f3b74ae35a562b6becf2701637b816de0eaae15ab714c0"
+metafile = true
+
+[[files]]
 file = "mods/instamine-deepslate.pw.toml"
 hash = "27edf73eeefbb06072ef65517428e6a5b6b35eb76db20760350c738d659c1011"
 metafile = true
