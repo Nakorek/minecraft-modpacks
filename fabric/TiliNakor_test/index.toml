@@ -42,7 +42,7 @@ metafile = true
 
 [[files]]
 file = "mods/euphoria-patches.pw.toml"
-hash = "78f9dd976afe8b6b9144f7e700d344eab21769ca756a910b9d8d8d292c42ff2a"
+hash = "ac01b90470445f576de67f159313dfec0c9e2a813fa2d9413900a417144fd039"
 metafile = true
 
 [[files]]
@@ -97,7 +97,7 @@ metafile = true
 
 [[files]]
 file = "mods/litematica.pw.toml"
-hash = "f32a0d33e67c9af35ddfbe4824f5c2dc2d1140e21d50ff07e8d47f064577daca"
+hash = "f224e1c983b97f980d04776d9d38a70aabf66f62fcdf2d4d4a3a6304130be9d9"
 metafile = true
 
 [[files]]
@@ -107,12 +107,12 @@ metafile = true
 
 [[files]]
 file = "mods/malilib.pw.toml"
-hash = "b618fa7c0aecdc4a82f869892b01ab3714c86dedb427de091177cc5758a0fbb1"
+hash = "1affcff3b4cdb3dcb273844fa2b3015c7d4872ac3f380ba0032cc335d608ddca"
 metafile = true
 
 [[files]]
 file = "mods/minihud.pw.toml"
-hash = "920430fc3178085cae80ed2bcd794b08d6cb3cfe3b4817542f8e2f3773a52a85"
+hash = "c2fd2486179a29fe50b81f09135cddc61b6553ec82780f37864b3d7b5ea95560"
 metafile = true
 
 [[files]]
@@ -157,7 +157,7 @@ metafile = true
 
 [[files]]
 file = "mods/sodium.pw.toml"
-hash = "254b74c0c222319a6fbaf776b2e2b6b5d1d2b626176ab195257f5f483eaeab32"
+hash = "6747f2e71e6d9ae5b6c4aea899f6af5fbbb612aac8c9bbb45990463826af3398"
 metafile = true
 
 [[files]]
@@ -172,7 +172,7 @@ metafile = true
 
 [[files]]
 file = "mods/tweakeroo.pw.toml"
-hash = "9a2039716c626d289ce9192dc725c86c63f2babf75b8ad9527d29a54342e0215"
+hash = "2cbe9f67eea4cd968bb41747197fcf463f737511354b5d746140451db3f0e5a7"
 metafile = true
 
 [[files]]
