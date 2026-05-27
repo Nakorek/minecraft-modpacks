@@ -1,0 +1,13 @@
+name = "Instamine Deepslate"
+filename = "InstamineDeepslate-1.0.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "d828f1bfc943d1393e0143ab0cfedf6d88655195"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7444468
+project-id = 1425943
