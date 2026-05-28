@@ -151,6 +151,11 @@ hash = "b4a8602b8d5c7da3fa80c6820f8b233a51e39af2b0b85019e301bbd8a70c172c"
 metafile = true
 
 [[files]]
+file = "mods/shogi.pw.toml"
+hash = "901b8f3bbdf84845f5aab2578cbe74189fd73a665cc310c66912720877e10ece"
+metafile = true
+
+[[files]]
 file = "mods/simple-hud-enhanced.pw.toml"
 hash = "2bf291fab94f3ae90587785c6fd19e7b24c5de79a4674c565ae559cdd0b39a03"
 metafile = true
