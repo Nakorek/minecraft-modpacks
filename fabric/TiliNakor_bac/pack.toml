@@ -1,0 +1,13 @@
+name = "TiliNakor"
+author = "Nakorek"
+version = "1.0.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "d69b86832f19071aef9fecbdc2f189f37b1c06475e8c90018be78dc4e8e418c0"
+
+[versions]
+fabric = "0.19.2"
+minecraft = "1.21.11"
