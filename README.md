@@ -121,6 +121,59 @@ exit
 Aktualizacje modów oznaczonych `side = "client"` (np. Sodium, Iris, Litematica, Mod Menu) 
 **nie wymagają żadnych operacji na serwerze**. Klienci dostaną update przez bootstrap.
 
+## Workflow usunięcia moda z paczki
+
+Przy **wyrzucaniu** moda (np. po decyzji że już nie potrzebujesz) mrpack-install **nie jest** 
+potrzebny – nic nie pobieramy, tylko czyścimy. 
+
+### Krok 1 – Usuwanie z paczki testowej najpierw
+
+```powershell
+cd C:\Minecraft\minecraft-modpacks\fabric\TiliNakor_test
+packwiz remove <slug>
+packwiz list | findstr -i <slug>
+```
+
+(Drugie polecenie potwierdza że mod zniknął – wynik pusty)
+
+### Krok 2 – Sprawdzenie zależności (przed usunięciem!)
+
+Zanim usuniesz mod z paczek produkcyjnych, **sprawdź czy nie jest zależnością innych modów**:
+
+```powershell
+findstr /S /I "<slug-lub-nazwa>" mods\*.pw.toml
+```
+
+Jeśli wynik pokazuje **tylko sam plik moda** – nic od niego nie zależy, można usuwać.  
+Jeśli pokazuje **inne pliki** – te mody go wymagają, usunięcie spowoduje crash.
+
+### Krok 3 – Commit + push
+
+W GitHub Desktop: commit usunięcia, push origin.
+
+### Krok 4 – Klient
+
+Bootstrap przy następnym uruchomieniu instancji **automatycznie usunie** plik moda z `mods/`.
+
+### Krok 5 – Serwer (jeśli mod był `both` lub `server`)
+
+W Crafty: **Stop** serwera.
+
+W PuTTY:
+
+```bash
+cd /share/Container/crafty/servers/<UUID>
+ls mods/ | grep -i <nazwa-moda>      # podgląd
+rm mods/<nazwa-moda>-*.jar           # usunięcie
+ls mods/ | grep -i <nazwa-moda>      # weryfikacja - pusto
+```
+
+W Crafty: **Start** serwera, sprawdź log że wstał bez problemu.
+
+### Krok 6 – Replikacja na produkcję
+
+Powtarzasz Kroki 1, 3-5 dla `TiliNakor` i `kTiliNakor`.
+
 ## Workflow dodania nowego moda
 
 ### Mod z Modrinth
@@ -279,7 +332,7 @@ Zapisz.
 
 ### Krok 6 – Pierwszy launch
 
-Uruchom instancję. Bootstrap pobierze wszystkie mody (39 sztuk, kilka MB każdy). 
+Uruchom instancję. Bootstrap pobierze wszystkie mody (kilka MB każdy). 
 Trwa to 2-5 minut przy pierwszym razie.
 
 **⚠️ Antywirus może blokować pobieranie** niektórych modów (zwłaszcza Flashback, niektóre mody renderingowe). 
@@ -306,8 +359,7 @@ Jeśli bootstrap "nie zauważa" zmian mimo że wiesz że coś się zmieniło na 
 
 ## Migracja na nową wersję Minecrafta
 
-Procedura sprawdzona przy testowym podejściu do 26.1.2 (paczka pozostała na 1.21.11 
-ze względu na brak aktualizacji moda Carpet).
+Procedura sprawdzona przy testowym podejściu do 26.1.2.
 
 ### Krok 1 – Sprawdzenie kompatybilności (bez modyfikacji prawdziwej paczki!)
 
