@@ -1,0 +1,13 @@
+name = "Shulker Box Labels"
+filename = "shulker-box-labels-3.4.3+26.1-fabric.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/a4byiEVJ/versions/cQEoBWmz/shulker-box-labels-3.4.3%2B26.1-fabric.jar"
+hash-format = "sha512"
+hash = "e740c44b76faaae4ae4a3b8ec4f3d328489f359e931203e138f7604c22cacc2790e43e5b296e9c20d3062b46fa108348d5633ef9f9391e2608a326abf040edcf"
+
+[update]
+[update.modrinth]
+mod-id = "a4byiEVJ"
+version = "cQEoBWmz"

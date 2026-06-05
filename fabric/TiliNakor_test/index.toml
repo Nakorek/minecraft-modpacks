@@ -156,6 +156,11 @@ hash = "901b8f3bbdf84845f5aab2578cbe74189fd73a665cc310c66912720877e10ece"
 metafile = true
 
 [[files]]
+file = "mods/shulker-box-labels.pw.toml"
+hash = "bfba878ede789490b8dce17007f70b9d3cc430e260417a97654304b91fb1c2ec"
+metafile = true
+
+[[files]]
 file = "mods/simple-hud-enhanced.pw.toml"
 hash = "2bf291fab94f3ae90587785c6fd19e7b24c5de79a4674c565ae559cdd0b39a03"
 metafile = true
