@@ -32,12 +32,12 @@ metafile = true
 
 [[files]]
 file = "mods/elytra-trims.pw.toml"
-hash = "77952709f49ae50564ed5ccc189ebf12758ddd5818f2c14e7ce6f33876f54e66"
+hash = "98f796f669dbbbac617d152bb4475015b50047cb8b30d6f6cd792757e905e931"
 metafile = true
 
 [[files]]
 file = "mods/euphoria-patches.pw.toml"
-hash = "ac01b90470445f576de67f159313dfec0c9e2a813fa2d9413900a417144fd039"
+hash = "93c14684652eae26a5015d4b2663403d5384bcd63e0b196ec042b56cea725a86"
 metafile = true
 
 [[files]]
@@ -47,7 +47,7 @@ metafile = true
 
 [[files]]
 file = "mods/fabric-language-kotlin.pw.toml"
-hash = "337d97b990f76c91584b12600651ae7bd47a0824e45070b3d9330b0922149fc0"
+hash = "9d37d326d9557fdd25c97d72ac1bbd1e74c524aa5dca437a91d0de645dff6545"
 metafile = true
 
 [[files]]
@@ -102,7 +102,7 @@ metafile = true
 
 [[files]]
 file = "mods/lithium.pw.toml"
-hash = "f70d8ec7c871ad284b1e155c7a8a8461edc00c7b1ddecec0c10f212f77911376"
+hash = "90d5603faf196b9c30274831dd042935311202a58baaa7c7e2e50df6198d85e3"
 metafile = true
 
 [[files]]
@@ -132,7 +132,7 @@ metafile = true
 
 [[files]]
 file = "mods/peek.pw.toml"
-hash = "8079d3cd5afd9c93fef3946d0373554204485667bb0c51a985891efc16861e0d"
+hash = "26474771b84f1145e7de5fc329999fff3da3b2bb6ec7e086528c2cc968a0c945"
 metafile = true
 
 [[files]]
@@ -142,7 +142,7 @@ metafile = true
 
 [[files]]
 file = "mods/puzzles-lib.pw.toml"
-hash = "9e4db61249fdff741216b5af017384093e522e336059f31dc1c1f36fb81d346f"
+hash = "52be8678c18fea5fa3e1484d855b9633de975e9423e2dcce85f5f2f57fe6f56f"
 metafile = true
 
 [[files]]
@@ -182,7 +182,7 @@ metafile = true
 
 [[files]]
 file = "mods/waystones.pw.toml"
-hash = "ea12f0cac291c70ba1b398cca8877e4415a46e2172603f4beb59427db52f02bc"
+hash = "65210e35a662cad2edc7df19597a76d64c2487857dc6fb57bd92c5373f5520e6"
 metafile = true
 
 [[files]]
@@ -197,5 +197,5 @@ metafile = true
 
 [[files]]
 file = "mods/yacl.pw.toml"
-hash = "51a17d028bf0d35c66d269185a63ea4adc968f60727454d0f8ed3ef2138f8612"
+hash = "67866b7484801e784c42ecd443ebf6a29640fe796feec91c248def2642aec952"
 metafile = true
