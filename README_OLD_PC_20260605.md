@@ -5,8 +5,7 @@ zarządzanych przez Crafty Controller na QNAP-ie. Centralna kolekcja modów
 z automatyczną dystrybucją do klientów (przez packwiz-installer-bootstrap) 
 i synchronizacją serwerów (przez mrpack-install).
 
-**Aktualna wersja**: Minecraft 26.1.2, Fabric Loader 0.19.2  
-**Środowisko zarządzania**: macOS (Apple Silicon M4 Pro), packwiz w `~/Tools/`, repo w `~/Minecraft/minecraft-modpacks/`
+**Aktualna wersja**: Minecraft 1.21.11, Fabric Loader 0.19.2
 
 ## Serwery
 
@@ -16,15 +15,6 @@ i synchronizacją serwerów (przez mrpack-install).
 | **Pandora** | Survival zamrożony (ForeverWorld) | `fabric/TiliNakor/` (ta sama) |
 | **TiliNakor test** | Testowy do eksperymentów | `fabric/TiliNakor_test/` |
 | **kTiliNakor** | Kreatywny, do buildowania | `fabric/kTiliNakor/` |
-
-UUID serwerów (do operacji na QNAP):
-
-| Serwer | UUID |
-|--------|------|
-| TiliNakor | `5071df24-5a62-48d9-b038-c910d088898f` |
-| Pandora | `7d468085-bc02-4e7b-b53a-54ad9f4b03e3` |
-| TiliNakor test | `fc17ba3e-b41b-4fd3-b012-52749bd58833` |
-| kTiliNakor | `eff8a0a1-9645-4d4b-a1d5-74fe9bfabf30` |
 
 ## Struktura repozytorium
 
@@ -50,48 +40,22 @@ minecraft-modpacks/
 Pliki `.jar` są pobierane dynamicznie z Modrinth/CurseForge przy każdej synchronizacji 
 klienta i serwera, na podstawie URL-i i hashy zapisanych w plikach `.pw.toml`.
 
-## Środowisko pracy (Mac)
-
-### Wymagane narzędzia
-
-- **packwiz** zainstalowane przez `go install github.com/packwiz/packwiz@latest`, binarka w `~/go/bin/packwiz` (dodana do PATH w `~/.zshrc`)
-- **Git** (standard w macOS Command Line Tools)
-- **GitHub Desktop** zalogowany jako Nakorek (do commit/push – obsługuje OAuth)
-- **Terminus** dla SSH do QNAP (alternatywnie wbudowany `ssh`)
-- **VSCode** lub inny edytor dla plików konfiguracyjnych
-
-### Zmienne środowiskowe
-
-W `~/.zshrc`:
-```bash
-export PATH="$HOME/go/bin:$PATH"
-export CURSEFORGE_API_KEY='twój_klucz_tutaj'
-```
-
-Po zmianie: `source ~/.zshrc`.
-
-### Workflow commit/push
-
-Z reguły używamy **GitHub Desktop** dla commit + push (działa bez dodatkowej konfiguracji dzięki OAuth).
-
-Push z Terminala (`git push`) wymaga osobnej konfiguracji credentials (PAT + `git credential.helper osxkeychain`) – TODO do skonfigurowania na potrzeby skryptów automatyzacji.
-
 ## Workflow aktualizacji modów
 
 ### Standardowa aktualizacja (co tydzień/dwa)
 
 **1. Sprawdź dostępne aktualizacje (w paczce testowej najpierw!)**
 
-```bash
-cd ~/Minecraft/minecraft-modpacks/fabric/TiliNakor_test
+```powershell
+cd C:\Minecraft\minecraft-modpacks\fabric\TiliNakor_test
 packwiz update --all
 ```
 
-Packwiz pokaże listę updateów i zapyta o potwierdzenie. Odpowiedz `N` żeby najpierw zobaczyć listę, oceń (czy są bety, major bumps), potem powtórz komendę i odpowiedz `Y`.
+Packwiz pokaże listę updateów i zapyta o potwierdzenie. Odpowiedz `Y` po przeglądnięciu.
 
 **2. Eksportuj mrpack i pushnij na GitHuba**
 
-```bash
+```powershell
 packwiz modrinth export
 ```
 
@@ -106,34 +70,17 @@ Zagraj chwilę, sprawdź czy nic się nie sypie.
 
 **4. Test na serwerze testowym (jeśli były aktualizacje serwerowych modów)**
 
-Wgraj mrpack na QNAP do folderu testowego serwera (przez File Station albo SCP):
+Wgraj mrpack na QNAP do folderu testowego serwera (przez File Station):
 ```
 /Container/crafty/servers/fc17ba3e-b41b-4fd3-b012-52749bd58833/
 ```
 
-W terminalu SSH na QNAP, zatrzymaj serwer w Crafty, potem:
-
+W PuTTY na QNAP:
 ```bash
-cd /share/Container/crafty/servers/fc17ba3e-b41b-4fd3-b012-52749bd58833
-ls *.mrpack    # WERYFIKACJA przed czyszczeniem!
-rm mods/*.jar
 docker exec -it crafty_container bash
 /crafty/import/tools/mrpack-install-linux /crafty/servers/fc17ba3e-b41b-4fd3-b012-52749bd58833/TiliNakor_test-1.0.0.mrpack --server-dir /crafty/servers/fc17ba3e-b41b-4fd3-b012-52749bd58833
 exit
 ```
-
-⚠️ **Uwaga – duplikat fabric-server.jar**
-
-Mrpack-install **pobiera świeży `fabric-server-mc.X-loader.Y-launcher.Z.jar`** nawet jak nie zmieniła się wersja MC. Po instalacji zostają dwa pliki – usuń duplikat:
-
-```bash
-cd /share/Container/crafty/servers/<UUID>
-ls -la fabric-server*.jar
-rm fabric-server-mc.<MC>-loader.<L>-launcher.<W>.jar
-ls -la fabric-server*.jar
-```
-
-Powinien zostać tylko `fabric-server.jar` (aktualny dla obecnej wersji MC).
 
 Start serwera w Crafty, test w grze.
 
@@ -145,61 +92,60 @@ Klienci dostają update przy następnym uruchomieniu instancji (bootstrap synchr
 
 **6. Aktualizacja serwerów produkcyjnych** (jeśli zmiany dotyczą serwerowych modów)
 
-Procedura jak w kroku 4, dla każdego serwera produkcyjnego (TiliNakor, Pandora, kTiliNakor) z odpowiednim mrpackiem.
+W PuTTY, dla każdego serwera produkcyjnego:
+- TiliNakor: UUID `5071df24-5a62-48d9-b038-c910d088898f`
+- Pandora: UUID `7d468085-bc02-4e7b-b53a-54ad9f4b03e3`
+- kTiliNakor: UUID `eff8a0a1-9645-4d4b-a1d5-74fe9bfabf30`
+
+```bash
+# Zatrzymaj serwer w Crafty
+# Backup modów (opcjonalnie, ale zalecane przy większych zmianach)
+cd /share/Container/crafty/servers/<UUID>
+cp -r mods mods_backup_$(date +%Y%m%d)
+
+# Wgraj odpowiedni mrpack do folderu serwera (File Station albo cp z innego serwera)
+# Jeśli zmiana to TYLKO aktualizacja istniejących modów - nie czyść folderu mods/
+# Jeśli zmiana to PODMIANA modów (usunięcie/wymiana) - wyczyść:
+rm mods/*.jar
+
+# Mrpack-install
+docker exec -it crafty_container bash
+/crafty/import/tools/mrpack-install-linux /crafty/servers/<UUID>/<paczka>.mrpack --server-dir /crafty/servers/<UUID>
+exit
+
+# Start serwera w Crafty
+```
 
 ### Mody klient-only
 
 Aktualizacje modów oznaczonych `side = "client"` (np. Sodium, Iris, Litematica, Mod Menu) 
 **nie wymagają żadnych operacji na serwerze**. Klienci dostaną update przez bootstrap.
 
-### Szybka podmiana pojedynczego moda na serwerze (bez mrpack-install)
-
-Przy małej zmianie (np. krytyczny hotfix jednego moda) zamiast pełnej procedury mrpack-install można podmienić plik bezpośrednio:
-
-```bash
-cd ~/Minecraft/minecraft-modpacks/fabric/TiliNakor
-cat mods/<mod>.pw.toml   # znajdź URL pobierania
-```
-
-W terminalu SSH na QNAP (po zatrzymaniu serwera):
-
-```bash
-cd /share/Container/crafty/servers/<UUID>/mods
-rm <stary-plik-moda>.jar
-wget "<URL z pw.toml>"
-ls <pattern-moda>*
-```
-
-Tylko jeden plik powinien zostać. Start serwera w Crafty.
-
-To było użyte np. przy hotfixie Lithium 0.24.3 → 0.24.4 (crash przy interakcji z Allay).
-
 ## Workflow usunięcia moda z paczki
 
 Przy **wyrzucaniu** moda (np. po decyzji że już nie potrzebujesz) mrpack-install **nie jest** 
 potrzebny – nic nie pobieramy, tylko czyścimy. 
 
-### Krok 1 – Sprawdzenie zależności (przed usunięciem!)
+### Krok 1 – Usuwanie z paczki testowej najpierw
 
-Zanim usuniesz mod z paczek, **sprawdź czy nie jest zależnością innych modów**:
+```powershell
+cd C:\Minecraft\minecraft-modpacks\fabric\TiliNakor_test
+packwiz remove <slug>
+packwiz list | findstr -i <slug>
+```
 
-```bash
-cd ~/Minecraft/minecraft-modpacks/fabric/TiliNakor_test
-grep -i "<slug-lub-nazwa>" mods/*.pw.toml
+(Drugie polecenie potwierdza że mod zniknął – wynik pusty)
+
+### Krok 2 – Sprawdzenie zależności (przed usunięciem!)
+
+Zanim usuniesz mod z paczek produkcyjnych, **sprawdź czy nie jest zależnością innych modów**:
+
+```powershell
+findstr /S /I "<slug-lub-nazwa>" mods\*.pw.toml
 ```
 
 Jeśli wynik pokazuje **tylko sam plik moda** – nic od niego nie zależy, można usuwać.  
 Jeśli pokazuje **inne pliki** – te mody go wymagają, usunięcie spowoduje crash.
-
-### Krok 2 – Usuwanie z paczki testowej najpierw
-
-```bash
-cd ~/Minecraft/minecraft-modpacks/fabric/TiliNakor_test
-packwiz remove <slug>
-packwiz list | grep -i <slug>
-```
-
-(Drugie polecenie potwierdza że mod zniknął – wynik pusty)
 
 ### Krok 3 – Commit + push
 
@@ -213,7 +159,7 @@ Bootstrap przy następnym uruchomieniu instancji **automatycznie usunie** plik m
 
 W Crafty: **Stop** serwera.
 
-W terminalu SSH:
+W PuTTY:
 
 ```bash
 cd /share/Container/crafty/servers/<UUID>
@@ -226,7 +172,7 @@ W Crafty: **Start** serwera, sprawdź log że wstał bez problemu.
 
 ### Krok 6 – Replikacja na produkcję
 
-Powtarzasz Kroki 2-5 dla `TiliNakor` i `kTiliNakor`.
+Powtarzasz Kroki 1, 3-5 dla `TiliNakor` i `kTiliNakor`.
 
 ## Workflow dodania nowego moda
 
@@ -236,8 +182,8 @@ Powtarzasz Kroki 2-5 dla `TiliNakor` i `kTiliNakor`.
 
 **2. Dodaj mod do paczki testowej najpierw**
 
-```bash
-cd ~/Minecraft/minecraft-modpacks/fabric/TiliNakor_test
+```powershell
+cd C:\Minecraft\minecraft-modpacks\fabric\TiliNakor_test
 packwiz modrinth add <slug>
 ```
 
@@ -249,8 +195,8 @@ Packwiz:
 
 **3. Sprawdź ustawienie `side`**
 
-```bash
-cat mods/<slug>.pw.toml
+```powershell
+type mods\<slug>.pw.toml
 ```
 
 Side opcje:
@@ -260,8 +206,8 @@ Side opcje:
 
 Modrinth zwykle dobrze oznacza. **Jeśli wymaga korekty**:
 
-```bash
-nano mods/<slug>.pw.toml
+```powershell
+notepad mods\<slug>.pw.toml
 # zmień linię "side" na odpowiednią
 packwiz refresh
 ```
@@ -270,9 +216,9 @@ packwiz refresh
 
 ### Mod z CurseForge
 
-Wymaga klucza CF API ustawionego w `~/.zshrc` (`CURSEFORGE_API_KEY`).
+Wymaga klucza CF API ustawionego w zmiennej środowiskowej `CURSEFORGE_API_KEY` (już ustawione na stałe w systemie).
 
-```bash
+```powershell
 packwiz curseforge add <slug>
 ```
 
@@ -282,34 +228,17 @@ Mody z CF często wymagają zależności (np. Fabric API). Packwiz może **podmi
 modu z Modrinth na wersję z CF. Po dodaniu moda z CF zawsze sprawdź czy biblioteki są nadal 
 z Modrinth:
 
-```bash
-cat mods/fabric-api.pw.toml
+```powershell
+type mods\fabric-api.pw.toml
 ```
 
 Szukaj `mode = "metadata:curseforge"` – to znaczy że wpis został podmieniony. 
 Naprawa:
 
-```bash
+```powershell
 packwiz remove fabric-api
 packwiz modrinth add fabric-api
 ```
-
-⚠️ **Uwaga – pułapka z ukrytymi zależnościami przy update CF**
-
-Mody z CF **mogą zacząć wymagać nowych zależności w nowej wersji**, a packwiz tego NIE wykryje przy `packwiz update`.
-
-Przykłady z migracji na 26.1.2:
-- **Survival Fly 1.3.2** zaczął wymagać **YetAnotherConfigLib (YACL)**
-- **Waystones 26.1.2.4** zaczął wymagać **Shogi** (nowa biblioteka)
-
-Po update na nową wersję MC zawsze **uruchom klienta jako pierwszy test** – jeśli wyskoczy crash 
-typu `Mod 'X' requires Y, which is missing` – dopisz brakującą zależność:
-
-```bash
-packwiz modrinth add <slug-zaleznosci>
-```
-
-I powtarzaj iteracyjnie aż klient odpali. Dopiero potem testuj serwer.
 
 ### Test moda
 
@@ -323,6 +252,8 @@ Po push:
 
 Tę samą komendę `packwiz <site> add <slug>` wykonujesz w paczce `TiliNakor` i (jeśli dotyczy) 
 `kTiliNakor`. Każda paczka ma swoje wpisy.
+
+W przyszłości (Etap 8.3) można zautomatyzować propagację moda między paczkami skryptem.
 
 ## Konfiguracja klienta (dla graczy)
 
@@ -356,7 +287,7 @@ https://github.com/packwiz/packwiz-installer-bootstrap/releases/latest
 
 Plik: `packwiz-installer-bootstrap.jar` (~100 KB).
 
-Zapisz w wygodnym miejscu (np. `~/Tools/` na Mac/Linux, `C:\Tools\` na Windows).
+Zapisz w wygodnym miejscu (np. `C:\Tools\` na Windows, `~/Tools/` na Mac/Linux).
 
 ### Krok 3 – Utwórz instancję w Prism
 
@@ -371,13 +302,13 @@ Tworzenie instancji:
 
 1. **Add Instance** → **Niestandardowe** (Custom)
 2. **Nazwa**: dowolna (np. `TiliNakor`)
-3. **Minecraft version**: `26.1.2`
+3. **Minecraft version**: `1.21.11`
 4. **Mod Loader**: **Fabric** wersja `0.19.2` (lub najnowsza stabilna)
 5. Create
 
 ### Krok 4 – Wrzuć bootstrap do folderu instancji
 
-1. Prawym na instancję → **Folder instancji** (otwiera się Finder/Eksplorator)
+1. Prawym na instancję → **Folder instancji** (otwiera się Eksplorator/Finder)
 2. Skopiuj `packwiz-installer-bootstrap.jar` do **głównego folderu instancji** (obok `.minecraft/`, NIE wewnątrz)
 
 ### Krok 5 – Skonfiguruj pre-launch command
@@ -396,8 +327,6 @@ Przykład dla TiliNakor:
 ```
 "$INST_JAVA" -jar "$INST_DIR/packwiz-installer-bootstrap.jar" https://raw.githubusercontent.com/Nakorek/minecraft-modpacks/main/fabric/TiliNakor/pack.toml
 ```
-
-⚠️ **Forward slash** `/` w ścieżce – działa zarówno na Windows jak i Mac/Linux.
 
 Zapisz.
 
@@ -430,22 +359,22 @@ Jeśli bootstrap "nie zauważa" zmian mimo że wiesz że coś się zmieniło na 
 
 ## Migracja na nową wersję Minecrafta
 
-Procedura sprawdzona przy migracji 1.21.11 → 26.1.2.
+Procedura sprawdzona przy testowym podejściu do 26.1.2.
 
 ### Krok 1 – Sprawdzenie kompatybilności (bez modyfikacji prawdziwej paczki!)
 
 Zrób **kopię paczki** do eksperymentów:
 
-```bash
-cd ~/Minecraft/minecraft-modpacks/fabric
-cp -R TiliNakor_test _migration_check
+```powershell
+cd C:\Minecraft\minecraft-modpacks\fabric
+Copy-Item -Path TiliNakor_test -Destination _migration_check -Recurse
 cd _migration_check
-rm *.mrpack
+del *.mrpack
 ```
 
 Wymuś migrację na docelową wersję:
 
-```bash
+```powershell
 packwiz migrate minecraft <wersja>
 # np. packwiz migrate minecraft 26.1.2
 ```
@@ -455,7 +384,7 @@ Packwiz zapyta o aktualizację loadera (zazwyczaj `Y`) i o aktualizację modów.
 
 Następnie sprawdź który mod ma update a który nie:
 
-```bash
+```powershell
 packwiz update --all
 # odpowiedź N
 ```
@@ -476,7 +405,7 @@ w jednym pliku `.jar`**. Packwiz powie o nich "already up to date" – to znaczy
 z nową wersją MC bez aktualizacji**.
 
 Aby sprawdzić każdy z nich indywidualnie:
-```bash
+```powershell
 packwiz update <slug>
 ```
 
@@ -491,9 +420,9 @@ pod nową MC. Trzy ścieżki:
 
 ### Krok 4 – Sprzątanie po teście
 
-```bash
-cd ~/Minecraft/minecraft-modpacks/fabric
-rm -rf _migration_check
+```powershell
+cd C:\Minecraft\minecraft-modpacks\fabric
+Remove-Item -Path _migration_check -Recurse -Force
 ```
 
 ### Krok 5 – Decyzja o migracji
@@ -506,82 +435,17 @@ Migrujesz dopiero jak:
 
 Pełna procedura:
 1. `packwiz migrate minecraft <wersja>` na `TiliNakor_test`
-2. `packwiz update --all` z `Y`
-3. **Test klienta NAJPIERW** – uruchom Prism, zobacz czy startuje. Jeśli crash przez brakujące zależności (CF mody pociągające nowe biblioteki) – dopisz przez `packwiz modrinth add <slug>`. Iteracyjnie aż klient ruszy.
+2. `packwiz migrate loader` (jeśli nie zrobione przy poprzedniej komendzie)
+3. `packwiz update --all` z `Y`
 4. Push → test na klientach i serwerze testowym
 5. Jeśli OK → analogicznie na `TiliNakor` i `kTiliNakor`
-6. Aktualizacja wszystkich produkcyjnych serwerów (mrpack-install + sprzątanie duplikatu fabric-server)
+6. Aktualizacja wszystkich produkcyjnych serwerów
 
 ### Workflow dla "wielowersyjnych" modów
 
 Jeśli używasz mody które wspierają wiele wersji MC (Fabric Language Kotlin, niektóre 
 shadery), warto pamiętać że `packwiz update <slug>` po migracji MC **nie zaktualizuje ich** 
 mimo że są zgodne. To OK – działają nadal.
-
-## Migracja zarządzania na nowy komputer
-
-Przy zmianie maszyny (np. PC → Mac) potrzebujesz:
-
-1. **packwiz** zainstalowany lokalnie
-2. **Git** i sposób auth do GitHuba (najprościej GitHub Desktop)
-3. **Klucz CF API** w zmiennej środowiskowej
-4. **Sklon repo** z GitHuba
-
-### Mac – instalacja packwiz
-
-Packwiz nie ma binarek na GitHubie, trzeba zbudować ze źródeł (potrzebne **Go**):
-
-```bash
-brew install go
-go install github.com/packwiz/packwiz@latest
-```
-
-Binarka ląduje w `~/go/bin/packwiz`. Dodaj do PATH w `~/.zshrc`:
-
-```bash
-export PATH="$HOME/go/bin:$PATH"
-```
-
-### Mac – CF API key
-
-W `~/.zshrc`:
-
-```bash
-export CURSEFORGE_API_KEY='twoj_klucz_tutaj'
-```
-
-⚠️ Pojedyncze cudzysłowy (`'...'`) – chroni przed interpretacją `$` i innych znaków specjalnych w kluczu.
-
-Po zmianie `source ~/.zshrc`, sprawdź `echo $CURSEFORGE_API_KEY`.
-
-### Mac – GitHub Desktop
-
-Pobierz z https://desktop.github.com/. Po instalacji **Sign in** jako Nakorek → przeglądarka OAuth → autoryzacja. To załatwia credentials – kolejne commit/push w GH Desktop działają od ręki.
-
-### Mac – klon repo
-
-W GitHub Desktop: **File → Clone repository → URL**, wpisz `https://github.com/Nakorek/minecraft-modpacks`, wybierz `~/Minecraft/` jako local path.
-
-Lub w Terminalu:
-```bash
-mkdir -p ~/Minecraft
-cd ~/Minecraft
-git clone https://github.com/Nakorek/minecraft-modpacks.git
-```
-
-### Mac – różnice komend vs Windows PowerShell
-
-| PowerShell (Windows) | bash (Mac) |
-|---|---|
-| `type plik.toml` | `cat plik.toml` |
-| `dir` | `ls` |
-| `del plik` | `rm plik` |
-| `Copy-Item -Recurse src dst` | `cp -R src dst` |
-| `Remove-Item -Recurse -Force dir` | `rm -rf dir` |
-| `notepad plik` | `nano plik` (lub `code plik` w VSCode) |
-| `findstr /S /I "wzor" mods\*.pw.toml` | `grep -i "wzor" mods/*.pw.toml` |
-| Backslash `\` w ścieżkach | Forward slash `/` |
-| `C:\Minecraft\minecraft-modpacks` | `~/Minecraft/minecraft-modpacks` |
 
 ## Troubleshooting
 
@@ -611,29 +475,13 @@ Antywirus rwie połączenia TCP do CDN Modrinth podczas masowego pobierania.
 
 Szczególnie problemowe mody u części AV: **Flashback** (mod do nagrywania – AV może go traktować jak rejestrator wejść).
 
-### Crash klienta po migracji MC: "Mod X requires Y, which is missing"
-
-Typowy przy migracji wersji MC (np. 1.21.11 → 26.1.2). Mody z CF mogą zacząć wymagać nowych zależności, których packwiz NIE wykrywa automatycznie.
-
-**Rozwiązanie**: dopisz brakującą zależność do paczki:
-```bash
-cd ~/Minecraft/minecraft-modpacks/fabric/TiliNakor_test
-packwiz modrinth add <slug-brakujacego-moda>
-```
-
-Push, ponów uruchomienie klienta. Iteracyjnie aż klient odpali.
-
-Historyczne przykłady (przy migracji 26.1.2):
-- Survival Fly potrzebował YACL
-- Waystones potrzebowało Shogi
-
 ### Mod z CurseForge zastąpił bibliotekę z Modrinth
 
 Problem objawia się: po `packwiz curseforge add <mod>` plik np. `mods/fabric-api.pw.toml` 
 ma w środku `mode = "metadata:curseforge"` zamiast `[update.modrinth]`.
 
 **Naprawa**:
-```bash
+```powershell
 packwiz remove <slug>
 packwiz modrinth add <slug>
 ```
@@ -648,7 +496,7 @@ modem pominiętym.
 **To NIE psuje pracy** – bootstrap na kliencie pobiera mody bezpośrednio z Modrinth 
 (omijając lokalny cache packwiz) i często radzi sobie tam gdzie eksport zawiódł.
 
-Jeśli mod jest client-only i klient go pobiera – nie martw się. Jeśli mod jest serwerowy 
+Jeśli mod jest client-only i klient go pobiera – nie martw się. Jeśli mod jest serverowy 
 i nie wchodzi do mrpacka – dodaj wyjątek w AV i ponów eksport.
 
 ### Mrpack-install nie usuwa starych modów
@@ -656,7 +504,7 @@ i nie wchodzi do mrpacka – dodaj wyjątek w AV i ponów eksport.
 Mrpack-install **pobiera nowe** i **wypakowuje overrides**, ale **nie usuwa modów** 
 których nie ma w mrpacku.
 
-Przy **podmianie moda** (np. usunięcie Carpeta) **należy** ręcznie 
+Przy **podmianie moda** (np. usunięcie Carpeta i dodanie TIS Carpeta) **należy** ręcznie 
 wyczyścić folder przed instalacją:
 
 ```bash
@@ -665,27 +513,29 @@ rm mods/*.jar
 # potem mrpack-install
 ```
 
-Przy **zwykłej aktualizacji wersji moda** czyszczenie też jest zalecane (mrpack-install nadpisze 
-pliki o tej samej nazwie, ale stare wersje z innymi nazwami zostaną).
+Przy **zwykłej aktualizacji wersji moda** czyszczenie nie jest konieczne – mrpack-install 
+nadpisze pliki o tej samej nazwie, a stare wersje z innymi nazwami (np. `mod-1.0.jar` → 
+`mod-2.0.jar`) trzeba potem ręcznie posprzątać.
 
-### Mrpack-install zostawia duplikat fabric-server.jar
+### Pierwsza komenda CurseForge prosi o klucz API
 
-Mrpack-install zawsze pobiera świeży `fabric-server-mc.<MC>-loader.<L>-launcher.<W>.jar`, nawet jak nie zmieniła się wersja MC. Po instalacji są **dwa pliki**:
-- `fabric-server.jar` – aktualny (z poprzedniej migracji)
-- `fabric-server-mc.X-loader.Y-launcher.Z.jar` – świeżo pobrany, **duplikat**
+Klucz CF API powinien być w zmiennej środowiskowej `CURSEFORGE_API_KEY`. 
 
-Jeśli wersja MC ta sama (tylko aktualizacja modów) – **usuń duplikat**:
-
-```bash
-cd /share/Container/crafty/servers/<UUID>
-ls -la fabric-server*.jar
-rm fabric-server-mc.<MC>-loader.<L>-launcher.<W>.jar
-ls -la fabric-server*.jar
+**Sprawdzenie**:
+```powershell
+$env:CURSEFORGE_API_KEY
 ```
 
-Jeśli zmieniła się wersja MC – musisz świadomie podmienić (patrz "Serwer nie startuje po mrpack-install").
+Powinno wyświetlić twój klucz.
 
-### Serwer nie startuje po mrpack-install (zmiana wersji MC)
+**Jeśli pusty** – ustaw na stałe:
+```powershell
+[System.Environment]::SetEnvironmentVariable('CURSEFORGE_API_KEY', 'TWÓJ_KLUCZ', 'User')
+```
+
+Klucz uzyskasz z https://console.curseforge.com/ (zakładka API Keys).
+
+### Serwer nie startuje po mrpack-install
 
 Sprawdź czy `fabric-server.jar` został podmieniony na nową wersję:
 ```bash
@@ -696,31 +546,12 @@ Powinieneś widzieć **jeden plik** `fabric-server.jar` z aktualną datą.
 
 Jeśli widzisz **dwa pliki** (stary `fabric-server.jar` + nowy `fabric-server-mc.X.X.X-loader.Y.Y.Y-launcher.Z.Z.Z.jar`) – musisz ręcznie podmienić:
 
-⚠️ **Pułapka z `mv` – wykonuj każdą komendę osobno**, weryfikując stan między nimi. Łatwo o pomyłkę która nadpisze nowy plik starym.
-
 ```bash
 cd /share/Container/crafty/servers/<UUID>
-ls -la fabric-server*.jar
-```
-
-Sprawdź że widzisz dwa pliki. Potem:
-
-```bash
-mv fabric-server.jar fabric-server.jar.old_<opis>
-```
-
-Potem:
-```bash
-mv fabric-server-mc.<MC>-loader.<L>-launcher.<W>.jar fabric-server.jar
-```
-
-Potem:
-```bash
+mv fabric-server.jar fabric-server.jar.old
+mv fabric-server-mc.*.jar fabric-server.jar
 sudo chmod 777 fabric-server.jar
-ls -la fabric-server*
 ```
-
-(ostatnie `ls` bez `.jar` na końcu pattern, żeby widzieć też pliki `.old_*`)
 
 ### Cofnięcie aktualizacji
 
@@ -728,4 +559,5 @@ Każda aktualizacja paczki w gicie jest cofalna przez **git revert** w GitHub De
 
 Klienci dostaną stary stan przy następnym uruchomieniu instancji (bootstrap synchronizuje).
 
-Serwery wymagają ręcznej akcji – wgranie poprzedniego mrpacka albo przywrócenie backupu z Crafty.
+Serwery wymagają ręcznej akcji – wgranie poprzedniego mrpacka albo przywrócenie backupu 
+`mods_backup_RRRRMMDD`.
