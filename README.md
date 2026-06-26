@@ -5,8 +5,8 @@ zarządzanych przez Crafty Controller na QNAP-ie. Centralna kolekcja modów
 z automatyczną dystrybucją do klientów (przez packwiz-installer-bootstrap) 
 i synchronizacją serwerów (przez mrpack-install).
 
-**Aktualna wersja**: Minecraft 26.1.2, Fabric Loader 0.19.2  
-**Środowisko zarządzania**: macOS (Apple Silicon M4 Pro), packwiz w `~/Tools/`, repo w `~/Minecraft/minecraft-modpacks/`
+**Aktualna wersja**: Minecraft 26.2, Fabric Loader 0.19.3  
+**Środowisko zarządzania**: macOS (Apple Silicon M4 Pro), packwiz w `~/go/bin/`, repo w `~/Minecraft/minecraft-modpacks/`
 
 ## Serwery
 
@@ -56,7 +56,7 @@ klienta i serwera, na podstawie URL-i i hashy zapisanych w plikach `.pw.toml`.
 
 - **packwiz** zainstalowane przez `go install github.com/packwiz/packwiz@latest`, binarka w `~/go/bin/packwiz` (dodana do PATH w `~/.zshrc`)
 - **Git** (standard w macOS Command Line Tools)
-- **GitHub Desktop** zalogowany jako Nakorek (do commit/push – obsługuje OAuth)
+- **GitHub Desktop** zalogowany jako Nakorek (alternatywa GUI do commit/push)
 - **Terminus** dla SSH do QNAP (alternatywnie wbudowany `ssh`)
 - **VSCode** lub inny edytor dla plików konfiguracyjnych
 
@@ -72,9 +72,25 @@ Po zmianie: `source ~/.zshrc`.
 
 ### Workflow commit/push
 
-Z reguły używamy **GitHub Desktop** dla commit + push (działa bez dodatkowej konfiguracji dzięki OAuth).
+Dwa równoważne sposoby, oba skonfigurowane i działają:
 
-Push z Terminala (`git push`) wymaga osobnej konfiguracji credentials (PAT + `git credential.helper osxkeychain`) – TODO do skonfigurowania na potrzeby skryptów automatyzacji.
+**Z Terminala** (wygodniejsze pod skrypty automatyzacji):
+```bash
+cd ~/Minecraft/minecraft-modpacks
+git add -A
+git commit -m "opis zmiany"
+git push
+```
+
+Wymaga jednorazowej konfiguracji:
+1. `git config --global credential.helper osxkeychain` – włącza macOS Keychain dla git
+2. Wygeneruj **Personal Access Token (classic)** z scope `repo` na https://github.com/settings/tokens
+3. Przy pierwszym pushu wpisz username = Nakorek + token jako hasło – keychain zapamięta na zawsze
+4. Kolejne pushe pójdą bez pytania o credentials
+
+**GitHub Desktop** – GUI, działa od ręki dzięki OAuth (alternatywa gdy nie chcesz CLI).
+
+Oba ścieżki współistnieją – wybierz pod konkretne zadanie.
 
 ## Workflow aktualizacji modów
 
@@ -95,7 +111,7 @@ Packwiz pokaże listę updateów i zapyta o potwierdzenie. Odpowiedz `N` żeby n
 packwiz modrinth export
 ```
 
-W GitHub Desktop: commit z opisem typu *"Aktualizacja modów X, Y, Z"* → Push origin.
+Commit + push z Terminala lub GH Desktop, opis typu *"Aktualizacja modów X, Y, Z"*.
 
 **3. Test na kliencie**
 
@@ -152,6 +168,27 @@ Procedura jak w kroku 4, dla każdego serwera produkcyjnego (TiliNakor, Pandora,
 Aktualizacje modów oznaczonych `side = "client"` (np. Sodium, Iris, Litematica, Mod Menu) 
 **nie wymagają żadnych operacji na serwerze**. Klienci dostaną update przez bootstrap.
 
+### Pinowanie wersji moda
+
+Czasem nie chcesz żeby `packwiz update --all` zaktualizował konkretny mod – 
+np. bo nowsza wersja jest beta z konfliktami, ale starsza stabilna działa.
+
+```bash
+packwiz pin <slug>
+```
+
+Mod ma teraz `pin = true` w `.pw.toml`. `packwiz update --all` go pominie. 
+Gdy chcesz znowu pozwalać na update:
+
+```bash
+packwiz unpin <slug>
+```
+
+**Use case z historii**: po migracji MC 26.1.2 → 26.2 Sodium 0.9.1-beta.2 był 
+niekompatybilny z Iris 1.11.1 (Sodium 0.9 wymagało Iris 1.11.2+, której jeszcze nie 
+było). Cofnęliśmy Sodium na 0.9.0 stable i zapinowali do czasu aż wyjdzie Sodium 
+0.9.x stable kompatybilna z istniejącą Iris.
+
 ### Szybka podmiana pojedynczego moda na serwerze (bez mrpack-install)
 
 Przy małej zmianie (np. krytyczny hotfix jednego moda) zamiast pełnej procedury mrpack-install można podmienić plik bezpośrednio:
@@ -201,9 +238,17 @@ packwiz list | grep -i <slug>
 
 (Drugie polecenie potwierdza że mod zniknął – wynik pusty)
 
+⚠️ **Uwaga – slug pliku może różnić się od sluga z URL Modrinth**. Przykład: 
+mod *Flower Map* miał slug w `mods/` jako `flowermap` (bez myślnika), nie `flower-map`. 
+Jeśli `packwiz remove` zwróci "Can't find this file" – sprawdź faktyczną nazwę:
+
+```bash
+ls mods/ | grep -i <fragment-nazwy>
+```
+
 ### Krok 3 – Commit + push
 
-W GitHub Desktop: commit usunięcia, push origin.
+Z Terminala lub w GitHub Desktop, opis usunięcia.
 
 ### Krok 4 – Klient
 
@@ -267,6 +312,41 @@ packwiz refresh
 ```
 
 **4. Test, propagacja, etc.** – jak w workflow aktualizacji (push → klient → serwer testowy → produkcja).
+
+### Dodanie konkretnej wersji moda (Modrinth)
+
+Domyślnie `packwiz modrinth add <slug>` bierze **najnowszą wersję**. Czasem 
+trzeba **konkretnej** (np. starszej stable zamiast nowszej beta, jak Sodium 0.9.0 
+zamiast 0.9.1-beta.2).
+
+Składnia wymaga **`--project-id` ORAZ `--version-id`** (nie sluga). Komenda 
+z samym slugiem + `--version-id` zwróci błąd "cannot be used with separately 
+specified URL/slug".
+
+```bash
+packwiz modrinth add --project-id <project-id> --version-id <version-id>
+```
+
+**Jak znaleźć ID** – Modrinth API:
+
+```bash
+curl -s "https://api.modrinth.com/v2/project/<slug>/version" | python3 -m json.tool | grep -B2 "<filename-fragment>"
+```
+
+To wypluje fragment JSON gdzie `id` to **version-id**. W URL widać też **project-id**:
+```
+https://cdn.modrinth.com/data/<PROJECT-ID>/versions/<VERSION-ID>/<filename>.jar
+```
+
+Przykład – Sodium 0.9.0 dla Fabric 26.2:
+- project-id: `AANobbMI`
+- version-id: `3QgJXuSK`
+
+Po dodaniu warto **pinować** żeby `packwiz update --all` nie cofał do najnowszej:
+
+```bash
+packwiz pin <slug>
+```
 
 ### Mod z CurseForge
 
@@ -371,8 +451,8 @@ Tworzenie instancji:
 
 1. **Add Instance** → **Niestandardowe** (Custom)
 2. **Nazwa**: dowolna (np. `TiliNakor`)
-3. **Minecraft version**: `26.1.2`
-4. **Mod Loader**: **Fabric** wersja `0.19.2` (lub najnowsza stabilna)
+3. **Minecraft version**: `26.2` (lub aktualna z `pack.toml`)
+4. **Mod Loader**: **Fabric** wersja `0.19.3` (lub najnowsza stabilna)
 5. Create
 
 ### Krok 4 – Wrzuć bootstrap do folderu instancji
@@ -400,6 +480,13 @@ Przykład dla TiliNakor:
 ⚠️ **Forward slash** `/` w ścieżce – działa zarówno na Windows jak i Mac/Linux.
 
 Zapisz.
+
+⚠️ **Prism Launcher 11.x+** automatycznie wykrywa zmianę wersji MC i Fabric 
+w `pack.toml` (np. po migracji MC w paczce) i przy uruchomieniu instancji 
+pyta *"This modpack uses newer versions of Minecraft/Fabric"* → kliknij **Update**. 
+Bootstrap i tak pobierze nowe mody, ale wersje MC i loadera Prism ogarnia sam.
+
+Na starszym Prismie trzeba ręcznie zmieniać w **Edytuj instancję → Wersja**.
 
 ### Krok 6 – Pierwszy launch
 
@@ -430,7 +517,7 @@ Jeśli bootstrap "nie zauważa" zmian mimo że wiesz że coś się zmieniło na 
 
 ## Migracja na nową wersję Minecrafta
 
-Procedura sprawdzona przy migracji 1.21.11 → 26.1.2.
+Procedura sprawdzona przy migracjach 1.21.11 → 26.1.2 i 26.1.2 → 26.2.
 
 ### Krok 1 – Sprawdzenie kompatybilności (bez modyfikacji prawdziwej paczki!)
 
@@ -447,7 +534,7 @@ Wymuś migrację na docelową wersję:
 
 ```bash
 packwiz migrate minecraft <wersja>
-# np. packwiz migrate minecraft 26.1.2
+# np. packwiz migrate minecraft 26.2
 ```
 
 Packwiz zapyta o aktualizację loadera (zazwyczaj `Y`) i o aktualizację modów. 
@@ -489,6 +576,10 @@ pod nową MC. Trzy ścieżki:
 - **Zamiennik** – szukaj forka albo alternatywnego moda o podobnej funkcji
 - **Wyrzucenie** – jeśli mod nie jest kluczowy
 
+Przykład z migracji 26.2: Krypton (optymalizacja network) i Flower Map (mini-mapa kolory) 
+nie miały wersji na 26.2 → usunięte z paczki, do dodania z powrotem gdy wyjdą wersje 
+kompatybilne (zwykle 1-2 tygodnie po release MC).
+
 ### Krok 4 – Sprzątanie po teście
 
 ```bash
@@ -505,12 +596,38 @@ Migrujesz dopiero jak:
 ### Krok 6 – Faktyczna migracja (gdy gotowi)
 
 Pełna procedura:
-1. `packwiz migrate minecraft <wersja>` na `TiliNakor_test`
-2. `packwiz update --all` z `Y`
-3. **Test klienta NAJPIERW** – uruchom Prism, zobacz czy startuje. Jeśli crash przez brakujące zależności (CF mody pociągające nowe biblioteki) – dopisz przez `packwiz modrinth add <slug>`. Iteracyjnie aż klient ruszy.
-4. Push → test na klientach i serwerze testowym
-5. Jeśli OK → analogicznie na `TiliNakor` i `kTiliNakor`
-6. Aktualizacja wszystkich produkcyjnych serwerów (mrpack-install + sprzątanie duplikatu fabric-server)
+1. Usuń z paczki `TiliNakor_test` mody bez wsparcia nowej MC (`packwiz remove <slug>`)
+2. `packwiz migrate minecraft <wersja>` na `TiliNakor_test`
+3. `packwiz update --all` z `Y`
+4. **Test klienta NAJPIERW** – uruchom Prism, zobacz czy startuje
+5. Jeśli crash przez brakujące zależności (CF mody pociągające nowe biblioteki) – dopisz przez `packwiz modrinth add <slug>`. Iteracyjnie aż klient ruszy.
+6. **Konflikty wersji między modami** (patrz niżej) – cofnij na starszą wersję problemowego moda + pin
+7. Push → test na klientach i serwerze testowym
+8. Jeśli OK → analogicznie na `TiliNakor` i `kTiliNakor`
+9. Aktualizacja wszystkich produkcyjnych serwerów (mrpack-install + podmiana fabric-server jeśli loader się zmienił)
+
+### Konflikt wersji modów po major MC bump
+
+Mody renderingowe (Sodium, Iris) i inne synchronizujące się przez API mają 
+**wzajemne wymagania wersji**. Po migracji MC bywa że jeden mod jest już zaktualizowany 
+do wersji wymagającej nowej wersji drugiego, którego nowsza wersja jeszcze nie wyszła.
+
+**Diagnoza** z crash log – Fabric Loader podaje precyzyjnie który mod wymaga 
+której wersji którego innego:
+```
+Mod 'Sodium' 0.9.1-beta.2 is incompatible with version 1.11.1 or earlier of 
+mod 'Iris', yet a conflicting version is present: 1.11.1!
+```
+
+**Rozwiązanie**:
+- Sprawdź na Modrinth alternatywne wersje moda który jest "zbyt nowy"
+- Cofnij na **stable** zamiast bety (jeśli dostępna)
+- Użyj `--project-id` + `--version-id` żeby dodać konkretną wersję
+- **Pinuj** żeby `packwiz update --all` nie cofał z powrotem
+
+Historyczny przykład: przy migracji 26.2 Sodium 0.9.1-beta.2 niekompatybilne 
+z Iris 1.11.1. Cofnęliśmy Sodium na 0.9.0 stable (`--project-id AANobbMI --version-id 3QgJXuSK`) 
+i zapinowali. Workflow zajął 5 minut zamiast czekać kilka dni aż wyjdzie Iris 1.11.2.
 
 ### Workflow dla "wielowersyjnych" modów
 
@@ -523,7 +640,7 @@ mimo że są zgodne. To OK – działają nadal.
 Przy zmianie maszyny (np. PC → Mac) potrzebujesz:
 
 1. **packwiz** zainstalowany lokalnie
-2. **Git** i sposób auth do GitHuba (najprościej GitHub Desktop)
+2. **Git** i sposób auth do GitHuba (GitHub Desktop najprostsze, alternatywa: PAT + osxkeychain)
 3. **Klucz CF API** w zmiennej środowiskowej
 4. **Sklon repo** z GitHuba
 
@@ -554,9 +671,23 @@ export CURSEFORGE_API_KEY='twoj_klucz_tutaj'
 
 Po zmianie `source ~/.zshrc`, sprawdź `echo $CURSEFORGE_API_KEY`.
 
-### Mac – GitHub Desktop
+### Mac – GitHub Desktop (opcja A)
 
 Pobierz z https://desktop.github.com/. Po instalacji **Sign in** jako Nakorek → przeglądarka OAuth → autoryzacja. To załatwia credentials – kolejne commit/push w GH Desktop działają od ręki.
+
+### Mac – PAT + osxkeychain dla Terminala (opcja B, dla skryptów)
+
+```bash
+git config --global credential.helper osxkeychain
+```
+
+Wygeneruj **Personal Access Token (classic)** na https://github.com/settings/tokens 
+z scope `repo`. Skopiuj token i zapisz lokalnie (pokazuje się tylko raz!).
+
+Przy pierwszym `git push` z Terminala wpisz username = Nakorek i token jako hasło – 
+keychain zapisze, kolejne pushe będą działać bez pytania.
+
+Obie opcje mogą działać równolegle.
 
 ### Mac – klon repo
 
@@ -583,6 +714,10 @@ git clone https://github.com/Nakorek/minecraft-modpacks.git
 | Backslash `\` w ścieżkach | Forward slash `/` |
 | `C:\Minecraft\minecraft-modpacks` | `~/Minecraft/minecraft-modpacks` |
 
+⚠️ Dodatkowo: **zsh interpretuje `?` w URL jako pattern**. URL z parametrami query 
+(np. `https://example.com/path?key=value`) trzeba wkleić **w cudzysłowach** albo 
+go shell przerwie z `zsh: no matches found`. W przeglądarce nieobjawowy, w Terminalu wymaga uwagi.
+
 ## Troubleshooting
 
 ### Klient nie pobiera aktualizacji mimo że na GitHubie jest nowsza wersja
@@ -599,6 +734,17 @@ Komenda pre-launch używa złej ścieżki do `packwiz-installer-bootstrap.jar`.
 - Plik `packwiz-installer-bootstrap.jar` jest w **głównym folderze instancji** (obok `.minecraft/`, NIE wewnątrz)
 - Komenda używa forward slash `/` zamiast backslash `\` (działa na Windows i Mac)
 - Pełna komenda powinna wyglądać: `"$INST_JAVA" -jar "$INST_DIR/packwiz-installer-bootstrap.jar" <URL>`
+
+### Bootstrap pomija dużą aktualizację za pierwszym razem
+
+Przy migracji MC z dużą liczbą zmian (wszystkie mody zmieniają wersje) bootstrap 
+**czasem nie kończy** pobierania za pierwszym podejściem. Druga próba zwykle ratuje.
+
+Jeśli kilka prób się sypie – wyłącz/włącz Prism Launcher, restart bootstrap.
+
+Przykład z migracji 26.2 produkcyjnej: pierwszy launch po migracji wykrył wszystkie 
+stare wersje modów jako niekompatybilne (bootstrap nie pobrał nowych); drugi launch 
+zassał wszystko poprawnie.
 
 ### Bootstrap pokazuje "Failed file downloads" – kilka modów nie pobranych
 
@@ -626,6 +772,14 @@ Push, ponów uruchomienie klienta. Iteracyjnie aż klient odpali.
 Historyczne przykłady (przy migracji 26.1.2):
 - Survival Fly potrzebował YACL
 - Waystones potrzebowało Shogi
+
+### Crash klienta po migracji MC: konflikt wersji między modami
+
+Spójrz na crash log – Fabric Loader podaje precyzyjnie który mod wymaga której 
+wersji którego innego. Typowo Sodium ↔ Iris (renderery synchronizujące wersje API).
+
+**Naprawa**: cofnięcie któregoś z modów na starszą stable + pin – patrz sekcja 
+"Pinowanie wersji moda" i "Dodanie konkretnej wersji moda (Modrinth)".
 
 ### Mod z CurseForge zastąpił bibliotekę z Modrinth
 
@@ -724,7 +878,8 @@ ls -la fabric-server*
 
 ### Cofnięcie aktualizacji
 
-Każda aktualizacja paczki w gicie jest cofalna przez **git revert** w GitHub Desktop.
+Każda aktualizacja paczki w gicie jest cofalna przez **git revert** w GitHub Desktop 
+(lub z Terminala: `git revert <hash-commita> && git push`).
 
 Klienci dostaną stary stan przy następnym uruchomieniu instancji (bootstrap synchronizuje).
 
