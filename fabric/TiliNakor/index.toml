@@ -146,6 +146,11 @@ hash = "b9a63e882013d882c9b63a348c2a8cdc39dba9b5f168612e69d10b2afa148676"
 metafile = true
 
 [[files]]
+file = "mods/scribble.pw.toml"
+hash = "96ece933fd61b7c700320047b89f7be9596cdc957c8bdc39a8c7314f1b456b6b"
+metafile = true
+
+[[files]]
 file = "mods/servux.pw.toml"
 hash = "031ef9816d487f498c9bb970cbbab06823685ad636e58d1159f7c13516f2ed48"
 metafile = true
