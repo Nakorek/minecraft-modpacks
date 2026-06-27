@@ -1,6 +1,11 @@
 hash-format = "sha256"
 
 [[files]]
+file = "mods/armor-poser.pw.toml"
+hash = "c9aa43cb74bfe03fc2ba17bd693baba8dae6ab7bc622284477d5acebf7b33315"
+metafile = true
+
+[[files]]
 file = "mods/axiom.pw.toml"
 hash = "38a6c2c64413a82214bd9ba779571b9686590ba4757378c469151c618e79e6c6"
 metafile = true
@@ -48,6 +53,11 @@ metafile = true
 [[files]]
 file = "mods/fabric-language-kotlin.pw.toml"
 hash = "9d37d326d9557fdd25c97d72ac1bbd1e74c524aa5dca437a91d0de645dff6545"
+metafile = true
+
+[[files]]
+file = "mods/fallingtree.pw.toml"
+hash = "d4f6289a84d717157a5fd44fb9c4968f8c34d4430cc7970968b24d3d411998fb"
 metafile = true
 
 [[files]]
