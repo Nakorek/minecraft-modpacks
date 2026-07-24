@@ -36,7 +36,9 @@ minecraft-modpacks/
     │   └── server.sh       ← operacje SSH/SCP/Docker na QNAP
     ├── update-test.sh      ← aktualizacja paczki testowej
     ├── update-prod.sh      ← aktualizacja paczek produkcyjnych
-    └── update-server.sh    ← aktualizacja pojedynczego serwera
+    ├── update-server.sh    ← aktualizacja pojedynczego serwera
+    ├── add-mod-test.sh     ← dodanie moda do paczki testowej
+    └── add-mod-prod.sh     ← dodanie moda do paczek produkcyjnych
 ```
 
 W repo są **metadane packwiz** (`pack.toml`, `index.toml`, `mods/*.pw.toml`) i skrypty.
@@ -45,7 +47,9 @@ na podstawie linków w metadanych.
 
 ## Szybki start – codzienny workflow
 
-Cała aktualizacja modów (paczka test → klient test → serwer test → paczka prod → serwer prod)
+### Aktualizacja modów
+
+Cała aktualizacja (paczka test → klient test → serwer test → paczka prod → serwer prod)
 w kilku komendach:
 
 ```bash
@@ -74,6 +78,34 @@ cd ~/Minecraft/minecraft-modpacks
 
 Klienci Prisma dostają update automatycznie przy najbliższym uruchomieniu instancji
 (bootstrap pobiera nowe wersje z GitHuba).
+
+### Dodanie nowego moda
+
+Analogiczny workflow: test → prod. Skrypty sprawdzają czy mod już nie jest w paczce.
+
+```bash
+cd ~/Minecraft/minecraft-modpacks
+
+# 1. Dodaj mod do paczki testowej
+./scripts/add-mod-test.sh <slug>
+# → odpal klienta testowego w Prismie, sprawdź w grze
+
+# 2. Jeśli mod jest 'both' lub 'server' - zaktualizuj serwer testowy
+./scripts/update-server.sh test
+# → Start w Crafty, sprawdź na serwerze
+
+# 3. Jeśli OK - dodaj do paczek produkcyjnych
+./scripts/add-mod-prod.sh <slug>
+# → safety bramka pyta czy test przeszedł
+
+# 4. Jeśli mod jest 'both'/'server' - zaktualizuj serwery produkcyjne
+./scripts/update-server.sh pandora
+./scripts/update-server.sh ktilinakor
+./scripts/update-server.sh tilinakor
+```
+
+Dla konkretnej wersji (nie najnowszej): `add-mod-test.sh --project-id X --version-id Y`
+– zobacz sekcję "Dodanie konkretnej wersji moda" niżej.
 
 ## Skrypty
 
@@ -114,6 +146,48 @@ Sekwencja:
 3. `packwiz update --all` interaktywnie + eksport mrpacka
 4. Wspólny commit + push z opisem
 5. Podsumowanie z sugestiami następnych kroków (które `update-server.sh` odpalić)
+
+### `add-mod-test.sh` – dodanie moda do paczki testowej
+
+Dodaje mod z Modrinth do `TiliNakor_test`. Bezpieczne – sprawdza czy mod
+już istnieje przed dodaniem.
+
+```bash
+./scripts/add-mod-test.sh <slug>
+./scripts/add-mod-test.sh --project-id <ID> --version-id <ID>
+```
+
+Sekwencja:
+1. Sprawdza czy `mods/<slug>.pw.toml` już istnieje – jeśli tak, przerywa
+   z sugestią `packwiz update` lub `remove + add`
+2. `packwiz modrinth add`
+3. `packwiz modrinth export`
+4. Commit + push (jeśli coś się zmieniło; w przeciwnym razie wyjście bez pytania)
+5. Podsumowanie z podpowiedzią następnych kroków (zależne od `side` moda)
+
+Podpowiedzi końcowe uwzględniają czy mod jest `client` / `both` / `server` –
+skrypt sam mówi czy trzeba aktualizować serwer testowy.
+
+### `add-mod-prod.sh` – dodanie moda do paczek produkcyjnych
+
+Analogiczny do `update-prod.sh` – z safety bramką:
+
+```bash
+./scripts/add-mod-prod.sh <slug>
+./scripts/add-mod-prod.sh --project-id <ID> --version-id <ID>
+```
+
+Sekwencja:
+1. Pyta: *"Czy mod został przetestowany?"* – jeśli N, przerywa
+2. Sprawdza w każdej paczce prod czy mod nie istnieje
+3. Dodaje do `TiliNakor` i `kTiliNakor`
+4. Eksportuje mrpacki obu paczek
+5. Commit + push
+6. Podsumowanie z sugestiami (zależne od `side` moda)
+
+**Uwaga**: obsługuje **tylko Modrinth**. Mody z CurseForge dodawaj ręcznie
+w każdej paczce osobno (`packwiz curseforge add`) – automatyzacja tego to
+ryzyko podmiany bibliotek (patrz "Dodawanie moda z CurseForge" niżej).
 
 ### `update-server.sh` – aktualizacja pojedynczego serwera
 
@@ -608,5 +682,5 @@ z Crafty.
   pin. Aktualnie brak (Sodium odpięty w lipcu 26 po wyjściu Iris 1.11.2).
 - **Kolejne skrypty automatyzacji** do rozważenia:
   - `audit-pins.sh` – audyt pinów i sugestie odpinania
-  - `add-mod-all.sh` – dodanie moda do wszystkich paczek naraz
+  - `remove-mod-test.sh` / `remove-mod-prod.sh` – analogicznie do add-mod-*
   - `compat-check.sh` – automatyczny compatibility check przed migracją MC
