@@ -196,6 +196,11 @@ hash = "24615776fbcee54c4fbedc51b743120cfef7ba917fc68bc2f4069a0964423161"
 metafile = true
 
 [[files]]
+file = "mods/travelersbackpack.pw.toml"
+hash = "3e0099a4124fdbead5f0b39eb3aebc6bd117a10ecc6125387dcfdcef40aef152"
+metafile = true
+
+[[files]]
 file = "mods/tweakeroo.pw.toml"
 hash = "2c69879bd658f8d39e5b41964c483a5c841c21edb85b141511ea9d25f3b68fcf"
 metafile = true
