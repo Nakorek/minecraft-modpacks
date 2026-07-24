@@ -71,6 +71,11 @@ hash = "ad90386de31079f24f0969ec7bf8384b05edab7b6df96d1c260254f42eefe073"
 metafile = true
 
 [[files]]
+file = "mods/flowermap.pw.toml"
+hash = "4db53e9764895fdd66202c97ee1a9cda5416e1fa2e8ed263c0337326da57b6f1"
+metafile = true
+
+[[files]]
 file = "mods/forge-config-api-port.pw.toml"
 hash = "8c91080e610d7c8c40ae6445d36af1cf591fe1ebf70718b3e6d4714232b23592"
 metafile = true
@@ -93,6 +98,11 @@ metafile = true
 [[files]]
 file = "mods/iris.pw.toml"
 hash = "7262c5dea44f3ef66051c5300f498d03ad64f97cc5c920dd04ec8f0ba607bb92"
+metafile = true
+
+[[files]]
+file = "mods/krypton.pw.toml"
+hash = "e922d7300eba8cfbd9aa31ba475cf6fcbcf11d74e89a0314ada18d58f08a2634"
 metafile = true
 
 [[files]]
