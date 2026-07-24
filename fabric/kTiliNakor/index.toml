@@ -21,6 +21,11 @@ hash = "28525e4ed9a68f5c60ba6c898144d7382980105cceb40cebf38a7bcffbf5eb71"
 metafile = true
 
 [[files]]
+file = "mods/bundles-beyond.pw.toml"
+hash = "e9151a35c1a3e7194540216b9520342c16be9d17551716ec4c70f7ea121b0d27"
+metafile = true
+
+[[files]]
 file = "mods/cloth-config.pw.toml"
 hash = "7fa9592b9948b8809018a4e7c3ca7da4d19fc5ef8c03021414cb22ae0253f083"
 metafile = true
