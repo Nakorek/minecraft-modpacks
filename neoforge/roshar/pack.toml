@@ -1,0 +1,13 @@
+name = "Roshar"
+author = "Nakorek"
+version = "1.0.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "1b188e4571b95620f33ca96ac08fc889ebe9631f636faca0cba755b2acc763a2"
+
+[versions]
+minecraft = "1.21.1"
+neoforge = "21.1.233"
