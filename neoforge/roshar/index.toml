@@ -514,7 +514,7 @@ hash = "30f1a2a689b5441f008a53007c6cd2b373861c74cb57a9122a23b861c173214e"
 
 [[files]]
 file = "kubejs/config/client.json"
-hash = "91e74bfb8c1d8fab6533a3c9aafd45b16474193ed38873ffc8c38039d8547b64"
+hash = "a799eb18d2c74bacea30329209a9f703e086691566fd9071ce15c877448c180e"
 
 [[files]]
 file = "kubejs/config/common.json"
@@ -606,11 +606,7 @@ hash = "ce03ed93f2b95edd3f6dc1506c216d1f6eca12676203c220c95445cae0818598"
 
 [[files]]
 file = "kubejs/server_scripts/tooltips.js"
-hash = "91c0b65f8115d3b6bc6a37455d192291a85b19414e79f2cb1b9876dd6f950ac4"
-
-[[files]]
-file = "kubejs/server_scripts/trial_pops.js"
-hash = "fbcce88dde1716c8bf6df82505e514b7922433567a13d39db72f28aa0d30d9c4"
+hash = "3902b18752f36671eb007e95dfdeb9125f717f0ded44b8d584c4c4782cbcafa4"
 
 [[files]]
 file = "kubejs/startup_scripts/davestickets/davestickets_items.js"
@@ -791,6 +787,11 @@ hash = "498c2403baf1f07fc91e7f03d20c181df99ce89d3308fdcce5c337b05023e9bb"
 metafile = true
 
 [[files]]
+file = "mods/distanthorizons.pw.toml"
+hash = "d5b9c23df79ef871a70032567db2512904251347bdf13da80fbb8b00a846a79a"
+metafile = true
+
+[[files]]
 file = "mods/dynamiclights-reforged.pw.toml"
 hash = "f619c1ed2e189f9d482d081411fccee4bd26c05cce52a5db914f1989303f080c"
 metafile = true
@@ -836,13 +837,8 @@ hash = "dff824171060c79b327a4880c2f0546c727a041a489ef3af643ec2dcd9cd0c48"
 metafile = true
 
 [[files]]
-file = "mods/foxys.pw.toml"
-hash = "285c7616913f2c39284c38a82de693d897a3c4b8589c5f6a01f0e1c5bb88cc86"
-metafile = true
-
-[[files]]
 file = "mods/free-cam.pw.toml"
-hash = "1ec51dc8dad86f92dc52372f4491ce641b99a6ed018306b293b9cf17c3c65c6a"
+hash = "6cb0747f46236c96b3132b4d8bee0fd2b1409340dace5dc7b336a5534fa597f5"
 metafile = true
 
 [[files]]
@@ -877,7 +873,7 @@ metafile = true
 
 [[files]]
 file = "mods/jei.pw.toml"
-hash = "d068154533d9a999acbb4008f7c33d307b583d2e6db7122a69fc02921ffdb411"
+hash = "679daef751fe49e6b71d376869696ca98782f0c855a17968ce7b758a1920ab5a"
 metafile = true
 
 [[files]]
@@ -892,7 +888,7 @@ metafile = true
 
 [[files]]
 file = "mods/lithostitched.pw.toml"
-hash = "f0c66fc8c3d9dbea2704b007e79125377d50484ff3a40c280b48707659209045"
+hash = "e06a9a886181277591baeb9e82b484bd6204fe3aec0ffc8781bb05bb11b4d1a9"
 metafile = true
 
 [[files]]
