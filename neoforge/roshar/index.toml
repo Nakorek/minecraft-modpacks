@@ -637,6 +637,18 @@ file = "kubejs/startup_scripts/simplemagnet/simplemagnet.js"
 hash = "709593450ba91d741d7a47e96f0712a2fe91aa55e409dec4c2112afbab18a8f1"
 
 [[files]]
+file = "manual-mods/Design-n-Decor-1.21.1-2.2b.jar"
+hash = "af0264e8ba44b77744d9a6173b79fcc39758c5b975fbb377d4000e85bfcd2c8f"
+
+[[files]]
+file = "manual-mods/copperagebackport-neoforge-1.21.1-0.1.4.jar"
+hash = "1cd0007d427be712d303f5a6f8084c67a2635f02e686e8c9c824cc1dcfdfa272"
+
+[[files]]
+file = "manual-mods/skinlayers3d-neoforge-1.11.1-mc1.21.1.jar"
+hash = "c825d6acd41a983217f410c6d51c6557e3afc35131f6da0aa6dcd07e67cfa52c"
+
+[[files]]
 file = "mods/amendments.pw.toml"
 hash = "bf68b426ab3361b1257ff1c3a8c0355475807d5f18332eebaca7754bcef945b3"
 metafile = true
@@ -688,7 +700,7 @@ metafile = true
 
 [[files]]
 file = "mods/copper-age-backport.pw.toml"
-hash = "e88ee62deb6896aaa3753f3672d8d09fed1c1bf67b87cee0526954d8c467d705"
+hash = "8d8fa3abc5ddebb01ee6cc6c1af3970028b7f187fbe3501f8636c625e07d19e2"
 metafile = true
 
 [[files]]
@@ -708,7 +720,7 @@ metafile = true
 
 [[files]]
 file = "mods/create-design-n-decor.pw.toml"
-hash = "1c4ef917261df03afd366b0c34307ee0fa06374b52b8e88378ce7205ab58d4e1"
+hash = "6301a65168bbc1266288986e6f712afd04412bbcfa2a25b9748202dd90b3f207"
 metafile = true
 
 [[files]]
@@ -973,7 +985,7 @@ metafile = true
 
 [[files]]
 file = "mods/skin-layers-3d.pw.toml"
-hash = "442ea4d2312dd58741a7c1ce1f6ae0514cc528fb0b06e7268807d46b0720d6d9"
+hash = "e019b0d72a6e05d2a6feadc44dce419de253c08b11457892ad24cf009bcb8ae6"
 metafile = true
 
 [[files]]
