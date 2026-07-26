@@ -684,6 +684,11 @@ hash = "5906ab9415bb5d894dc41bc4b0035d3c22e261877cf8578c2c4c45af8b4bb159"
 metafile = true
 
 [[files]]
+file = "mods/bobby-reneoforged.pw.toml"
+hash = "be92440f9df0b43195a182f7073765220c43a3425d807784e2cde3a957ae1950"
+metafile = true
+
+[[files]]
 file = "mods/carry-on.pw.toml"
 hash = "2b4c244aa7a303dead0a1b659c25b9b9bce2ced2758ea55aca347556f7348189"
 metafile = true
@@ -796,11 +801,6 @@ metafile = true
 [[files]]
 file = "mods/deployer.pw.toml"
 hash = "498c2403baf1f07fc91e7f03d20c181df99ce89d3308fdcce5c337b05023e9bb"
-metafile = true
-
-[[files]]
-file = "mods/distanthorizons.pw.toml"
-hash = "d5b9c23df79ef871a70032567db2512904251347bdf13da80fbb8b00a846a79a"
 metafile = true
 
 [[files]]
