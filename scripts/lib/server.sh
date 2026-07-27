@@ -32,6 +32,7 @@ server_get_uuid() {
         tilinakor)   echo "5071df24-5a62-48d9-b038-c910d088898f" ;;
         pandora)     echo "7d468085-bc02-4e7b-b53a-54ad9f4b03e3" ;;
         ktilinakor)  echo "eff8a0a1-9645-4d4b-a1d5-74fe9bfabf30" ;;
+        roshar)      echo "1f9afc98-1b50-4827-9ca0-78d61ae8d426" ;;
         *)           echo "" ;;
     esac
 }
@@ -44,6 +45,7 @@ server_get_pack() {
         tilinakor)   echo "TiliNakor" ;;
         pandora)     echo "TiliNakor" ;;  # ta sama paczka co TiliNakor
         ktilinakor)  echo "kTiliNakor" ;;
+        roshar)      echo "roshar" ;;
         *)           echo "" ;;
     esac
 }
@@ -56,13 +58,14 @@ server_get_name() {
         tilinakor)   echo "TiliNakor (produkcja)" ;;
         pandora)     echo "Pandora (zamrożony)" ;;
         ktilinakor)  echo "kTiliNakor (creative)" ;;
+        roshar)      echo "Roshar (NeoForge)" ;;
         *)           echo "" ;;
     esac
 }
 
 # Lista wszystkich dostępnych aliasów (do help)
 server_list_aliases() {
-    echo "test, tilinakor, pandora, ktilinakor"
+    echo "test, tilinakor, pandora, ktilinakor, roshar"
 }
 
 # Sprawdza czy alias istnieje. Zwraca 0 jeśli tak, 1 jeśli nie.
