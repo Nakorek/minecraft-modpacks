@@ -373,62 +373,6 @@ file = "defaultconfigs/xaero/world-map/server_profiles/default.cfg"
 hash = "d438aea41ca41e93697e059f523686935c0add482f6abe96b532bbf10c6ed80a"
 
 [[files]]
-file = "kubejs/assets/davestickets/textures/item/blank_andesite_ticket.png"
-hash = "d0efcb509dd76223905ab801ada123d55befb1c96a1db2bc1fdd3f4405f9f9e0"
-
-[[files]]
-file = "kubejs/assets/davestickets/textures/item/blank_builders_permit.png"
-hash = "af18a36c0a40823be56d74ca6714b54c0edec195ad03f7047764a3c30d2c6408"
-
-[[files]]
-file = "kubejs/assets/davestickets/textures/item/blank_gold_ticket.png"
-hash = "f951940bfb909ee96c3b712c55d201446f0170009850a5223997a85c60ab71ab"
-
-[[files]]
-file = "kubejs/assets/davestickets/textures/item/blank_paper_ticket.png"
-hash = "dd76194ae638a67810f888616c5fb7899acc7b07b5b804d73f327b09a782e0fe"
-
-[[files]]
-file = "kubejs/assets/davestickets/textures/item/blank_zinc_ticket.png"
-hash = "638103aaf8f7faae795781ed57dd9d1f10fe936cbb958340cb070aec1e49681d"
-
-[[files]]
-file = "kubejs/assets/davestickets/textures/item/builders_permit.png"
-hash = "2787b5a6a1f5ed0cf27bba6b56b1f1906b8808cb0b154ba1fab12d7b26f033bd"
-
-[[files]]
-file = "kubejs/assets/davestickets/textures/item/printed_andesite_ticket.png"
-hash = "738c42194d0af3d162834123086ff6a84285dad751f03e1f0147c95ba841fc25"
-
-[[files]]
-file = "kubejs/assets/davestickets/textures/item/printed_gold_ticket.png"
-hash = "bc7c643d2cebb96fc233edf737c6507af776c605e1a81f43f3b0420569cd4805"
-
-[[files]]
-file = "kubejs/assets/davestickets/textures/item/printed_paper_ticket.png"
-hash = "12dc5327b2b92395509448e3e63606319e98ffffac222c2bb325ddb395ea535e"
-
-[[files]]
-file = "kubejs/assets/davestickets/textures/item/printed_zinc_ticket.png"
-hash = "988d8e7e09fd1ae65137a782c162893be9d323a77b33f8d1b42b44a10fb03171"
-
-[[files]]
-file = "kubejs/assets/davestickets/textures/item/torn_andesite_ticket.png"
-hash = "64c80670caca13ad856771d1ab1b7aa211cd980c027046cb3f7c32cb14947592"
-
-[[files]]
-file = "kubejs/assets/davestickets/textures/item/torn_gold_ticket.png"
-hash = "8349709affb41070bb0601525f2fd0db508512313c44eb611d6e68eb6e74f4e7"
-
-[[files]]
-file = "kubejs/assets/davestickets/textures/item/torn_paper_ticket.png"
-hash = "4a81fc80960fa6bb4226440704b273f14f353349b3600e68f1108e7303fdce11"
-
-[[files]]
-file = "kubejs/assets/davestickets/textures/item/torn_zinc_ticket.png"
-hash = "98ae0ab8cc1ee5c09e8e00b6d9e4b21392ce29900f76252e452b3564d5fdc2d4"
-
-[[files]]
 file = "kubejs/assets/kevdelights/models/block/jar_of_chocolate.json"
 hash = "2e1ab85e0b6ed1c602046c290c61c55e1f634d112b06c1769d62259e9684330e"
 
@@ -541,10 +485,6 @@ file = "kubejs/server_scripts/create_wrench.js"
 hash = "7bee95d58c07194cc08d3da4357acabd32a715423f816c003d516f32d7deb9ac"
 
 [[files]]
-file = "kubejs/server_scripts/davestickets/davestickets_recipes.js"
-hash = "528b20f0de4383b43a384a84bae7182ef1dd0e43804e8edcd43b0a496d35563f"
-
-[[files]]
 file = "kubejs/server_scripts/extra/commands.js"
 hash = "156cf93efe1b122209fff814ffd7c235a868ce856b96e12820252721255c5f8a"
 
@@ -607,10 +547,6 @@ hash = "ce03ed93f2b95edd3f6dc1506c216d1f6eca12676203c220c95445cae0818598"
 [[files]]
 file = "kubejs/server_scripts/tooltips.js"
 hash = "3902b18752f36671eb007e95dfdeb9125f717f0ded44b8d584c4c4782cbcafa4"
-
-[[files]]
-file = "kubejs/startup_scripts/davestickets/davestickets_items.js"
-hash = "2c0934cb7c3f42aca69a5fb3e0d764e7411bbdf19625f95efcd8db84caee9f16"
 
 [[files]]
 file = "kubejs/startup_scripts/kevdelights/kevdelights_blocks.js"
