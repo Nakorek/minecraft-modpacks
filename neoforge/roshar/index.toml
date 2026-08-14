@@ -445,6 +445,10 @@ file = "kubejs/assets/simplemagnet/textures/item/simple_magnet.png"
 hash = "e0320b4e7ae0553bb60f7b855fa35a5d803dd027d07d79471a1b4b0f6f96976b"
 
 [[files]]
+file = "kubejs/client_scripts/flywheel_fix.js"
+hash = "120913db0ff388925cb4c41bc8834f51aeef10c1854acb782233c306483809be"
+
+[[files]]
 file = "kubejs/client_scripts/hidden_items.js"
 hash = "d860bd31d346dd5a62c1caf47b1002fecd4c4f9949dbd5237a195a08912af496"
 
