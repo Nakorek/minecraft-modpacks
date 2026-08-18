@@ -1,17 +1,24 @@
-# Minecraft Modpacks – konfiguracja serwerów TiliNakor
+# Minecraft Modpacks – konfiguracja serwerów TiliNakor i Roshar
 
-Centralna kolekcja modów (packwiz) dla 4 serwerów Minecraft Fabric zarządzanych
-przez Crafty Controller na QNAP. Mody dystrybuowane do klientów automatycznie
-przez packwiz-installer-bootstrap, do serwerów przez mrpack-install.
-Codzienny workflow jest zautomatyzowany skryptami bash w `scripts/`.
+Centralna kolekcja modów (packwiz) dla serwerów Minecraft Fabric i NeoForge
+zarządzanych przez Crafty Controller na QNAP. Mody dystrybuowane do klientów
+automatycznie przez packwiz-installer-bootstrap, do serwerów przez mrpack-install.
+Codzienny workflow dla Fabric jest zautomatyzowany skryptami bash w `scripts/`,
+a Roshar/NeoForge ma osobny skrypt aktualizacji serwera.
 
 **Aktualna wersja:** Minecraft 26.2, Fabric Loader 0.19.3
+**Roshar:** Minecraft 1.21.1, NeoForge 21.1.233
 **Środowisko:** macOS (Apple Silicon M4 Pro), packwiz w `~/go/bin/`, repo w `~/Minecraft/minecraft-modpacks/`
+
+Od 2026 wersje Minecrafta w paczkach Fabric używają schematu `rok.drop.hotfix`
+(np. `26.2`). Starsze/NeoForge paczki mogą nadal mieć klasyczny format
+`1.21.1`.
 
 ## Serwery i paczki
 
-Cztery serwery obsługiwane przez trzy paczki (Pandora i TiliNakor dzielą tę samą paczkę,
-bo grają na tym samym zestawie modów):
+Serwery Fabric są obsługiwane przez trzy paczki (Pandora i TiliNakor dzielą tę
+samą paczkę, bo grają na tym samym zestawie modów). Roshar jest osobną paczką
+NeoForge/Create:
 
 | Serwer | Rola | Paczka | UUID | Adres |
 |---|---|---|---|---|
@@ -19,6 +26,7 @@ bo grają na tym samym zestawie modów):
 | **Pandora** | zamrożony survival | `TiliNakor` | `7d468085-bc02-4e7b-b53a-54ad9f4b03e3` | `pandora.lan:25565` |
 | **TiliNakor test** | pole eksperymentów | `TiliNakor_test` | `fc17ba3e-b41b-4fd3-b012-52749bd58833` | `ktilinakor.lan:25568` |
 | **kTiliNakor** | creative | `kTiliNakor` | `eff8a0a1-9645-4d4b-a1d5-74fe9bfabf30` | `ktilinakor.lan:25567` |
+| **Roshar** | NeoForge / Create SMP | `neoforge/roshar` | `1f9afc98-1b50-4827-9ca0-78d61ae8d426` | sprawdź w Crafty |
 
 ### Struktura repo
 
@@ -30,6 +38,8 @@ minecraft-modpacks/
 │   ├── TiliNakor/          ← paczka produkcyjna
 │   ├── TiliNakor_test/     ← paczka testowa
 │   └── kTiliNakor/         ← paczka kreatywna
+├── neoforge/
+│   └── roshar/             ← paczka Roshar / NeoForge / Create SMP
 └── scripts/
     ├── lib/
     │   ├── common.sh       ← funkcje wspólne (kolory, walidacja, git)
@@ -37,13 +47,29 @@ minecraft-modpacks/
     ├── update-test.sh      ← aktualizacja paczki testowej
     ├── update-prod.sh      ← aktualizacja paczek produkcyjnych
     ├── update-server.sh    ← aktualizacja pojedynczego serwera
+    ├── update-server-neoforge.sh ← aktualizacja serwera Roshar / NeoForge
     ├── add-mod-test.sh     ← dodanie moda do paczki testowej
     └── add-mod-prod.sh     ← dodanie moda do paczek produkcyjnych
 ```
 
 W repo są **metadane packwiz** (`pack.toml`, `index.toml`, `mods/*.pw.toml`) i skrypty.
-Fizyczne pliki `.jar` i `.mrpack` **nie są** w gicie – pobierane dynamicznie z Modrinth/CurseForge
-na podstawie linków w metadanych.
+Pliki `.mrpack` są generowane lokalnie i ignorowane przez Git. Fizyczne pliki
+`.jar` zwykle nie są w gicie – pobierane dynamicznie z Modrinth/CurseForge na
+podstawie linków w metadanych.
+
+Wyjątek: `neoforge/roshar/manual-mods/` zawiera kilka ręcznych `.jar` śledzonych
+w Git. Ich `mods/*.pw.toml` wskazują na raw GitHuba, żeby klient i serwer mogły
+pobrać dokładnie te same pliki.
+
+### Ostatnie ważne zmiany Roshar
+
+- Dodano wsparcie skryptowe dla NeoForge: alias `roshar` w `server.sh` i
+  `update-server-neoforge.sh`.
+- Roshar jest paczką Create SMP na NeoForge 1.21.1 / 21.1.233.
+- Przywrócono force-loading przez FTB Chunks + FTB Library + FTB Teams.
+- Dodano narzędzia QoL: More Overlays Updated i Full Brightness Toggle.
+- Dodano fix Flywheel backend w KubeJS.
+- Dodano testowo Create: Ultimate Factory z CurseForge.
 
 ## Szybki start – codzienny workflow
 
@@ -107,6 +133,38 @@ cd ~/Minecraft/minecraft-modpacks
 Dla konkretnej wersji (nie najnowszej): `add-mod-test.sh --project-id X --version-id Y`
 – zobacz sekcję "Dodanie konkretnej wersji moda" niżej.
 
+### Roshar / NeoForge
+
+Roshar nie ma jeszcze osobnego skryptu `add-mod-roshar.sh`, więc dodawanie modów
+do paczki jest ręczne, a aktualizacja serwera jest zautomatyzowana:
+
+```bash
+cd ~/Minecraft/minecraft-modpacks/neoforge/roshar
+
+# Modrinth
+packwiz modrinth add <slug>
+
+# CurseForge, gdy wyszukiwarka ma kilka trafień albo chcesz konkretny plik
+packwiz curseforge add --addon-id <PROJECT_ID> --file-id <FILE_ID>
+
+# Eksport paczki dla serwera
+packwiz modrinth export
+
+# Klienci pobierają pack.toml z GitHuba, więc commit + push przed serwerem
+cd ~/Minecraft/minecraft-modpacks
+git add -A
+git commit -m "Roshar: dodano <nazwa-moda>"
+git push
+
+# Serwer: najpierw Stop w Crafty, potem:
+./scripts/update-server-neoforge.sh roshar
+# → Start w Crafty, sprawdź log startu i test w grze
+```
+
+Przykład sprawdzony na Rosharze: **Create: Ultimate Factory**
+(`create_ultimate_factory-2.2.4-neoforge-1.21.1.jar`, CurseForge project `978125`,
+file `8038954`).
+
 ## Skrypty
 
 Framework bash oparty na wspólnej bibliotece `scripts/lib/`. Wszystkie skrypty
@@ -134,7 +192,8 @@ Tryb `--apply`:
 
 ### `update-prod.sh` – aktualizacja paczek produkcyjnych
 
-Operuje na `TiliNakor` i `kTiliNakor`. Zawiera safety bramkę:
+Operuje na `TiliNakor` i `kTiliNakor`. Nie dotyka Rosharu/NeoForge.
+Zawiera safety bramkę:
 
 ```bash
 ./scripts/update-prod.sh
@@ -170,7 +229,8 @@ skrypt sam mówi czy trzeba aktualizować serwer testowy.
 
 ### `add-mod-prod.sh` – dodanie moda do paczek produkcyjnych
 
-Analogiczny do `update-prod.sh` – z safety bramką:
+Analogiczny do `update-prod.sh` – z safety bramką. Dodaje tylko do
+`TiliNakor` i `kTiliNakor`, nie do Rosharu:
 
 ```bash
 ./scripts/add-mod-prod.sh <slug>
@@ -212,6 +272,25 @@ Safety bramka na starcie: pyta czy serwer został zatrzymany w Crafty.
 
 **Wymaga skonfigurowanego SSH** – zobacz sekcję "Konfiguracja infrastruktury".
 
+### `update-server-neoforge.sh` – aktualizacja Roshar / NeoForge
+
+Aktualizuje serwer `roshar` przez SSH + SCP + `docker exec`, analogicznie do
+`update-server.sh`, ale bez logiki `fabric-server.jar`:
+
+```bash
+./scripts/update-server-neoforge.sh roshar
+```
+
+Sekwencja:
+1. Sprawdza SSH, alias `roshar`, paczkę `neoforge/roshar` i lokalny `.mrpack`
+2. Pyta czy serwer został zatrzymany w Crafty
+3. Wgrywa `Roshar-1.0.0.mrpack` na QNAP do folderu serwera
+4. Czyści zdalny folder `mods/`, żeby nie zostały stare wersje modów
+5. Uruchamia `mrpack-install-linux` w kontenerze Crafty
+
+NeoForge instaluje się osobno przez installer, więc skrypt nie podmienia loadera.
+Po sukcesie uruchom serwer w Crafty i sprawdź log startu.
+
 ### `lib/common.sh` i `lib/server.sh`
 
 Biblioteki wspólne. Nie uruchamiane bezpośrednio, tylko `source`'owane w skryptach:
@@ -225,6 +304,10 @@ Biblioteki wspólne. Nie uruchamiane bezpośrednio, tylko `source`'owane w skryp
   wysokopoziomowe (`server_upload_mrpack`, `server_run_mrpack_install`,
   `server_replace_fabric_jar`)
 
+Alias `roshar` jest zmapowany w `server.sh`, ale używaj go z
+`update-server-neoforge.sh`, bo zwykły `update-server.sh` zakłada strukturę
+Fabric i szuka paczek pod `fabric/`.
+
 Kluczowa uwaga dla `server.sh`: docker jest w niestandardowej lokalizacji
 (`/share/ZFS530_DATA/.qpkg/container-station/bin/docker`) i **non-interactive SSH nie
 ładuje PATH z profile**, więc używamy pełnej ścieżki. Ścieżki przekazywane do
@@ -234,8 +317,9 @@ nie hosta (`/share/Container/crafty/servers/<UUID>`) – tłumaczy je funkcja
 
 ## Ręczne workflow (fallback / referencje)
 
-Skrypty pokrywają ~95% codziennej pracy. Poniższe workflow są potrzebne
-przy specjalnych sytuacjach (dodanie nowego moda, migracja MC, pinowanie wersji).
+Skrypty pokrywają większość codziennej pracy dla Fabric oraz aktualizację serwera
+Roshar. Poniższe workflow są potrzebne przy specjalnych sytuacjach (dodanie
+nowego moda, migracja MC, pinowanie wersji).
 
 ### Dodawanie moda z Modrinth
 
@@ -258,6 +342,50 @@ git add -A && git commit -m "TiliNakor_test - dodanie <nazwa>" && git push
 
 Test w kliencie testowym, potem replikacja na paczki prod (te same komendy w folderach
 `TiliNakor/` i `kTiliNakor/`).
+
+### Dodawanie moda do Roshar / NeoForge
+
+Najpierw zrób backup świata/serwera w Crafty. Potem dodaj mod w paczce
+`neoforge/roshar`:
+
+```bash
+cd ~/Minecraft/minecraft-modpacks/neoforge/roshar
+
+# Preferowane, gdy mod jest na Modrinth
+packwiz modrinth add <slug>
+
+# CurseForge po slugu/searchu
+packwiz curseforge add <slug>
+
+# CurseForge konkretny plik, bez ryzyka wyboru złego wyniku z wyszukiwarki
+packwiz curseforge add --addon-id <PROJECT_ID> --file-id <FILE_ID>
+
+packwiz modrinth export
+```
+
+Po eksporcie:
+
+```bash
+cd ~/Minecraft/minecraft-modpacks
+git status --short
+git add -A
+git commit -m "Roshar: dodano <nazwa-moda>"
+git push
+```
+
+Dopiero po `git push` aktualizuj serwer, bo klienci z
+packwiz-installer-bootstrap pobierają stan z GitHuba:
+
+```bash
+./scripts/update-server-neoforge.sh roshar
+```
+
+Jeśli `packwiz curseforge add <slug>` pokazuje kilka trafień, przerwij i użyj
+`--addon-id` + `--file-id`. Tak był dodany Create: Ultimate Factory:
+
+```bash
+packwiz curseforge add --addon-id 978125 --file-id 8038954
+```
 
 ### Dodanie konkretnej wersji moda (np. starszej stable zamiast beta)
 
@@ -424,17 +552,19 @@ Zapisz w wygodnym miejscu (np. `~/Tools/`).
 
 ### Krok 3 – Instancja w Prismie
 
-Dwie instancje w zależności od serwerów na których grasz:
+Instancje w zależności od serwerów na których grasz:
 
 | Instancja | URL pack.toml | Dla serwerów |
 |---|---|---|
 | **TiliNakor** | `https://raw.githubusercontent.com/Nakorek/minecraft-modpacks/main/fabric/TiliNakor/pack.toml` | TiliNakor + Pandora |
 | **kTiliNakor** | `https://raw.githubusercontent.com/Nakorek/minecraft-modpacks/main/fabric/kTiliNakor/pack.toml` | kTiliNakor |
+| **Roshar** | `https://raw.githubusercontent.com/Nakorek/minecraft-modpacks/main/neoforge/roshar/pack.toml` | Roshar |
 
 Tworzenie:
 1. **Add Instance** → **Niestandardowe** (Custom)
-2. Nazwa dowolna, Minecraft `26.2`, Loader **Fabric** `0.19.3`
-3. Create
+2. Dla TiliNakor/kTiliNakor: Minecraft `26.2`, Loader **Fabric** `0.19.3`
+3. Dla Roshar: Minecraft `1.21.1`, Loader **NeoForge** `21.1.233`
+4. Create
 
 ### Krok 4 – Wrzuć bootstrap
 
@@ -454,7 +584,7 @@ Prawym → **Edytuj instancję** → **Ustawienia** → **Własne komendy**:
 
 ⚠️ Forward slash `/` – działa na Windows i Mac/Linux.
 
-**Prism Launcher 11.x+** sam wykrywa zmianę wersji MC/Fabric w `pack.toml`
+**Prism Launcher 11.x+** sam wykrywa zmianę wersji MC/loadera w `pack.toml`
 i przy uruchomieniu pyta *"This modpack uses newer versions..."* → **Update**.
 Nie trzeba ręcznie zmieniać wersji w ustawieniach instancji.
 
