@@ -581,6 +581,10 @@ file = "manual-mods/Design-n-Decor-1.21.1-2.2b.jar"
 hash = "af0264e8ba44b77744d9a6173b79fcc39758c5b975fbb377d4000e85bfcd2c8f"
 
 [[files]]
+file = "manual-mods/cart_pickup_limit-1.2.2.jar"
+hash = "0593432e20b196899523f8e4e53c34b243b61490c1a138b614a03c9c9d622d80"
+
+[[files]]
 file = "manual-mods/copperagebackport-neoforge-1.21.1-0.1.4.jar"
 hash = "1cd0007d427be712d303f5a6f8084c67a2635f02e686e8c9c824cc1dcfdfa272"
 
@@ -631,6 +635,11 @@ metafile = true
 [[files]]
 file = "mods/carry-on.pw.toml"
 hash = "2b4c244aa7a303dead0a1b659c25b9b9bce2ced2758ea55aca347556f7348189"
+metafile = true
+
+[[files]]
+file = "mods/cart-pickup-limit.pw.toml"
+hash = "5e85f997705b425d9586fabca8c8be29f17f927239b588ec763b36f54d3c6279"
 metafile = true
 
 [[files]]
