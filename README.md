@@ -165,6 +165,60 @@ Przykład sprawdzony na Rosharze: **Create: Ultimate Factory**
 (`create_ultimate_factory-2.2.4-neoforge-1.21.1.jar`, CurseForge project `978125`,
 file `8038954`).
 
+### Roshar / NeoForge - zmiany w configach
+
+Nie poprawiaj configu tylko w lokalnej instancji PrismLaunchera, jeśli zmiana ma
+trafić na serwer. Źródłem prawdy dla paczki Roshar jest:
+
+```text
+neoforge/roshar/config/
+```
+
+Przykład: SophisticatedCore steruje włączaniem itemów i ich receptur przez:
+
+```text
+neoforge/roshar/config/sophisticatedcore-common.toml
+```
+
+Wpisy w `enabledItems` mają format:
+
+```text
+modid:item|true_or_false
+```
+
+`false` wyłącza item i jego receptury. Np. jeśli `sophisticatedbackpacks:filter_upgrade`
+jest ustawiony na `false`, receptura backpackowego filtra nie załaduje się na
+serwerze, nawet jeśli plik receptury istnieje w JAR moda.
+
+Po każdej zmianie pliku w `config/`:
+
+```bash
+cd ~/Minecraft/minecraft-modpacks/neoforge/roshar
+packwiz refresh
+packwiz modrinth export
+
+cd ~/Minecraft/minecraft-modpacks
+git add -A
+git commit -m "Roshar: aktualizacja configu"
+git push
+
+# Serwer musi być zatrzymany w Crafty
+./scripts/update-server-neoforge.sh roshar
+# Potem Start w Crafty i kontrola logu startu
+```
+
+Dlaczego kolejność jest ważna:
+
+- `packwiz refresh` aktualizuje hash zmienionego configu w `index.toml`.
+- `packwiz modrinth export` buduje nowy `.mrpack`, który skrypt wgrywa na QNAP.
+- `git push` jest potrzebny klientom z packwiz-installer-bootstrap.
+- `update-server-neoforge.sh roshar` wgrywa gotowy `.mrpack`, czyści `mods/` i
+  uruchamia `mrpack-install` po stronie Crafty.
+
+Zmiany receptur, itemów i configów typu `common`/`server` wymagają restartu
+serwera. Dla spójności EMI/JEI warto mieć ten sam config także lokalnie u
+klientów.
+
 ## Skrypty
 
 Framework bash oparty na wspólnej bibliotece `scripts/lib/`. Wszystkie skrypty
