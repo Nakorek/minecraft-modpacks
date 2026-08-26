@@ -290,7 +290,7 @@ hash = "12f65a872b73c931b0a192d7e95c7d89f7ef7f1fd33f3ee7ff6bbda12fb8845f"
 
 [[files]]
 file = "config/sophisticatedcore-common.toml"
-hash = "6091d8f350746424ecd98c78fe9f0139d0dd39b8ed6f6222b393ecef37cf56eb"
+hash = "b0e7b3638c1c411185abba5b509f3a8db7d1f6b7cfbb568901b52aa0753b4c63"
 
 [[files]]
 file = "config/toastcontrol-client.toml"
