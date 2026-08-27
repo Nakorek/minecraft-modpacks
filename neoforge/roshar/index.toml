@@ -573,6 +573,10 @@ file = "kubejs/startup_scripts/modid_change.js"
 hash = "97b8d28a4e8a86c0a896b01fb85628e48db67b2d75a669145d5a4d5c8df36b1b"
 
 [[files]]
+file = "kubejs/startup_scripts/nonstackable_filters.js"
+hash = "9fb5787fe275ad50ad4c26a9a4b51763f5a32e360b8195cec72f25bc42ed7a3e"
+
+[[files]]
 file = "kubejs/startup_scripts/simplemagnet/simplemagnet.js"
 hash = "709593450ba91d741d7a47e96f0712a2fe91aa55e409dec4c2112afbab18a8f1"
 
