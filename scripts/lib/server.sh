@@ -24,6 +24,16 @@ readonly QNAP_DOCKER_BIN="/share/ZFS530_DATA/.qpkg/container-station/bin/docker"
 # MAPOWANIE ALIASÓW SERWERÓW
 # ============================================================================
 
+# Zwraca typ loadera dla podanego aliasu: fabric / neoforge
+# Użycie: loader=$(server_get_loader test)
+server_get_loader() {
+    case "$1" in
+        test|tilinakor|pandora|ktilinakor) echo "fabric" ;;
+        roshar|scadrial)                   echo "neoforge" ;;
+        *)                                 echo "" ;;
+    esac
+}
+
 # Zwraca UUID serwera dla podanego aliasu
 # Użycie: uuid=$(server_get_uuid test)
 server_get_uuid() {
@@ -33,11 +43,12 @@ server_get_uuid() {
         pandora)     echo "7d468085-bc02-4e7b-b53a-54ad9f4b03e3" ;;
         ktilinakor)  echo "eff8a0a1-9645-4d4b-a1d5-74fe9bfabf30" ;;
         roshar)      echo "1f9afc98-1b50-4827-9ca0-78d61ae8d426" ;;
+        scadrial)    echo "17edf8a6-efd8-4a03-ba4e-592458e0b309" ;;
         *)           echo "" ;;
     esac
 }
 
-# Zwraca nazwę paczki (folder w fabric/) dla serwera
+# Zwraca nazwę paczki/folderu dla serwera
 # Użycie: pack=$(server_get_pack test)
 server_get_pack() {
     case "$1" in
@@ -46,6 +57,7 @@ server_get_pack() {
         pandora)     echo "TiliNakor" ;;  # ta sama paczka co TiliNakor
         ktilinakor)  echo "kTiliNakor" ;;
         roshar)      echo "roshar" ;;
+        scadrial)    echo "scadrial" ;;
         *)           echo "" ;;
     esac
 }
@@ -59,20 +71,45 @@ server_get_name() {
         pandora)     echo "Pandora (zamrożony)" ;;
         ktilinakor)  echo "kTiliNakor (creative)" ;;
         roshar)      echo "Roshar (NeoForge)" ;;
+        scadrial)    echo "Scadrial (NeoForge)" ;;
         *)           echo "" ;;
     esac
 }
 
 # Lista wszystkich dostępnych aliasów (do help)
 server_list_aliases() {
-    echo "test, tilinakor, pandora, ktilinakor, roshar"
+    echo "test, tilinakor, pandora, ktilinakor, roshar, scadrial"
+}
+
+# Lista aliasów dla konkretnego loadera
+server_list_aliases_by_loader() {
+    case "$1" in
+        fabric)   echo "test, tilinakor, pandora, ktilinakor" ;;
+        neoforge) echo "roshar, scadrial" ;;
+        *)        echo "" ;;
+    esac
 }
 
 # Sprawdza czy alias istnieje. Zwraca 0 jeśli tak, 1 jeśli nie.
 server_alias_exists() {
+    local loader
+    loader=$(server_get_loader "$1")
+    [ -n "$loader" ]
+}
+
+# Zwraca UUID albo kończy błędem, gdy alias wymaga uzupełnienia konfiguracji.
+server_require_uuid() {
+    local alias="$1"
     local uuid
-    uuid=$(server_get_uuid "$1")
-    [ -n "$uuid" ]
+    uuid=$(server_get_uuid "$alias")
+
+    if [ -z "$uuid" ]; then
+        log_error "Alias '$alias' jest znany, ale nie ma ustawionego UUID serwera Crafty."
+        log_error "Uzupełnij mapowanie UUID w scripts/lib/server.sh."
+        return 1
+    fi
+
+    echo "$uuid"
 }
 
 # ============================================================================
@@ -125,7 +162,7 @@ qnap_scp_to() {
 server_remote_dir() {
     local alias="$1"
     local uuid
-    uuid=$(server_get_uuid "$alias")
+    uuid=$(server_require_uuid "$alias")
     if [ -z "$uuid" ]; then
         return 1
     fi
@@ -139,7 +176,7 @@ server_remote_dir() {
 server_container_dir() {
     local alias="$1"
     local uuid
-    uuid=$(server_get_uuid "$alias")
+    uuid=$(server_require_uuid "$alias")
     if [ -z "$uuid" ]; then
         return 1
     fi

@@ -4,10 +4,10 @@ Centralna kolekcja modów (packwiz) dla serwerów Minecraft Fabric i NeoForge
 zarządzanych przez Crafty Controller na QNAP. Mody dystrybuowane do klientów
 automatycznie przez packwiz-installer-bootstrap, do serwerów przez mrpack-install.
 Codzienny workflow dla Fabric jest zautomatyzowany skryptami bash w `scripts/`,
-a Roshar/NeoForge ma osobny skrypt aktualizacji serwera.
+a paczki Roshar/Scadrial na NeoForge mają osobny skrypt aktualizacji serwera.
 
 **Aktualna wersja:** Minecraft 26.2, Fabric Loader 0.19.3
-**Roshar:** Minecraft 1.21.1, NeoForge 21.1.233
+**Roshar/Scadrial:** Minecraft 1.21.1, NeoForge 21.1.233
 **Środowisko:** macOS (Apple Silicon M4 Pro), packwiz w `~/go/bin/`, repo w `~/Minecraft/minecraft-modpacks/`
 
 Od 2026 wersje Minecrafta w paczkach Fabric używają schematu `rok.drop.hotfix`
@@ -27,7 +27,7 @@ osobnymi paczkami NeoForge/Create:
 | **TiliNakor test** | pole eksperymentów | `TiliNakor_test` | `fc17ba3e-b41b-4fd3-b012-52749bd58833` | `ktilinakor.lan:25568` |
 | **kTiliNakor** | creative | `kTiliNakor` | `eff8a0a1-9645-4d4b-a1d5-74fe9bfabf30` | `ktilinakor.lan:25567` |
 | **Roshar** | NeoForge / Create SMP | `neoforge/roshar` | `1f9afc98-1b50-4827-9ca0-78d61ae8d426` | sprawdź w Crafty |
-| **Scadrial** | NeoForge / Create SMP bez Terralith | `neoforge/scadrial` | brak | lokalnie w Prismie / do przypisania |
+| **Scadrial** | NeoForge / Create SMP bez Terralith | `neoforge/scadrial` | `17edf8a6-efd8-4a03-ba4e-592458e0b309` | `scadrial.local:25569` |
 
 ### Struktura repo
 
@@ -49,7 +49,7 @@ minecraft-modpacks/
     ├── update-test.sh      ← aktualizacja paczki testowej
     ├── update-prod.sh      ← aktualizacja paczek produkcyjnych
     ├── update-server.sh    ← aktualizacja pojedynczego serwera
-    ├── update-server-neoforge.sh ← aktualizacja serwera Roshar / NeoForge
+    ├── update-server-neoforge.sh ← aktualizacja serwerów Roshar/Scadrial / NeoForge
     ├── add-mod-test.sh     ← dodanie moda do paczki testowej
     └── add-mod-prod.sh     ← dodanie moda do paczek produkcyjnych
 ```
@@ -63,11 +63,14 @@ Wyjątek: `neoforge/roshar/manual-mods/` zawiera kilka ręcznych `.jar` śledzon
 w Git. Ich `mods/*.pw.toml` wskazują na raw GitHuba, żeby klient i serwer mogły
 pobrać dokładnie te same pliki.
 
-### Ostatnie ważne zmiany Roshar
+### Ostatnie ważne zmiany NeoForge
 
-- Dodano wsparcie skryptowe dla NeoForge: alias `roshar` w `server.sh` i
-  `update-server-neoforge.sh`.
+- Dodano wsparcie skryptowe dla NeoForge: aliasy `roshar` i `scadrial` w
+  `server.sh` oraz `update-server-neoforge.sh`.
 - Roshar jest paczką Create SMP na NeoForge 1.21.1 / 21.1.233.
+- Scadrial jest wariantem Rosharu bez Terralith/TerraBlender, z odświeżonymi modami.
+- Scadrial ma serwer Crafty z UUID `17edf8a6-efd8-4a03-ba4e-592458e0b309`
+  i adresem `scadrial.local:25569`.
 - Przywrócono force-loading przez FTB Chunks + FTB Library + FTB Teams.
 - Dodano narzędzia QoL: More Overlays Updated i Full Brightness Toggle.
 - Dodano fix Flywheel backend w KubeJS.
@@ -135,10 +138,11 @@ cd ~/Minecraft/minecraft-modpacks
 Dla konkretnej wersji (nie najnowszej): `add-mod-test.sh --project-id X --version-id Y`
 – zobacz sekcję "Dodanie konkretnej wersji moda" niżej.
 
-### Roshar / NeoForge
+### Roshar i Scadrial / NeoForge
 
-Roshar nie ma jeszcze osobnego skryptu `add-mod-roshar.sh`, więc dodawanie modów
-do paczki jest ręczne, a aktualizacja serwera jest zautomatyzowana:
+Paczki NeoForge nie mają jeszcze osobnego skryptu `add-mod-roshar.sh` /
+`add-mod-scadrial.sh`, więc dodawanie modów do paczki jest ręczne, a aktualizacja
+serwera jest zautomatyzowana:
 
 ```bash
 cd ~/Minecraft/minecraft-modpacks/neoforge/roshar
@@ -163,6 +167,12 @@ git push
 # → Start w Crafty, sprawdź log startu i test w grze
 ```
 
+To samo działa dla Scadriala po wejściu do `neoforge/scadrial`:
+
+```bash
+./scripts/update-server-neoforge.sh scadrial
+```
+
 Przykład sprawdzony na Rosharze: **Create: Ultimate Factory**
 (`create_ultimate_factory-2.2.4-neoforge-1.21.1.jar`, CurseForge project `978125`,
 file `8038954`).
@@ -184,16 +194,20 @@ Do lokalnego testu w Prism Launcherze można zaimportować wygenerowany plik:
 neoforge/scadrial/Scadrial-1.0.0.mrpack
 ```
 
-Ta paczka nie ma jeszcze przypisanego serwera Crafty i nie powinna być używana przez
-`update-server-neoforge.sh` bez świadomego dopisania osobnego aliasu.
+Ta paczka ma alias `scadrial` w skryptach i przypisany serwer Crafty:
 
-### Roshar / NeoForge - zmiany w configach
+```bash
+./scripts/update-server-neoforge.sh scadrial
+```
+
+### Roshar i Scadrial / NeoForge - zmiany w configach
 
 Nie poprawiaj configu tylko w lokalnej instancji PrismLaunchera, jeśli zmiana ma
-trafić na serwer. Źródłem prawdy dla paczki Roshar jest:
+trafić na serwer. Źródłem prawdy dla paczek NeoForge są:
 
 ```text
 neoforge/roshar/config/
+neoforge/scadrial/config/
 ```
 
 Przykład: SophisticatedCore steruje włączaniem itemów i ich receptur przez:
@@ -212,7 +226,7 @@ modid:item|true_or_false
 jest ustawiony na `false`, receptura backpackowego filtra nie załaduje się na
 serwerze, nawet jeśli plik receptury istnieje w JAR moda.
 
-Po każdej zmianie pliku w `config/`:
+Po każdej zmianie pliku w `config/` przykład dla Rosharu wygląda tak:
 
 ```bash
 cd ~/Minecraft/minecraft-modpacks/neoforge/roshar
@@ -229,12 +243,15 @@ git push
 # Potem Start w Crafty i kontrola logu startu
 ```
 
+Dla Scadriala wykonaj te same kroki w `neoforge/scadrial`, a serwer aktualizuj
+komendą `./scripts/update-server-neoforge.sh scadrial`.
+
 Dlaczego kolejność jest ważna:
 
 - `packwiz refresh` aktualizuje hash zmienionego configu w `index.toml`.
 - `packwiz modrinth export` buduje nowy `.mrpack`, który skrypt wgrywa na QNAP.
 - `git push` jest potrzebny klientom z packwiz-installer-bootstrap.
-- `update-server-neoforge.sh roshar` wgrywa gotowy `.mrpack`, czyści `mods/` i
+- `update-server-neoforge.sh roshar/scadrial` wgrywa gotowy `.mrpack`, czyści `mods/` i
   uruchamia `mrpack-install` po stronie Crafty.
 
 Zmiany receptur, itemów i configów typu `common`/`server` wymagają restartu
@@ -348,24 +365,73 @@ Safety bramka na starcie: pyta czy serwer został zatrzymany w Crafty.
 
 **Wymaga skonfigurowanego SSH** – zobacz sekcję "Konfiguracja infrastruktury".
 
-### `update-server-neoforge.sh` – aktualizacja Roshar / NeoForge
+### `update-server-neoforge.sh` – aktualizacja Roshar / Scadrial / NeoForge
 
-Aktualizuje serwer `roshar` przez SSH + SCP + `docker exec`, analogicznie do
-`update-server.sh`, ale bez logiki `fabric-server.jar`:
+Aktualizuje serwery `roshar` i `scadrial` przez SSH + SCP + `docker exec`,
+analogicznie do `update-server.sh`, ale bez logiki `fabric-server.jar`:
 
 ```bash
 ./scripts/update-server-neoforge.sh roshar
+./scripts/update-server-neoforge.sh scadrial
 ```
 
 Sekwencja:
-1. Sprawdza SSH, alias `roshar`, paczkę `neoforge/roshar` i lokalny `.mrpack`
+1. Sprawdza SSH, alias, paczkę `neoforge/<alias>` i lokalny `.mrpack`
 2. Pyta czy serwer został zatrzymany w Crafty
-3. Wgrywa `Roshar-1.0.0.mrpack` na QNAP do folderu serwera
+3. Wgrywa lokalny `.mrpack` na QNAP do folderu serwera
 4. Czyści zdalny folder `mods/`, żeby nie zostały stare wersje modów
 5. Uruchamia `mrpack-install-linux` w kontenerze Crafty
 
 NeoForge instaluje się osobno przez installer, więc skrypt nie podmienia loadera.
 Po sukcesie uruchom serwer w Crafty i sprawdź log startu.
+
+Scadrial ma stały UUID wpisany w `scripts/lib/server.sh`, więc działa tak samo
+jak Roshar.
+
+### Tworzenie serwera Scadrial w Crafty
+
+Ścieżka w panelu Crafty:
+
+1. **Servers** → **Create New Server** → zakładka **Minecraft-Java**.
+2. W formularzu **Create New Server**:
+   - **Server Type:** `Minecraft servers`
+   - **Server Select:** `neoforge-installer`
+   - **Server Version:** `1.21.1`
+   - **Server Name:** `Scadrial`
+   - **Minimum Memory:** `4`
+   - **Maximum Memory:** `8`
+   - **Server Port:** `25569`
+   - **Roles:** puste / `No Roles Selected`
+3. Kliknij **Build Server!** i poczekaj aż serwer pojawi się na liście.
+4. Nie startuj go od razu. Wejdź w **Scadrial** i przepisz UUID z ekranu
+   **Server Details**.
+5. Wpisz UUID w `scripts/lib/server.sh` przy aliasie `scadrial` i w tabeli
+   serwerów w tym README.
+
+Dla Scadriala utworzonego 2026-08-29 wartości są:
+
+```text
+UUID: 17edf8a6-efd8-4a03-ba4e-592458e0b309
+Adres: scadrial.local:25569
+RAM: -Xms4G / -Xmx8G
+```
+
+Ważny myk z NeoForge: Crafty może pobrać nowszy build NeoForge dla Minecrafta
+`1.21.1`, ale paczka jest przypięta do NeoForge `21.1.233`. Po zbudowaniu
+serwera sprawdź komendę startu w Crafty. Dla tej paczki powinna wskazywać na:
+
+```text
+java @user_jvm_args.txt @libraries/net/neoforged/neoforge/21.1.233/unix_args.txt nogui "$@"
+```
+
+Przy Scadrialu Crafty pobrał `21.1.249`, więc po utworzeniu serwera skopiowano
+biblioteki `21.1.233` z Rosharu i przestawiono wpis Crafty na `21.1.233`.
+W `user_jvm_args.txt` aktywnie dopisano:
+
+```text
+-Xms4G
+-Xmx8G
+```
 
 ### `lib/common.sh` i `lib/server.sh`
 
@@ -375,14 +441,15 @@ Biblioteki wspólne. Nie uruchamiane bezpośrednio, tylko `source`'owane w skryp
   walidacja (`require_command`, `require_pack_dir`, `require_git_repo`),
   interakcja (`confirm`, `ask_input`), pomocnicze git (`git_has_changes`, `git_show_status`),
   `get_repo_root` dla dowolnej lokalizacji uruchomienia
-- `server.sh` – mapowanie aliasów serwerów (`server_get_uuid`, `server_get_pack`),
+- `server.sh` – mapowanie aliasów serwerów (`server_get_uuid`, `server_get_pack`,
+  `server_get_loader`),
   operacje SSH/SCP/Docker (`qnap_exec`, `qnap_docker_exec`, `qnap_scp_to`),
   wysokopoziomowe (`server_upload_mrpack`, `server_run_mrpack_install`,
   `server_replace_fabric_jar`)
 
-Alias `roshar` jest zmapowany w `server.sh`, ale używaj go z
-`update-server-neoforge.sh`, bo zwykły `update-server.sh` zakłada strukturę
-Fabric i szuka paczek pod `fabric/`.
+Aliasy `roshar` i `scadrial` są zmapowane w `server.sh`, ale używaj ich z
+`update-server-neoforge.sh`. Zwykły `update-server.sh` obsługuje tylko Fabric i
+grzecznie odeśle alias NeoForge do właściwego skryptu.
 
 Kluczowa uwaga dla `server.sh`: docker jest w niestandardowej lokalizacji
 (`/share/ZFS530_DATA/.qpkg/container-station/bin/docker`) i **non-interactive SSH nie
@@ -393,8 +460,8 @@ nie hosta (`/share/Container/crafty/servers/<UUID>`) – tłumaczy je funkcja
 
 ## Ręczne workflow (fallback / referencje)
 
-Skrypty pokrywają większość codziennej pracy dla Fabric oraz aktualizację serwera
-Roshar. Poniższe workflow są potrzebne przy specjalnych sytuacjach (dodanie
+Skrypty pokrywają większość codziennej pracy dla Fabric oraz aktualizację serwerów
+Roshar/Scadrial. Poniższe workflow są potrzebne przy specjalnych sytuacjach (dodanie
 nowego moda, migracja MC, pinowanie wersji).
 
 ### Dodawanie moda z Modrinth
@@ -419,13 +486,15 @@ git add -A && git commit -m "TiliNakor_test - dodanie <nazwa>" && git push
 Test w kliencie testowym, potem replikacja na paczki prod (te same komendy w folderach
 `TiliNakor/` i `kTiliNakor/`).
 
-### Dodawanie moda do Roshar / NeoForge
+### Dodawanie moda do Roshar / Scadrial / NeoForge
 
 Najpierw zrób backup świata/serwera w Crafty. Potem dodaj mod w paczce
-`neoforge/roshar`:
+`neoforge/roshar` albo `neoforge/scadrial`:
 
 ```bash
 cd ~/Minecraft/minecraft-modpacks/neoforge/roshar
+# albo:
+cd ~/Minecraft/minecraft-modpacks/neoforge/scadrial
 
 # Preferowane, gdy mod jest na Modrinth
 packwiz modrinth add <slug>
@@ -446,6 +515,8 @@ cd ~/Minecraft/minecraft-modpacks
 git status --short
 git add -A
 git commit -m "Roshar: dodano <nazwa-moda>"
+# albo:
+git commit -m "Scadrial: dodano <nazwa-moda>"
 git push
 ```
 
@@ -454,6 +525,8 @@ packwiz-installer-bootstrap pobierają stan z GitHuba:
 
 ```bash
 ./scripts/update-server-neoforge.sh roshar
+# albo, dla Scadriala:
+./scripts/update-server-neoforge.sh scadrial
 ```
 
 Jeśli `packwiz curseforge add <slug>` pokazuje kilka trafień, przerwij i użyj
@@ -635,11 +708,12 @@ Instancje w zależności od serwerów na których grasz:
 | **TiliNakor** | `https://raw.githubusercontent.com/Nakorek/minecraft-modpacks/main/fabric/TiliNakor/pack.toml` | TiliNakor + Pandora |
 | **kTiliNakor** | `https://raw.githubusercontent.com/Nakorek/minecraft-modpacks/main/fabric/kTiliNakor/pack.toml` | kTiliNakor |
 | **Roshar** | `https://raw.githubusercontent.com/Nakorek/minecraft-modpacks/main/neoforge/roshar/pack.toml` | Roshar |
+| **Scadrial** | `https://raw.githubusercontent.com/Nakorek/minecraft-modpacks/main/neoforge/scadrial/pack.toml` | Scadrial |
 
 Tworzenie:
 1. **Add Instance** → **Niestandardowe** (Custom)
 2. Dla TiliNakor/kTiliNakor: Minecraft `26.2`, Loader **Fabric** `0.19.3`
-3. Dla Roshar: Minecraft `1.21.1`, Loader **NeoForge** `21.1.233`
+3. Dla Roshar/Scadrial: Minecraft `1.21.1`, Loader **NeoForge** `21.1.233`
 4. Create
 
 ### Krok 4 – Wrzuć bootstrap

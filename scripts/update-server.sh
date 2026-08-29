@@ -35,11 +35,15 @@ update-server.sh - aktualizacja serwera Minecraft na QNAP
 UŻYCIE:
     ./scripts/update-server.sh <alias>
 
-DOSTĘPNE ALIASY:
+DOSTĘPNE ALIASY FABRIC:
     test         TiliNakor test (UUID fc17ba3e-...)
     tilinakor    TiliNakor produkcja (UUID 5071df24-...)
     pandora      Pandora (UUID 7d468085-...)
     ktilinakor   kTiliNakor creative (UUID eff8a0a1-...)
+
+NEOFORGE:
+    roshar i scadrial aktualizuj przez:
+    ./scripts/update-server-neoforge.sh <alias>
 
 PRZYKŁADY:
     ./scripts/update-server.sh test
@@ -80,8 +84,14 @@ if ! server_alias_exists "$ALIAS"; then
     exit 1
 fi
 
+if [ "$(server_get_loader "$ALIAS")" != "fabric" ]; then
+    log_error "Alias '$ALIAS' nie jest serwerem Fabric."
+    log_error "Dla NeoForge użyj: ./scripts/update-server-neoforge.sh $ALIAS"
+    exit 1
+fi
+
 # Pobierz informacje o serwerze
-UUID=$(server_get_uuid "$ALIAS")
+UUID=$(server_require_uuid "$ALIAS")
 PACK_NAME=$(server_get_pack "$ALIAS")
 SERVER_NAME=$(server_get_name "$ALIAS")
 REPO_ROOT="$(get_repo_root)"

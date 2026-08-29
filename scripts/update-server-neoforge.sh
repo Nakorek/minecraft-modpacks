@@ -7,6 +7,7 @@
 # Użycie:
 #   ./scripts/update-server-neoforge.sh <alias>
 #   ./scripts/update-server-neoforge.sh roshar
+#   ./scripts/update-server-neoforge.sh scadrial
 
 set -e
 
@@ -22,7 +23,8 @@ UŻYCIE:
     ./scripts/update-server-neoforge.sh <alias>
 
 DOSTĘPNE ALIASY (NeoForge):
-    roshar    Roshar - Create SMP (UUID 1f9afc98-...)
+    roshar      Roshar - Create SMP (UUID 1f9afc98-...)
+    scadrial    Scadrial - Create SMP bez Terralith (UUID 17edf8a6-...)
 
 CO ROBI:
     1. Sprawdza warunki (SSH, mrpack, paczka)
@@ -49,7 +51,13 @@ if ! server_alias_exists "$ALIAS"; then
     exit 1
 fi
 
-UUID=$(server_get_uuid "$ALIAS")
+if [ "$(server_get_loader "$ALIAS")" != "neoforge" ]; then
+    log_error "Alias '$ALIAS' nie jest serwerem NeoForge."
+    log_error "Dla Fabric użyj: ./scripts/update-server.sh $ALIAS"
+    exit 1
+fi
+
+UUID=$(server_require_uuid "$ALIAS")
 PACK_NAME=$(server_get_pack "$ALIAS")
 SERVER_NAME=$(server_get_name "$ALIAS")
 REPO_ROOT="$(get_repo_root)"
@@ -69,7 +77,7 @@ LOCAL_MRPACK=$(ls "$PACK_DIR"/*.mrpack 2>/dev/null | head -1)
 
 if [ -z "$LOCAL_MRPACK" ]; then
     log_error "Brak lokalnego mrpacka w: $PACK_DIR"
-    log_error "Najpierw: cd $PACK_DIR && packwiz mr export"
+    log_error "Najpierw: cd $PACK_DIR && packwiz modrinth export"
     exit 1
 fi
 log_ok "Mrpack lokalny: $LOCAL_MRPACK ($(du -h "$LOCAL_MRPACK" | cut -f1))"
