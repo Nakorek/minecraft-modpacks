@@ -1,0 +1,11 @@
+soundCategory_music:0.0
+key_key.shuffle.shuffle:key.keyboard.unknown
+key_key.curios.open.desc:key.keyboard.unknown
+key_gui.xaero_new_waypoint:key.keyboard.unknown
+key_gui.xaero_enlarge_map:key.keyboard.unknown
+key_key.ftbchunks.map:key.keyboard.unknown
+key_key.ftbchunks.minimap.zoomIn:key.keyboard.unknown
+key_key.ftbchunks.minimap.zoomOut:key.keyboard.unknown
+key_key.easy_villagers.cycle_trades:key.keyboard.unknown
+key_key.kubejs.kubedex:key.keyboard.unknown
+key_key.sophisticatedbackpacks.inventory_interaction:key.keyboard.unknown

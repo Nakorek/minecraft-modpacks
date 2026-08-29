@@ -1,0 +1,8 @@
+name = "Create Cart Pickup Limit"
+filename = "cart_pickup_limit-1.2.2.jar"
+side = "both"
+
+[download]
+url = "https://raw.githubusercontent.com/Nakorek/minecraft-modpacks/main/neoforge/roshar/manual-mods/cart_pickup_limit-1.2.2.jar"
+hash-format = "sha1"
+hash = "2da49bab88100d33a2bea4f2f6f2f4462804ebdd"

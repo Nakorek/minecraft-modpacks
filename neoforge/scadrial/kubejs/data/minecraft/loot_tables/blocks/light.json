@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:light",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:block_state": { "level": "15" },
+                "minecraft:custom_data": { "light_level": 15 },
+                "minecraft:custom_name": "{\"text\":\"Light Level 15\",\"italic\":false,\"color\":\"gold\"}"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

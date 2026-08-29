@@ -1,4 +1,4 @@
-# Minecraft Modpacks – konfiguracja serwerów TiliNakor i Roshar
+# Minecraft Modpacks – konfiguracja serwerów TiliNakor, Roshar i Scadrial
 
 Centralna kolekcja modów (packwiz) dla serwerów Minecraft Fabric i NeoForge
 zarządzanych przez Crafty Controller na QNAP. Mody dystrybuowane do klientów
@@ -17,8 +17,8 @@ Od 2026 wersje Minecrafta w paczkach Fabric używają schematu `rok.drop.hotfix`
 ## Serwery i paczki
 
 Serwery Fabric są obsługiwane przez trzy paczki (Pandora i TiliNakor dzielą tę
-samą paczkę, bo grają na tym samym zestawie modów). Roshar jest osobną paczką
-NeoForge/Create:
+samą paczkę, bo grają na tym samym zestawie modów). Roshar i Scadrial są
+osobnymi paczkami NeoForge/Create:
 
 | Serwer | Rola | Paczka | UUID | Adres |
 |---|---|---|---|---|
@@ -27,6 +27,7 @@ NeoForge/Create:
 | **TiliNakor test** | pole eksperymentów | `TiliNakor_test` | `fc17ba3e-b41b-4fd3-b012-52749bd58833` | `ktilinakor.lan:25568` |
 | **kTiliNakor** | creative | `kTiliNakor` | `eff8a0a1-9645-4d4b-a1d5-74fe9bfabf30` | `ktilinakor.lan:25567` |
 | **Roshar** | NeoForge / Create SMP | `neoforge/roshar` | `1f9afc98-1b50-4827-9ca0-78d61ae8d426` | sprawdź w Crafty |
+| **Scadrial** | NeoForge / Create SMP bez Terralith | `neoforge/scadrial` | brak | lokalnie w Prismie / do przypisania |
 
 ### Struktura repo
 
@@ -39,7 +40,8 @@ minecraft-modpacks/
 │   ├── TiliNakor_test/     ← paczka testowa
 │   └── kTiliNakor/         ← paczka kreatywna
 ├── neoforge/
-│   └── roshar/             ← paczka Roshar / NeoForge / Create SMP
+│   ├── roshar/             ← paczka Roshar / NeoForge / Create SMP
+│   └── scadrial/           ← paczka Scadrial / NeoForge / Create bez Terralith
 └── scripts/
     ├── lib/
     │   ├── common.sh       ← funkcje wspólne (kolory, walidacja, git)
@@ -164,6 +166,26 @@ git push
 Przykład sprawdzony na Rosharze: **Create: Ultimate Factory**
 (`create_ultimate_factory-2.2.4-neoforge-1.21.1.jar`, CurseForge project `978125`,
 file `8038954`).
+
+### Scadrial / wariant NeoForge bez Terralith
+
+`neoforge/scadrial` bazuje na Rosharze i zachowuje jego configi oraz KubeJS/fixy,
+ale ma odświeżone mody i nie zawiera Terralith/TerraBlender.
+
+```bash
+cd ~/Minecraft/minecraft-modpacks/neoforge/scadrial
+packwiz refresh
+packwiz modrinth export
+```
+
+Do lokalnego testu w Prism Launcherze można zaimportować wygenerowany plik:
+
+```text
+neoforge/scadrial/Scadrial-1.0.0.mrpack
+```
+
+Ta paczka nie ma jeszcze przypisanego serwera Crafty i nie powinna być używana przez
+`update-server-neoforge.sh` bez świadomego dopisania osobnego aliasu.
 
 ### Roshar / NeoForge - zmiany w configach
 

@@ -1,0 +1,13 @@
+name = "Scadrial"
+author = "Nakorek"
+version = "1.0.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "e39845ec9846fd3a4ff51ce2f19b37f8f0447e1cc62cc3cb45be68b1b66c0258"
+
+[versions]
+minecraft = "1.21.1"
+neoforge = "21.1.233"

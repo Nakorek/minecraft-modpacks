@@ -1,0 +1,85 @@
+[settings]
+	#General Settings
+	#Maximum distance from where Blocks and Entities can be picked up
+	# Default: 2.5
+	# Range: 0.0 ~ 1.7976931348623157E308
+	maxDistance = 2.5
+	#Max width of entities that can be picked up in survival mode
+	# Default: 1.5
+	# Range: 0.0 ~ 10.0
+	maxEntityWidth = 1.5
+	#Max height of entities that can be picked up in survival mode
+	# Default: 2.5
+	# Range: 0.0 ~ 10.0
+	maxEntityHeight = 2.5
+	#Slowness multiplier for blocks
+	# Default: 1.0
+	# Range: 0.0 ~ 1.7976931348623157E308
+	blockSlownessMultiplier = 1.0
+	#Slowness multiplier for entities
+	# Default: 1.0
+	# Range: 0.0 ~ 1.7976931348623157E308
+	entitySlownessMultiplier = 1.0
+	#Maximum stack limit for entities
+	# Default: 10
+	# Range: > 1
+	maxEntityStackLimit = 10
+	#More complex Tile Entities slow down the player more
+	heavyTiles = true
+	#Allow all blocks to be picked up, not just Tile Entites. White/Blacklist will still be respected.
+	pickupAllBlocks = true
+	#Whether Blocks and Entities slow the creative player down when carried
+	slownessInCreative = true
+	#Whether hostile mobs should be able to picked up in survival mode
+	pickupHostileMobs = true
+	#Larger Entities slow down the player more
+	heavyEntities = true
+	#Allow babies to be carried even when adult mob is blacklisted (or not whitelisted)
+	allowBabies = true
+	#Use Whitelist instead of Blacklist for Blocks
+	useWhitelistBlocks = true
+	#Use Whitelist instead of Blacklist for Entities
+	useWhitelistEntities = false
+	#Use Whitelist instead of Blacklist for Stacking
+	useWhitelistStacking = false
+	#Whether the player can hit blocks and entities while carrying or not
+	hitWhileCarrying = false
+	#Whether the player drops the carried object when hit or not
+	dropCarriedWhenHit = true
+	#Use custom Pickup Scripts. Having this set to false, will not allow you to run scripts, but will increase your performance
+	useScripts = false
+	#Allows entities to be stacked on top of each other
+	stackableEntities = true
+	#Whether entities' size matters when stacking or not. This means that larger entities cannot be stacked on smaller ones
+	entitySizeMattersStacking = false
+	#Usually all the block state information is retained when placing a block that was picked up. But some information is changed to a modified property, like rotation or orientation. In this list, add additional properties that should NOT be saved and instead be updated when placed. Format: modid:block[propertyname]. Note: You don't need to add an entry for every subtype of a same block. For example, we only add an entry for one type of slab, but the change is applied to all slabs.
+	placementStateExceptions = ["minecraft:chest[type]", "minecraft:stone_button[face]", "minecraft:vine[north,east,south,west,up]", "minecraft:creeper_head[rotation]", "minecraft:glow_lichen[north,east,south,west,up,down]", "minecraft:oak_sign[rotation]", "minecraft:oak_trapdoor[half]"]
+	#Whether Players can be picked up. Creative players can't be picked up in Survival Mode
+	pickupPlayers = true
+	#Whether players in Survival Mode can pick up unbreakable blocks. Creative players always can.
+	pickupUnbreakableBlocks = false
+
+[whitelist]
+	#Whitelist. Read about the format here: https://github.com/Tschipp/CarryOn/wiki/Black---and-Whitelist-Config
+	#Entities that CAN be picked up (useWhitelistEntities must be true)
+	allowedEntities = []
+	#Blocks that CAN be picked up (useWhitelistBlocks must be true)
+	allowedBlocks = ["#c:villager_job_sites", "minecraft:furnace", "minecraft:anvil", "minecraft:enchanting_table", "minecraft:cauldron", "minecraft:chest", "#minecraft:copper_chests", "minecraft:trapped_chest", "minecraft:ender_chest", "minecraft:spawner", "minecraft:chiseled_bookshelf", "#minecraft:all_signs", "minecraft:tnt", "minecraft:bee_nest", "minecraft:beehive", "#c:skulls", "minecraft:dragon_egg", "#minecraft:campfires", "minecraft:note_block", "minecraft:suspicious_sand", "minecraft:suspicious_gravel", "minecraft:reinforced_deepslate", "minecraft:farmland", "#minecraft:shulker_boxes"]
+	#Entities that CAN have other entities stacked on top of them (useWhitelistStacking must be true)
+	allowedStacking = []
+
+[blacklist]
+	#Blacklist. Read about the format here: https://github.com/Tschipp/CarryOn/wiki/Black---and-Whitelist-Config
+	#Blocks that cannot be picked up
+	forbiddenTiles = []
+	#Entities that cannot be picked up
+	forbiddenEntities = ["#c:capturing_not_supported", "#c:teleporting_not_supported", "minecraft:end_crystal", "minecraft:ender_dragon", "minecraft:dragon_fireball", "minecraft:ghast", "minecraft:shulker", "minecraft:shulker_bullet", "minecraft:leash_knot", "minecraft:armor_stand", "minecraft:item_frame", "minecraft:painting", "minecraft:shulker_bullet", "corpse:corpse", "create:*", "create_sa:*", "gravestone:*", "immersive_paintings:*", "railways:*", "sophisticatedbackpacks:*", "strawststues:*", "farmersdelight:*", "amendments:*", "minecraft:villager"]
+	#Entities that cannot have other entities stacked on top of them
+	forbiddenStacking = ["minecraft:horse"]
+
+[customPickupConditions]
+	#Custom Pickup Conditions. Read about the format here: https://github.com/Tschipp/CarryOn/wiki/Custom-Pickup-Condition-Config
+	#Custom Pickup Conditions for Blocks
+	customPickupConditionsBlocks = []
+	#Custom Pickup Conditions for Entities
+	customPickupConditionsEntities = []
