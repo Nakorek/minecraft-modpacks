@@ -59,9 +59,9 @@ Pliki `.mrpack` są generowane lokalnie i ignorowane przez Git. Fizyczne pliki
 `.jar` zwykle nie są w gicie – pobierane dynamicznie z Modrinth/CurseForge na
 podstawie linków w metadanych.
 
-Wyjątek: `neoforge/roshar/manual-mods/` zawiera kilka ręcznych `.jar` śledzonych
-w Git. Ich `mods/*.pw.toml` wskazują na raw GitHuba, żeby klient i serwer mogły
-pobrać dokładnie te same pliki.
+Wyjątek: `neoforge/roshar/manual-mods/` oraz `neoforge/scadrial/manual-mods/`
+zawierają ręczne `.jar` śledzone w Git. Ich `mods/*.pw.toml` wskazują na raw
+GitHuba, żeby klient i serwer mogły pobrać dokładnie te same pliki.
 
 ### Ostatnie ważne zmiany NeoForge
 
@@ -204,6 +204,10 @@ Uwaga serwerowa: Sodium w Scadrialu jest oznaczone jako `side = "client"`.
 Przy `side = "both"` serwer ładuje `sodium-neoforge-0.8.13+mc1.21.1.jar` i
 potrafi zatrzymać się bardzo wcześnie na błędzie `org.lwjgl.Version`. Objaw w
 Crafty: `latest.log` kończy się prawie od razu po liniach `ModLauncher`.
+
+Uwaga kliencka: Skin Layers 3D w Scadrialu jest w `manual-mods/` i ma bezpośredni
+URL do GitHuba. Dzięki temu `packwiz-installer-bootstrap` nie prosi gracza o
+ręczne wskazanie pliku.
 
 ### Roshar i Scadrial / NeoForge - zmiany w configach
 

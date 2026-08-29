@@ -581,6 +581,10 @@ file = "kubejs/startup_scripts/simplemagnet/simplemagnet.js"
 hash = "709593450ba91d741d7a47e96f0712a2fe91aa55e409dec4c2112afbab18a8f1"
 
 [[files]]
+file = "manual-mods/skinlayers3d-neoforge-1.11.2-mc1.21.1.jar"
+hash = "21724b7f676696f8d3716142406440adba9e63fc6519eeadc2b7ee8aae64c760"
+
+[[files]]
 file = "mods/amendments.pw.toml"
 hash = "dc538273e409c1c1a4b6aea4cc862468ebe6a29bbc7f09b90b39ea892e5a26b7"
 metafile = true
@@ -952,7 +956,7 @@ metafile = true
 
 [[files]]
 file = "mods/skin-layers-3d.pw.toml"
-hash = "d2849a029418dd88ed2e82d2a91eedafc39d1eee74b8a0dfad01418abb149069"
+hash = "9308a7b979a8c90afeda484b03b94b993435bfb4e1f7f6c507cd108548c07b1d"
 metafile = true
 
 [[files]]
