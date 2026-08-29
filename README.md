@@ -26,7 +26,7 @@ osobnymi paczkami NeoForge/Create:
 | **Pandora** | zamrożony survival | `TiliNakor` | `7d468085-bc02-4e7b-b53a-54ad9f4b03e3` | `pandora.lan:25565` |
 | **TiliNakor test** | pole eksperymentów | `TiliNakor_test` | `fc17ba3e-b41b-4fd3-b012-52749bd58833` | `ktilinakor.lan:25568` |
 | **kTiliNakor** | creative | `kTiliNakor` | `eff8a0a1-9645-4d4b-a1d5-74fe9bfabf30` | `ktilinakor.lan:25567` |
-| **Roshar** | NeoForge / Create SMP | `neoforge/roshar` | `1f9afc98-1b50-4827-9ca0-78d61ae8d426` | sprawdź w Crafty |
+| **Roshar** | NeoForge / Create SMP | `neoforge/roshar` | `1f9afc98-1b50-4827-9ca0-78d61ae8d426` | `roshar.lan:25567` |
 | **Scadrial** | NeoForge / Create SMP bez Terralith | `neoforge/scadrial` | `17edf8a6-efd8-4a03-ba4e-592458e0b309` | `scadrial.lan:25569` |
 
 ### Struktura repo
