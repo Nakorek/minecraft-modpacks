@@ -27,7 +27,7 @@ osobnymi paczkami NeoForge/Create:
 | **TiliNakor test** | pole eksperymentów | `TiliNakor_test` | `fc17ba3e-b41b-4fd3-b012-52749bd58833` | `ktilinakor.lan:25568` |
 | **kTiliNakor** | creative | `kTiliNakor` | `eff8a0a1-9645-4d4b-a1d5-74fe9bfabf30` | `ktilinakor.lan:25567` |
 | **Roshar** | NeoForge / Create SMP | `neoforge/roshar` | `1f9afc98-1b50-4827-9ca0-78d61ae8d426` | sprawdź w Crafty |
-| **Scadrial** | NeoForge / Create SMP bez Terralith | `neoforge/scadrial` | `17edf8a6-efd8-4a03-ba4e-592458e0b309` | `scadrial.local:25569` |
+| **Scadrial** | NeoForge / Create SMP bez Terralith | `neoforge/scadrial` | `17edf8a6-efd8-4a03-ba4e-592458e0b309` | `scadrial.lan:25569` |
 
 ### Struktura repo
 
@@ -70,7 +70,7 @@ pobrać dokładnie te same pliki.
 - Roshar jest paczką Create SMP na NeoForge 1.21.1 / 21.1.233.
 - Scadrial jest wariantem Rosharu bez Terralith/TerraBlender, z odświeżonymi modami.
 - Scadrial ma serwer Crafty z UUID `17edf8a6-efd8-4a03-ba4e-592458e0b309`
-  i adresem `scadrial.local:25569`.
+  i adresem `scadrial.lan:25569`.
 - Przywrócono force-loading przez FTB Chunks + FTB Library + FTB Teams.
 - Dodano narzędzia QoL: More Overlays Updated i Full Brightness Toggle.
 - Dodano fix Flywheel backend w KubeJS.
@@ -417,7 +417,7 @@ Dla Scadriala utworzonego 2026-08-29 wartości są:
 
 ```text
 UUID: 17edf8a6-efd8-4a03-ba4e-592458e0b309
-Adres: scadrial.local:25569
+Adres: scadrial.lan:25569
 RAM: -Xms4G / -Xmx8G
 ```
 
