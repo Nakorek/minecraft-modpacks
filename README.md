@@ -200,6 +200,11 @@ Ta paczka ma alias `scadrial` w skryptach i przypisany serwer Crafty:
 ./scripts/update-server-neoforge.sh scadrial
 ```
 
+Uwaga serwerowa: Sodium w Scadrialu jest oznaczone jako `side = "client"`.
+Przy `side = "both"` serwer ładuje `sodium-neoforge-0.8.13+mc1.21.1.jar` i
+potrafi zatrzymać się bardzo wcześnie na błędzie `org.lwjgl.Version`. Objaw w
+Crafty: `latest.log` kończy się prawie od razu po liniach `ModLauncher`.
+
 ### Roshar i Scadrial / NeoForge - zmiany w configach
 
 Nie poprawiaj configu tylko w lokalnej instancji PrismLaunchera, jeśli zmiana ma
