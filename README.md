@@ -743,6 +743,28 @@ Prawym → **Edytuj instancję** → **Ustawienia** → **Własne komendy**:
 i przy uruchomieniu pyta *"This modpack uses newer versions..."* → **Update**.
 Nie trzeba ręcznie zmieniać wersji w ustawieniach instancji.
 
+### Krok 5a – Argumenty Java dla Roshar/Scadrial
+
+Dla instancji NeoForge/Create ustaw dodatkowe argumenty JVM:
+
+```text
+-XX:TieredStopAtLevel=1 -XX:+UseZGC
+```
+
+W Prism Launcherze:
+
+1. Prawym na instancję **Roshar** albo **Scadrial** → **Edytuj**.
+2. **Ustawienia** → **Java**.
+3. Zaznacz **Nadpisz Ustawienia Globalne**.
+4. W polu **Argumenty JVM** dopisz:
+
+```text
+-XX:TieredStopAtLevel=1 -XX:+UseZGC
+```
+
+Nie wklejaj tego w **Pre-launch command**. Pre-launch jest tylko dla
+`packwiz-installer-bootstrap.jar`.
+
 ### Krok 6 – Pierwszy launch
 
 Bootstrap pobierze wszystkie mody (2-5 min pierwszym razem).
