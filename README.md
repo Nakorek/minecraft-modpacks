@@ -220,9 +220,17 @@ Scadrial ma też dodatkowe mody społeczne/kosmetyczne:
   render zbroi.
 
 Uwaga infrastrukturalna: kontener Crafty na QNAP ma wystawiony port gry
-`25569/tcp`, ale voice chat potrzebuje jeszcze wystawionego UDP, np.
-`24454/udp`. Bez tego mod będzie zainstalowany, ale gracze zobaczą w kliencie
-brak połączenia voice chatu.
+`25569/tcp` oraz zakres UDP dla Simple Voice Chat:
+
+```yaml
+ports:
+  - "24454-24460:24454-24460/udp"
+```
+
+Scadrial używa domyślnego portu `24454/udp`, więc na razie nie trzeba ruszać
+configu voice chatu. Zakres `24454-24460/udp` jest zostawiony na przyszłość:
+jeśli voice chat trafi kiedyś na kolejne serwery w tym samym kontenerze Crafty,
+każdy serwer musi dostać osobny port UDP, np. `24455`, `24456`, `24457`.
 
 ### Roshar i Scadrial / NeoForge - zmiany w configach
 
