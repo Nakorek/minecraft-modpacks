@@ -71,7 +71,8 @@ GitHuba, żeby klient i serwer mogły pobrać dokładnie te same pliki.
 - Scadrial jest wariantem Rosharu bez Terralith/TerraBlender, z odświeżonymi modami.
 - Scadrial ma serwer Crafty z UUID `17edf8a6-efd8-4a03-ba4e-592458e0b309`
   i adresem `scadrial.lan:25569`.
-- Scadrial ma dodatkowo Simple Voice Chat oraz Cosmetic Armor Reworked Forked.
+- Scadrial ma dodatkowo Simple Voice Chat, Cosmetic Armor Reworked Forked oraz
+  Create Collision Crashfix dla błędu `mf.axis` w Create 6.0.10.
 - Przywrócono force-loading przez FTB Chunks + FTB Library + FTB Teams.
 - Dodano narzędzia QoL: More Overlays Updated i Full Brightness Toggle.
 - Dodano fix Flywheel backend w KubeJS.
@@ -209,6 +210,13 @@ Crafty: `latest.log` kończy się prawie od razu po liniach `ModLauncher`.
 Uwaga kliencka: Skin Layers 3D w Scadrialu jest w `manual-mods/` i ma bezpośredni
 URL do GitHuba. Dzięki temu `packwiz-installer-bootstrap` nie prosi gracza o
 ręczne wskazanie pliku.
+
+Uwaga Create: Scadrial ma **Create Collision Crashfix**. To mały hotfix dla
+Create `6.0.10`, który łata crash przy kolizjach ruchomych contraptionów:
+`Cannot read field "x" because "mf.axis" is null`. Objaw: klient/gracz może
+wylecieć przy konkretnej maszynie Create, a serwer potrafi dalej działać.
+Po aktualizacji Create do wersji z oficjalną poprawką sprawdź, czy ten hotfix
+dalej jest potrzebny.
 
 Scadrial ma też dodatkowe mody społeczne/kosmetyczne:
 
