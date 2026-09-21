@@ -213,6 +213,10 @@ file = "config/jei/recipe-category-sort-order.ini"
 hash = "fccd2750288ee7231c86a263fb388bdad2eb1dd5c665355b1253b9a5b2541190"
 
 [[files]]
+file = "config/justmobheads.json5"
+hash = "e05bec0e018fdf51097a6f63e8c1d2d0df729ef49ace9f07551c7c01995ba4af"
+
+[[files]]
 file = "config/modernfix-common.toml"
 hash = "72ca2bcea2a9946a3a54842f14eff6f7b47d8fc96ef497c1b56406643b153fd7"
 
@@ -585,6 +589,11 @@ file = "manual-mods/skinlayers3d-neoforge-1.11.2-mc1.21.1.jar"
 hash = "21724b7f676696f8d3716142406440adba9e63fc6519eeadc2b7ee8aae64c760"
 
 [[files]]
+file = "mods/alexs-mobs-continued.pw.toml"
+hash = "0c666caffd846a6595ee28a136bc02949fa9f72dfc84c02d7363950501272f01"
+metafile = true
+
+[[files]]
 file = "mods/amendments.pw.toml"
 hash = "dc538273e409c1c1a4b6aea4cc862468ebe6a29bbc7f09b90b39ea892e5a26b7"
 metafile = true
@@ -632,6 +641,11 @@ metafile = true
 [[files]]
 file = "mods/cart-pickup-limit.pw.toml"
 hash = "5e85f997705b425d9586fabca8c8be29f17f927239b588ec763b36f54d3c6279"
+metafile = true
+
+[[files]]
+file = "mods/codxlib.pw.toml"
+hash = "884f0b4159ea237cdc6921ce4c9747c6924d2d6eb8108f2ddd4f750c92e870f2"
 metafile = true
 
 [[files]]
@@ -862,6 +876,11 @@ metafile = true
 [[files]]
 file = "mods/jei.pw.toml"
 hash = "d0c9e7ecd566284a16fee2f9cfc44bc5b986b0f4d4a2dc38679d8d95f0a63710"
+metafile = true
+
+[[files]]
+file = "mods/just-mob-heads.pw.toml"
+hash = "896f5374f4d52472bc2d663846c27c9727022dcdafd8178d49cb2fbe937833b5"
 metafile = true
 
 [[files]]

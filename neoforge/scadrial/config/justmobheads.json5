@@ -1,0 +1,18 @@
+{
+	// If enabled, overrides the overall drop chance with mob-specific values.
+	"mobSpecificDropChances": true,
+	// Allows Creepers, Skeletons and Zombies to drop their standard heads.
+	"enableStandardHeads": false,
+	// If enabled, Looting increases the head drop chance.
+	"enableLootingEnchant": true,
+	// If enabled, only adult tameable mobs can drop their head.
+	"onlyAdultMobsDropTheirHead": true,
+	// Used only when mob-specific drop chances are disabled.
+	"overallDropChance": 0.1,
+	// Used only when standard heads are enabled.
+	"creeperSkeletonZombieDropChance": 0.1,
+	// Charged Creeper-only mode takes priority over player-kill mode.
+	"onlyDropHeadsByChargedCreeper": false,
+	// Prevent automated farms from producing loose head items.
+	"onlyDropHeadsByPlayerKill": true
+}
