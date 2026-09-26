@@ -1,0 +1,13 @@
+name = "Special Nametags"
+filename = "Special+Nametags+v1.3(mc-1.21).zip"
+side = "server"
+
+[download]
+url = "https://cdn.modrinth.com/data/QQO2WNar/versions/8N4Qz7ky/Special%2BNametags%2Bv1.3%28mc-1.21%29.zip"
+hash-format = "sha512"
+hash = "535291fe9afebce3b2d42241ea1990ac1095a41155088b2c75a74c0556b46432768e1b41b464eab8046ab83167c2f89e0d7030b68f0e0bfcea3ecb8d2dd67270"
+
+[update]
+[update.modrinth]
+mod-id = "QQO2WNar"
+version = "8N4Qz7ky"

@@ -1072,3 +1072,8 @@ metafile = true
 file = "mods/xaeros-world-map.pw.toml"
 hash = "a71c5d8a681bc8d891495e166a75de7715007ae8509b5bb45904763b0eae5224"
 metafile = true
+
+[[files]]
+file = "world/datapacks/special-nametags.pw.toml"
+hash = "0f6277e0f056a97c63d53517ed73f6c555d49927dc070b1039e9bf70f1c297f2"
+metafile = true
