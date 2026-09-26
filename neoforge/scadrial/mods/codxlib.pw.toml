@@ -1,13 +1,13 @@
 name = "CodxLib"
-filename = "codxlib-1.5.1-neoforge+1.21.1.jar"
+filename = "codxlib-1.6.1-neoforge+1.21.1.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/6oyMM4yX/versions/FW5ZWCXm/codxlib-1.5.1-neoforge%2B1.21.1.jar"
+url = "https://cdn.modrinth.com/data/6oyMM4yX/versions/MMcDASmX/codxlib-1.6.1-neoforge%2B1.21.1.jar"
 hash-format = "sha512"
-hash = "d3b71224c1514c9b055c3a73e07cc7c4c240b02a99f1e05f8a9d67b1007a56f3b87b2e4a2b3df55760202896b8f550602af8b7bd4cf691a8c73672d28826fc70"
+hash = "11e1404f14eefd5483fcc17e681c619a1f5c7e45f11f2ea5bb53b672917511add06cfdf5ad97869769d3db3124a3fdc88e7883fa30bfe88304e56d75f2fabcbd"
 
 [update]
 [update.modrinth]
 mod-id = "6oyMM4yX"
-version = "FW5ZWCXm"
+version = "MMcDASmX"
