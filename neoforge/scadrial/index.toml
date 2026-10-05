@@ -278,7 +278,7 @@ hash = "45162f45aa2db525a0edc483959f35b6d958ba2e54066a4f87e7f3c3f0f99166"
 
 [[files]]
 file = "config/sliceanddice-common.toml"
-hash = "8c17330d9f9804cd1540b0f442c7f7b7d1dbd3ccb3e22f6c4af222753ffd49ac"
+hash = "f4a4b1292b3ecded07725db6ac248659c3706c092ba84b0edf0b8723b7677b9d"
 
 [[files]]
 file = "config/sophisticatedbackpacks-common.toml"
@@ -651,6 +651,11 @@ metafile = true
 [[files]]
 file = "mods/collective.pw.toml"
 hash = "e37aafe5cd58c8289c3b8929393cba2a5c7f2cdd5bbe01e9c6ada1f3f5b86436"
+metafile = true
+
+[[files]]
+file = "mods/construction-wands-revived.pw.toml"
+hash = "e0d1efd422b06ce4f2e8291353ff7ccad8f9cad455404ad802a801bc23613a17"
 metafile = true
 
 [[files]]
