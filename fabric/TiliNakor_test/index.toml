@@ -36,6 +36,11 @@ hash = "aad07f6496bbf478116eaa0e82fa7fbdd022ca755b392029193e1090d76716b3"
 metafile = true
 
 [[files]]
+file = "mods/dillon-lib.pw.toml"
+hash = "97aac24c7ce755a9a19ecb0b20600d467fe39745955f2f899cede04acbba8b9b"
+metafile = true
+
+[[files]]
 file = "mods/easy-shulker-boxes.pw.toml"
 hash = "0bc8f61a7ebc64103cabb5b1e9d10e894487856ade7f5dbbad20fe59a5b42b96"
 metafile = true
