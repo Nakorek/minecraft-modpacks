@@ -6,7 +6,8 @@ automatycznie przez packwiz-installer-bootstrap, do serwerów przez mrpack-insta
 Codzienny workflow dla Fabric jest zautomatyzowany skryptami bash w `scripts/`,
 a paczki Roshar/Scadrial na NeoForge mają osobny skrypt aktualizacji serwera.
 
-**Aktualna wersja:** Minecraft 26.2, Fabric Loader 0.19.3
+**TiliNakor/Pandora i TiliNakor_test:** Minecraft 26.3, Fabric Loader 0.19.5
+**kTiliNakor:** Minecraft 26.2, Fabric Loader 0.19.3
 **Roshar/Scadrial:** Minecraft 1.21.1, NeoForge 21.1.233
 **Środowisko:** macOS (Apple Silicon M4 Pro), packwiz w `~/go/bin/`, repo w `~/Minecraft/minecraft-modpacks/`
 
