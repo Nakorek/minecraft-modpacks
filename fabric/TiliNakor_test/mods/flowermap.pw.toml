@@ -1,13 +1,13 @@
 name = "Flower Map"
-filename = "flowermap-fabric-26.2-2.0.10.jar"
+filename = "flowermap-fabric-26.3-2.0.11.jar"
 side = "client"
 
 [download]
-url = "https://cdn.modrinth.com/data/YP7JHlCA/versions/Q2CzRsvN/flowermap-fabric-26.2-2.0.10.jar"
+url = "https://cdn.modrinth.com/data/YP7JHlCA/versions/ECodYg1I/flowermap-fabric-26.3-2.0.11.jar"
 hash-format = "sha512"
-hash = "a1c5a53870ddf42ea4fa17ae901d5ccf48eb342b120f9e21a33db02838e0024d7aeed9b72efbac54468a8014d484a6f6523784a1b95171e7cfa179bec764abd0"
+hash = "ba83fadab6f9c553898f747606bd3851a849eab48f1e7dd4af1f7faaf346cbdb47e35eac563f412523e3d24131b9b638b5cdee37ca4c0bf795b998d7a8834af4"
 
 [update]
 [update.modrinth]
 mod-id = "YP7JHlCA"
-version = "Q2CzRsvN"
+version = "ECodYg1I"
