@@ -11,16 +11,18 @@ Klienci Prism pobierają listę modów z GitHuba przez `packwiz-installer-bootst
 | Pandora | `fabric/TiliNakor` | `7d468085-bc02-4e7b-b53a-54ad9f4b03e3` | 25565 |
 | TiliNakor test | `fabric/TiliNakor_test` | `fc17ba3e-b41b-4fd3-b012-52749bd58833` | 25568 |
 | Scadrial | `neoforge/scadrial` | `17edf8a6-efd8-4a03-ba4e-592458e0b309` | 25569 |
+| Roshar | ATM10A 0.7.1 | `ffe9fc17-84bf-4077-941b-00d485b44682` | 25570 |
 
-Roshar i kTiliNakor zostały wycofane. Ich serwery i światy usunięto z Crafty.
-Historia konfiguracji pozostaje w Git.
+Stare światy Roshar i kTiliNakor zostały wycofane i usunięte z Crafty.
+Nowy Roshar to osobna instancja ATM10A bez migracji świata. Historia starej
+konfiguracji pozostaje w Git.
 
 ## ATM10A
 
 `neoforge/atm10a` zawiera listę modów klienta importowaną z oficjalnego
 `ATM10AERO-0.7.1.zip`: Minecraft `1.21.1`, NeoForge `21.1.250`.
 Wersje modów są przypięte do wydania 0.7.1. Nie dodajemy własnych modów.
-Planowany nowy świat serwera ma seed `-919282885`.
+Nowy serwer Roshar ma seed `-919282885`, ustawiony przed pierwszym startem.
 
 Paczka w tym repo śledzi **mody i dwa pakiety zasobów**. Konfiguracje, zadania,
 skrypty KubeJS i inne pliki paczki pochodzą z oficjalnego ZIP-a importowanego
@@ -57,10 +59,12 @@ refresh`, a następnie przetestuj klienta. Po `git push` gracze dostaną nową
 listę przy uruchomieniu Prisma. Zaktualizuj również oficjalne pliki serwera do
 tej samej wersji i konfiguracje klientów z oficjalnego ZIP-a.
 
-Serwer ATM10A powstanie jako **nowa instancja Crafty** z oficjalnego pakietu
-serwerowego ATM10A 0.7.1. Seed należy wpisać w `server.properties` przed
-pierwszym wygenerowaniem świata. Obecny `update-server-neoforge.sh` obsługuje
-Scadrial i nie służy do pierwszej instalacji ATM10A.
+Roshar jest **nową instancją Crafty** z oficjalnego pakietu serwerowego ATM10A
+0.7.1, NeoForge `21.1.250` i Java 21. Korzysta z portu `25570` oraz katalogu
+`/share/Container/crafty/servers/ffe9fc17-84bf-4077-941b-00d485b44682`.
+Seed wpisano w `server.properties` przed pierwszym wygenerowaniem świata.
+Aktualizacje serwera wymagają oficjalnego pakietu serwerowego w tej samej
+wersji co klient; `update-server-neoforge.sh` nadal obsługuje tylko Scadrial.
 
 ## Pozostałe operacje
 
