@@ -466,7 +466,7 @@ hash = "30f1a2a689b5441f008a53007c6cd2b373861c74cb57a9122a23b861c173214e"
 
 [[files]]
 file = "kubejs/config/client.json"
-hash = "a799eb18d2c74bacea30329209a9f703e086691566fd9071ce15c877448c180e"
+hash = "d661c52ef171e8330f63c29cc460aa2630af6fbc0a40d5bd54bf04b7af2751df"
 
 [[files]]
 file = "kubejs/config/common.json"
@@ -585,6 +585,18 @@ file = "kubejs/startup_scripts/simplemagnet/simplemagnet.js"
 hash = "709593450ba91d741d7a47e96f0712a2fe91aa55e409dec4c2112afbab18a8f1"
 
 [[files]]
+file = "manual-mods/Design-n-Decor-1.21.1-2.2b.jar"
+hash = "af0264e8ba44b77744d9a6173b79fcc39758c5b975fbb377d4000e85bfcd2c8f"
+
+[[files]]
+file = "manual-mods/cart_pickup_limit-1.2.2.jar"
+hash = "0593432e20b196899523f8e4e53c34b243b61490c1a138b614a03c9c9d622d80"
+
+[[files]]
+file = "manual-mods/copperagebackport-neoforge-1.21.1-0.1.4.jar"
+hash = "1cd0007d427be712d303f5a6f8084c67a2635f02e686e8c9c824cc1dcfdfa272"
+
+[[files]]
 file = "manual-mods/skinlayers3d-neoforge-1.11.2-mc1.21.1.jar"
 hash = "21724b7f676696f8d3716142406440adba9e63fc6519eeadc2b7ee8aae64c760"
 
@@ -640,7 +652,7 @@ metafile = true
 
 [[files]]
 file = "mods/cart-pickup-limit.pw.toml"
-hash = "5e85f997705b425d9586fabca8c8be29f17f927239b588ec763b36f54d3c6279"
+hash = "5834a79704782d84c5219f958da5d4878bd55a5b2f7271bcb9da3d176233eb5a"
 metafile = true
 
 [[files]]
@@ -665,7 +677,7 @@ metafile = true
 
 [[files]]
 file = "mods/copper-age-backport.pw.toml"
-hash = "8d8fa3abc5ddebb01ee6cc6c1af3970028b7f187fbe3501f8636c625e07d19e2"
+hash = "4e864a7f49ee24e1c600df2c9e1e8c2dc6da011888b37ff42c2d917681035fa5"
 metafile = true
 
 [[files]]
@@ -695,7 +707,7 @@ metafile = true
 
 [[files]]
 file = "mods/create-design-n-decor.pw.toml"
-hash = "6301a65168bbc1266288986e6f712afd04412bbcfa2a25b9748202dd90b3f207"
+hash = "e0df2f9eb510e3cb9e531c0b68595867be8e8b52c9bd48f68325927c75bd6791"
 metafile = true
 
 [[files]]

@@ -1,0 +1,13 @@
+name = "Theurgy KubeJS"
+filename = "theurgy_kubejs-1.21.1-neoforge-1.6.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "c1aff07b124b56aa8f45e746e76d48697b7147ee"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8838118
+project-id = 963206

@@ -1,0 +1,13 @@
+name = "Shiny! Mobs"
+filename = "shiny-1.21.1-1.3.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "fb0f224f2021a4661297b0b6caef703904a6371b"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8262268
+project-id = 552172

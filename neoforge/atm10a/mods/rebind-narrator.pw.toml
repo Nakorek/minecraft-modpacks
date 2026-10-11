@@ -1,0 +1,13 @@
+name = "Rebind Narrator"
+filename = "rebind_narrator-1.21.1-neoforge-2026.08.31.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "bcc4f0b32cd9c3619b82c65fb7eb47e1d95b2bfa"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8781643
+project-id = 296996

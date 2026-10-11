@@ -3,7 +3,6 @@
 #
 # Zakres:
 #   - TiliNakor (obsługuje serwery TiliNakor + Pandora)
-#   - kTiliNakor (obsługuje serwer kTiliNakor)
 #
 # Wykonuje:
 #   1. Safety: potwierdź że test przeszedł pomyślnie
@@ -28,7 +27,7 @@ source "$SCRIPT_DIR/lib/common.sh"
 # ============================================================================
 
 # Lista paczek produkcyjnych w kolejności aktualizacji
-readonly PROD_PACKS="TiliNakor kTiliNakor"
+readonly PROD_PACKS="TiliNakor"
 readonly REPO_ROOT="$(get_repo_root)"
 
 # ============================================================================
@@ -54,7 +53,7 @@ UŻYCIE:
 
 CO ROBI:
     1. Pyta czy test przeszedł pomyślnie (safety bramka)
-    2. Dla każdej paczki produkcyjnej (TiliNakor, kTiliNakor):
+    2. Dla paczki TiliNakor:
        - pyta Y/N czy aktualizować
        - jeśli Y: uruchamia packwiz update --all interaktywnie
        - eksportuje świeży mrpack
@@ -63,7 +62,6 @@ CO ROBI:
 
 PACZKI:
     TiliNakor    obsługuje serwery TiliNakor (produkcja) + Pandora
-    kTiliNakor   obsługuje serwer kTiliNakor (creative)
 
 WYMAGANIA:
     - Test na paczce TiliNakor_test przeszedł pomyślnie
@@ -84,7 +82,7 @@ fi
 # ============================================================================
 
 log_section "Aktualizacja paczek produkcyjnych"
-log_warn "Ten skrypt zaktualizuje paczki TiliNakor i kTiliNakor."
+log_warn "Ten skrypt zaktualizuje paczkę TiliNakor."
 log_warn "Po pushu klienci Prisma pobiorą nowe wersje modów przy uruchomieniu instancji."
 log_warn "Serwery produkcyjne będą wymagały osobnej aktualizacji przez update-server.sh."
 echo ""
@@ -204,9 +202,6 @@ log_info "2. Serwery produkcyjne - zaktualizuj przez update-server.sh:"
 if echo "$UPDATED_PACKS" | grep -q "TiliNakor$\|TiliNakor "; then
     log_info "   ./scripts/update-server.sh pandora     # najpierw najmniej krytyczny"
     log_info "   ./scripts/update-server.sh tilinakor   # produkcja - ostrzeż graczy!"
-fi
-if echo "$UPDATED_PACKS" | grep -q "kTiliNakor"; then
-    log_info "   ./scripts/update-server.sh ktilinakor  # creative"
 fi
 
 log_info ""

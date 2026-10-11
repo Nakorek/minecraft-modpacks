@@ -39,10 +39,9 @@ DOSTĘPNE ALIASY FABRIC:
     test         TiliNakor test (UUID fc17ba3e-...)
     tilinakor    TiliNakor produkcja (UUID 5071df24-...)
     pandora      Pandora (UUID 7d468085-...)
-    ktilinakor   kTiliNakor creative (UUID eff8a0a1-...)
 
 NEOFORGE:
-    roshar i scadrial aktualizuj przez:
+    scadrial aktualizuj przez:
     ./scripts/update-server-neoforge.sh <alias>
 
 PRZYKŁADY:
@@ -270,5 +269,4 @@ if [ "$ALIAS" = "test" ]; then
     log_info "Po teście testowego, możesz aktualizować produkcję:"
     log_info "  ./scripts/update-server.sh tilinakor"
     log_info "  ./scripts/update-server.sh pandora"
-    log_info "  ./scripts/update-server.sh ktilinakor"
 fi

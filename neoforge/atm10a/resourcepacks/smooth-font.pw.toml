@@ -1,0 +1,13 @@
+name = "Smooth Font - 32x"
+filename = "SmoothFont_1.21.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "1cc21ed48f53014dd5b48741cafc373ce81ad1ef"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5623665
+project-id = 616555

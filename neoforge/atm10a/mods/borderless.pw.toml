@@ -1,0 +1,13 @@
+name = "Borderless Window"
+filename = "borderless-neoforge-1.21.1-1.7.5_1-all.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "7a5bf5a47b4587cc24e9eedef0964bfdddc0679f"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7604034
+project-id = 378979

@@ -1,12 +1,11 @@
 #!/bin/bash
-# update-server-neoforge.sh - Aktualizacja serwera NeoForge na QNAP
+# update-server-neoforge.sh - Aktualizacja serwera Scadrial na QNAP
 #
 # Analogiczny do update-server.sh (Fabric), bez logiki fabric-server.jar
 # (NeoForge instaluje się raz przez installer, mrpack-install nie dotyka loadera).
 #
 # Użycie:
 #   ./scripts/update-server-neoforge.sh <alias>
-#   ./scripts/update-server-neoforge.sh roshar
 #   ./scripts/update-server-neoforge.sh scadrial
 
 set -e
@@ -17,13 +16,12 @@ source "$SCRIPT_DIR/lib/server.sh"
 
 if [ $# -eq 0 ] || [ "${1:-}" = "-h" ] || [ "${1:-}" = "--help" ]; then
     cat <<EOF
-update-server-neoforge.sh - aktualizacja serwera NeoForge na QNAP
+update-server-neoforge.sh - aktualizacja serwera Scadrial na QNAP
 
 UŻYCIE:
     ./scripts/update-server-neoforge.sh <alias>
 
 DOSTĘPNE ALIASY (NeoForge):
-    roshar      Roshar - Create SMP (UUID 1f9afc98-...)
     scadrial    Scadrial - Create SMP bez Terralith (UUID 17edf8a6-...)
 
 CO ROBI:
@@ -71,8 +69,8 @@ log_info "Paczka:   $PACK_NAME"
 require_pack_dir "$PACK_DIR"
 
 # Szukamy mrpacka po wzorcu - nazwa pliku pochodzi z pola 'name' w pack.toml
-# (np. "Roshar-1.0.0.mrpack"), które może różnić się wielkością liter od
-# nazwy folderu/aliasu (np. "roshar").
+# (np. "Scadrial-1.0.0.mrpack"), które może różnić się wielkością liter od
+# nazwy folderu/aliasu (np. "scadrial").
 LOCAL_MRPACK=$(ls "$PACK_DIR"/*.mrpack 2>/dev/null | head -1)
 
 if [ -z "$LOCAL_MRPACK" ]; then

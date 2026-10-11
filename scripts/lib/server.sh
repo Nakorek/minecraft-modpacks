@@ -28,8 +28,8 @@ readonly QNAP_DOCKER_BIN="/share/ZFS530_DATA/.qpkg/container-station/bin/docker"
 # Użycie: loader=$(server_get_loader test)
 server_get_loader() {
     case "$1" in
-        test|tilinakor|pandora|ktilinakor) echo "fabric" ;;
-        roshar|scadrial)                   echo "neoforge" ;;
+        test|tilinakor|pandora) echo "fabric" ;;
+        scadrial)                echo "neoforge" ;;
         *)                                 echo "" ;;
     esac
 }
@@ -41,8 +41,6 @@ server_get_uuid() {
         test)        echo "fc17ba3e-b41b-4fd3-b012-52749bd58833" ;;
         tilinakor)   echo "5071df24-5a62-48d9-b038-c910d088898f" ;;
         pandora)     echo "7d468085-bc02-4e7b-b53a-54ad9f4b03e3" ;;
-        ktilinakor)  echo "eff8a0a1-9645-4d4b-a1d5-74fe9bfabf30" ;;
-        roshar)      echo "1f9afc98-1b50-4827-9ca0-78d61ae8d426" ;;
         scadrial)    echo "17edf8a6-efd8-4a03-ba4e-592458e0b309" ;;
         *)           echo "" ;;
     esac
@@ -55,8 +53,6 @@ server_get_pack() {
         test)        echo "TiliNakor_test" ;;
         tilinakor)   echo "TiliNakor" ;;
         pandora)     echo "TiliNakor" ;;  # ta sama paczka co TiliNakor
-        ktilinakor)  echo "kTiliNakor" ;;
-        roshar)      echo "roshar" ;;
         scadrial)    echo "scadrial" ;;
         *)           echo "" ;;
     esac
@@ -69,8 +65,6 @@ server_get_name() {
         test)        echo "TiliNakor test" ;;
         tilinakor)   echo "TiliNakor (produkcja)" ;;
         pandora)     echo "Pandora (zamrożony)" ;;
-        ktilinakor)  echo "kTiliNakor (creative)" ;;
-        roshar)      echo "Roshar (NeoForge)" ;;
         scadrial)    echo "Scadrial (NeoForge)" ;;
         *)           echo "" ;;
     esac
@@ -78,14 +72,14 @@ server_get_name() {
 
 # Lista wszystkich dostępnych aliasów (do help)
 server_list_aliases() {
-    echo "test, tilinakor, pandora, ktilinakor, roshar, scadrial"
+    echo "test, tilinakor, pandora, scadrial"
 }
 
 # Lista aliasów dla konkretnego loadera
 server_list_aliases_by_loader() {
     case "$1" in
-        fabric)   echo "test, tilinakor, pandora, ktilinakor" ;;
-        neoforge) echo "roshar, scadrial" ;;
+        fabric)   echo "test, tilinakor, pandora" ;;
+        neoforge) echo "scadrial" ;;
         *)        echo "" ;;
     esac
 }

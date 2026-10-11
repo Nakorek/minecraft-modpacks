@@ -1,7 +1,7 @@
 #!/bin/bash
-# add-mod-prod.sh - Dodanie moda z Modrinth do paczek produkcyjnych
+# add-mod-prod.sh - Dodanie moda z Modrinth do paczki TiliNakor
 #
-# Zakres: TiliNakor + kTiliNakor
+# Zakres: TiliNakor (serwery TiliNakor i Pandora)
 # Zakłada że mod został przetestowany w TiliNakor_test.
 #
 # Wykonuje:
@@ -24,7 +24,7 @@ source "$SCRIPT_DIR/lib/common.sh"
 # KONFIGURACJA
 # ============================================================================
 
-readonly PROD_PACKS="TiliNakor kTiliNakor"
+readonly PROD_PACKS="TiliNakor"
 readonly REPO_ROOT="$(get_repo_root)"
 
 # ============================================================================
@@ -56,14 +56,13 @@ ARGUMENTY:
 
 CO ROBI:
     1. Pyta czy mod został przetestowany na testowej (safety bramka)
-    2. Sprawdza że mod nie jest już w paczkach TiliNakor / kTiliNakor
-    3. Dodaje mod do TiliNakor i kTiliNakor
-    4. Eksportuje mrpacki
+    2. Sprawdza że mod nie jest już w paczce TiliNakor
+    3. Dodaje mod do TiliNakor
+    4. Eksportuje mrpack
     5. Commit + push
 
 PACZKI:
     TiliNakor    obsługuje serwery TiliNakor (produkcja) + Pandora
-    kTiliNakor   obsługuje serwer kTiliNakor (creative)
 
 WYMAGANIA:
     - Wcześniej wykonaj: ./scripts/add-mod-test.sh <slug>
@@ -72,10 +71,7 @@ WYMAGANIA:
     - Dopiero wtedy uruchom ten skrypt
 
 NIE OBSŁUGUJE:
-    - Modów z CurseForge (dodawaj ręcznie w każdej paczce osobno)
-    - Selektywnego dodawania (skrypt dodaje do OBU produkcyjnych paczek)
-      Jeśli chcesz tylko do jednej - użyj ręcznie:
-      cd fabric/<paczka> && packwiz modrinth add <slug>
+    - Modów z CurseForge (dodawaj ręcznie)
 EOF
 }
 
@@ -215,7 +211,7 @@ for pack in $PROD_PACKS; do
 done
 
 cd "$REPO_ROOT"
-log_ok "Oba mrpacki wyeksportowane."
+log_ok "Mrpack wyeksportowany."
 
 # ============================================================================
 # COMMIT + PUSH
@@ -225,7 +221,7 @@ log_section "Commit + push"
 
 if ! git_has_changes; then
     log_warn "Brak zmian w gicie. Nic do commit'a."
-    log_info "Prawdopodobnie mod był już identyczny w obu paczkach."
+    log_info "Prawdopodobnie mod był już w paczce."
     exit 0
 fi
 
@@ -233,7 +229,7 @@ log_info "Zmiany do zacommit'owania:"
 git_show_status
 echo ""
 
-DEFAULT_MSG="TiliNakor + kTiliNakor - dodanie $MOD_NAME"
+DEFAULT_MSG="TiliNakor - dodanie $MOD_NAME"
 
 COMMIT_MSG=$(ask_input "Opis commita (Enter dla '$DEFAULT_MSG'):")
 if [ -z "$COMMIT_MSG" ]; then
@@ -265,7 +261,6 @@ if [ "$MOD_SIDE" = "both" ] || [ "$MOD_SIDE" = "server" ]; then
     log_info "2. Serwery produkcyjne (mod jest '$MOD_SIDE'):"
     log_info "   Zaktualizuj przez update-server.sh:"
     log_info "     ./scripts/update-server.sh pandora     # najmniej krytyczny"
-    log_info "     ./scripts/update-server.sh ktilinakor  # creative"
     log_info "     ./scripts/update-server.sh tilinakor   # produkcja - ostrzeż graczy!"
     log_info ""
     log_info "   Alternatywa dla pojedynczego moda (szybciej): wget bezpośrednio"

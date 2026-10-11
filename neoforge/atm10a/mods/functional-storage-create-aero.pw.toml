@@ -1,0 +1,13 @@
+name = "Functional Storage: Create & Aero"
+filename = "functionalstoragecreateaero-1.0.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "0a87d396e1001e7e6eb50f7cab5b257df8b46079"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8699635
+project-id = 1662331

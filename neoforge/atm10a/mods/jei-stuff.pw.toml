@@ -1,0 +1,13 @@
+name = "JEI Stuff"
+filename = "jeistuff-1.21.1-1.2.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "5ba6fcb7e8d37e89341d0736f51f780a49fe67fa"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8938121
+project-id = 978621

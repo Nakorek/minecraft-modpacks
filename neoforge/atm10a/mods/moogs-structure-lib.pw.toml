@@ -1,0 +1,13 @@
+name = "Moog's Structure Lib (moogs_structures)"
+filename = "MoogsStructureLib-neoforge-1.21.1-3.4.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "e63be4b3872f3eddcb58baee5e603669f136ec4c"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8998912
+project-id = 1337167

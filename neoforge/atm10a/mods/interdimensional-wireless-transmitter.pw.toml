@@ -1,0 +1,13 @@
+name = "Interdimensional Wireless Transmitter"
+filename = "interdimensionalwirelesstransmitter-neoforge-1.21.1-0.1.5.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "a276ff4472856fc1cd5fca1b94abbe401fd2ed05"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6845967
+project-id = 452645
