@@ -23,6 +23,7 @@ konfiguracji pozostaje w Git.
 `ATM10AERO-0.7.1.zip`: Minecraft `1.21.1`, NeoForge `21.1.250`.
 Wersje modów są przypięte do wydania 0.7.1. Nie dodajemy własnych modów.
 Nowy serwer Roshar ma seed `-919282885`, ustawiony przed pierwszym startem.
+Adres serwera w sieci lokalnej: `roshar.lan:25570`.
 
 Paczka w tym repo śledzi **mody i dwa pakiety zasobów**. Konfiguracje, zadania,
 skrypty KubeJS i inne pliki paczki pochodzą z oficjalnego ZIP-a importowanego
