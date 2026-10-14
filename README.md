@@ -21,7 +21,8 @@ konfiguracji pozostaje w Git.
 
 `neoforge/atm10a` zawiera listę modów klienta importowaną z oficjalnego
 `ATM10AERO-0.7.1.zip`: Minecraft `1.21.1`, NeoForge `21.1.250`.
-Wersje modów są przypięte do wydania 0.7.1. Nie dodajemy własnych modów.
+Wersje modów z paczki są przypięte do wydania 0.7.1.
+Dodatkowo dodaliśmy Freecam 1.3.0 tylko dla klientów.
 Nowy serwer Roshar ma seed `-919282885`, ustawiony przed pierwszym startem.
 Adres serwera w sieci lokalnej: `roshar.lan:25570`.
 
