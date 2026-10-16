@@ -842,7 +842,7 @@ metafile = true
 
 [[files]]
 file = "mods/gamma-tweaks.pw.toml"
-hash = "0ac07673694711b26e32cebc4285cc9b2033252ecebda3b5425c5f6c8025afc1"
+hash = "26eb5c271422ef3bbe3c4bc4d5765e00b3e24a4aaa4d91370d6146ed62c59598"
 metafile = true
 
 [[files]]

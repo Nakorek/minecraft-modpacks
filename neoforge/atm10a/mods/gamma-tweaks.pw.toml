@@ -3,11 +3,6 @@ filename = "gammatweaks-1.21.1-1.0.0.jar"
 side = "client"
 
 [download]
-hash-format = "sha1"
-hash = "f406f7ca739d1cb9b39ff78a32de18852ec4a6d9"
-mode = "metadata:curseforge"
-
-[update]
-[update.curseforge]
-file-id = 7224146
-project-id = 1384816
+url = "https://github.com/Smallinger/Gamma-Tweaks/releases/download/v1.21.1-1.0.0/gammatweaks-1.21.1-1.0.0.jar"
+hash-format = "sha256"
+hash = "53ab9bfb9affe08a20c78c19dda92c8266447527b1e2cbaf47a93507ef46738a"
