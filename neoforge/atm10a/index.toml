@@ -841,6 +841,11 @@ hash = "555624620c434a7a24517e67d0317318fc226f49f8bddd820dd22f3442f179bd"
 metafile = true
 
 [[files]]
+file = "mods/gamma-tweaks.pw.toml"
+hash = "0ac07673694711b26e32cebc4285cc9b2033252ecebda3b5425c5f6c8025afc1"
+metafile = true
+
+[[files]]
 file = "mods/gateways-to-eternity.pw.toml"
 hash = "a918d214c27222c510f6526721a1c41b0111221ac348c7d20b2a28d4691dfdd4"
 metafile = true
