@@ -68,6 +68,18 @@ Seed wpisano w `server.properties` przed pierwszym wygenerowaniem świata.
 Aktualizacje serwera wymagają oficjalnego pakietu serwerowego w tej samej
 wersji co klient; `update-server-neoforge.sh` nadal obsługuje tylko Scadrial.
 
+## MineColonies na Scadrialu
+
+Scadrial pozostaje na Minecraft `1.21.1` i NeoForge `21.1.233`.
+Dodano MineColonies `1.1.1403` oraz Structurize `1.0.835`, BlockUI `1.0.212`,
+Domum Ornamentum `1.0.236`, Multi-Piston `1.2.58` i TownTalk `1.2.0`.
+Wszystkie te mody są instalowane na kliencie i serwerze.
+
+Przed instalacją na zatrzymanym serwerze sprawdzono start tego zestawu
+z dotychczasowymi modami Scadrialu na osobnym pustym świecie.
+Instalacja MineColonies nie wymaga resetowania chunków istniejącego świata.
+Klienci pobiorą dodatki przy następnym uruchomieniu instancji w Prism.
+
 ## Pozostałe operacje
 
 | Skrypt | Zadanie |
