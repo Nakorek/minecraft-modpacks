@@ -261,6 +261,11 @@ hash = "d71dc2e2974ac7f9beb7921a6df882b9b171b7f27b08931e9a8166663853e00f"
 metafile = true
 
 [[files]]
+file = "mods/bobby-reneoforged.pw.toml"
+hash = "5be371e4ac8c4543824badc197937d8c04e15d2e1ef609875d7b3f63eed81aeb"
+metafile = true
+
+[[files]]
 file = "mods/bookshelf.pw.toml"
 hash = "cf914684c4151076b726116a66f7bc81a6116655551bcce70a9e64e34e5aa308"
 metafile = true
