@@ -68,6 +68,18 @@ Seed wpisano w `server.properties` przed pierwszym wygenerowaniem świata.
 Aktualizacje serwera wymagają oficjalnego pakietu serwerowego w tej samej
 wersji co klient; `update-server-neoforge.sh` nadal obsługuje tylko Scadrial.
 
+### MineColonies na Rosharze
+
+Do ATM10A 0.7.1 dodano MineColonies `1.1.1403`, Multi-Piston `1.2.58`
+i TownTalk `1.2.0` na klientach oraz serwerze. Pozostawiono biblioteki z
+oficjalnej paczki: Structurize `1.0.832`, BlockUI `1.0.212` i Domum
+Ornamentum `1.0.236`. Minecraft `1.21.1` i NeoForge `21.1.250` bez zmian.
+
+Klienci pobierają te trzy dodatki przez istniejący bootstrap packwiz w Prism.
+Przy ponownym imporcie oficjalnej paczki zachowaj również te dodatkowe mody.
+Przed instalacją sprawdzono start na osobnym pustym świecie z modami,
+konfiguracją i skryptami serwera Roshar.
+
 ## MineColonies na Scadrialu
 
 Scadrial pozostaje na Minecraft `1.21.1` i NeoForge `21.1.233`.
