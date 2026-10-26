@@ -26,9 +26,10 @@ Dodatkowo dodaliśmy Freecam 1.3.0, Gamma Tweaks 1.0.0 oraz Bobby ReNeoForged 5.
 Nowy serwer Roshar ma seed `-919282885`, ustawiony przed pierwszym startem.
 Adres serwera w sieci lokalnej: `roshar.lan:25570`.
 
-Paczka w tym repo śledzi **mody i dwa pakiety zasobów**. Konfiguracje, zadania,
-skrypty KubeJS i inne pliki paczki pochodzą z oficjalnego ZIP-a importowanego
-do Prisma. Zmiany tych plików przy kolejnych wydaniach ATM10A wymagają importu
+Paczka w tym repo śledzi **mody, dwa pakiety zasobów i własny skrypt kategorii
+magazynowych**. Oficjalne konfiguracje, zadania, skrypty KubeJS i inne pliki
+paczki pochodzą z oficjalnego ZIP-a importowanego do Prisma. Zmiany tych plików
+przy kolejnych wydaniach ATM10A wymagają importu
 nowego oficjalnego ZIP-a; sam bootstrap aktualizuje pliki śledzone w packwiz.
 Nie publikujemy kopii plików ATM Team w tym repo.
 
@@ -79,6 +80,25 @@ Klienci pobierają te trzy dodatki przez istniejący bootstrap packwiz w Prism.
 Przy ponownym imporcie oficjalnej paczki zachowaj również te dodatkowe mody.
 Przed instalacją sprawdzono start na osobnym pustym świecie z modami,
 konfiguracją i skryptami serwera Roshar.
+
+### Kategorie przedmiotów do migracji AE2 na Rosharze
+
+Własny skrypt `neoforge/atm10a/kubejs/server_scripts/modpack/storage_routing_tags.js`
+buduje podczas uruchamiania świata i przeładowania zasobów dwa tagi przedmiotów:
+
+- `modpack:non_stackable` — typy, których domyślny przedmiot ma maksymalny stos 1.
+- `modpack:stackable` — typy, których domyślny przedmiot ma maksymalny stos większy niż 1.
+
+Puste przedmioty są pomijane. Klasyfikacja jest automatyczna i uwzględnia
+zainstalowane mody. Nie zmienia przedmiotów, receptur, pojemności stosów ani
+istniejącego magazynu. Tagi dotyczą całego typu przedmiotu, więc wyjątkowe
+limity stosu nadane pojedynczej sztuce przez komponenty wymagają osobnej obsługi.
+
+Skrypt jest śledzony przez packwiz i trafi do klientów przy następnym uruchomieniu
+Prisma. Na serwerze ten sam plik znajduje się w
+`kubejs/server_scripts/modpack/storage_routing_tags.js`; działa po uruchomieniu
+serwera lub `/reload`. Samo dodanie tagów nie uruchamia migracji ani sortowania.
+Docelowe filtry w ME Tag Storage Bus używają powyższych nazw tagów.
 
 ## MineColonies na Scadrialu
 

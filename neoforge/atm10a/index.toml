@@ -1,6 +1,10 @@
 hash-format = "sha256"
 
 [[files]]
+file = "kubejs/server_scripts/modpack/storage_routing_tags.js"
+hash = "29a58e718afcde0be340b89003f7dfa96ca4b1aa1e82559e0a3a3ededc022c1e"
+
+[[files]]
 file = "mods/aaron.pw.toml"
 hash = "d84b2c8fe90b2e0612627cfcae0fc98a3193127ea97bdd40de30d8ea1cf10964"
 metafile = true
