@@ -50,6 +50,11 @@ hash = "23ca334019a3e9572ea1c462d5c4e732eb34f657111951cfb781cd52da59b08c"
 metafile = true
 
 [[files]]
+file = "mods/ae2colonies-applied-energistics-2-minecolonies.pw.toml"
+hash = "639cfc3f210484cc13e09137e60d2f2379861aa969e14d1327a844abd626dba9"
+metafile = true
+
+[[files]]
 file = "mods/aeinfinitybooster.pw.toml"
 hash = "ea80afccea478751cca0ba07f4a83005b51bd080840766597ec692612ed85e04"
 metafile = true

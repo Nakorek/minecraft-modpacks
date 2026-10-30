@@ -81,6 +81,22 @@ Przy ponownym imporcie oficjalnej paczki zachowaj również te dodatkowe mody.
 Przed instalacją sprawdzono start na osobnym pustym świecie z modami,
 konfiguracją i skryptami serwera Roshar.
 
+### Integracja AE2 z MineColonies na Rosharze
+
+AE2Colonies `1.2.4` dodano do paczki klienta i serwera. Dodatek korzysta z
+istniejących wersji AE2 `19.2.17`, MineColonies `1.1.1403`, Domum Ornamentum
+`1.0.236` oraz GuideME `21.1.19`; nie wymaga aktualizacji pozostałych modów.
+Prism pobiera go przez dotychczasowy bootstrap packwiz. Przy ponownym imporcie
+oficjalnej paczki zachowaj także ten dodatek.
+
+ME Colony Terminal ustawiony wewnątrz magazynu kolonii i podłączony do ME
+umożliwia kurierom odkładanie, pobieranie i zlecanie autocraftingu. Opcjonalny
+ME Architect's Cutter na tej samej sieci obsługuje bloki Domum Ornamentum.
+Opis i wydanie: [AE2Colonies 1.2.4](https://www.curseforge.com/minecraft/mc-mods/ae2colonies-applied-energistics-2-minecolonies/files/9253782).
+
+Przed instalacją sprawdzono start na osobnym pustym świecie z modami,
+konfiguracją i skryptami Rosharu oraz rejestrację i postawienie obu nowych bloków.
+
 ### Kategorie przedmiotów do migracji AE2 na Rosharze
 
 Własny skrypt `neoforge/atm10a/kubejs/server_scripts/modpack/storage_routing_tags.js`
