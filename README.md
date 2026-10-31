@@ -26,8 +26,8 @@ Dodatkowo dodaliśmy Freecam 1.3.0, Gamma Tweaks 1.0.0 oraz Bobby ReNeoForged 5.
 Nowy serwer Roshar ma seed `-919282885`, ustawiony przed pierwszym startem.
 Adres serwera w sieci lokalnej: `roshar.lan:25570`.
 
-Paczka w tym repo śledzi **mody, dwa pakiety zasobów i własny skrypt kategorii
-magazynowych**. Oficjalne konfiguracje, zadania, skrypty KubeJS i inne pliki
+Paczka w tym repo śledzi **mody, dwa pakiety zasobów i własne skrypty
+integracyjne KubeJS**. Oficjalne konfiguracje, zadania, skrypty KubeJS i inne pliki
 paczki pochodzą z oficjalnego ZIP-a importowanego do Prisma. Zmiany tych plików
 przy kolejnych wydaniach ATM10A wymagają importu
 nowego oficjalnego ZIP-a; sam bootstrap aktualizuje pliki śledzone w packwiz.
@@ -96,6 +96,19 @@ Opis i wydanie: [AE2Colonies 1.2.4](https://www.curseforge.com/minecraft/mc-mods
 
 Przed instalacją sprawdzono start na osobnym pustym świecie z modami,
 konfiguracją i skryptami Rosharu oraz rejestrację i postawienie obu nowych bloków.
+
+### Przyspieszanie Crimson Iron przez AE2 na Rosharze
+
+Własny skrypt `neoforge/atm10a/kubejs/server_scripts/modpack/crimson_iron_growth.js`
+dodaje `mysticalagriculture:crimson_iron_crop` do tagu bloków
+`ae2:growth_acceleratable`. Naprawia pominięcie tej niestandardowej uprawy
+w obsłudze Growth Acceleratorów AE2. Receptury i wymagania uprawy pozostają
+takie jak w ATM10A 0.7.1.
+
+Skrypt jest śledzony przez packwiz i instalowany również na serwerze.
+Na działającym serwerze można go wczytać komendą `reload`; tagi bloków
+są synchronizowane z połączonymi klientami. Klienci pobierają lokalną kopię
+skryptu przy następnym uruchomieniu Prisma, także do gry jednoosobowej.
 
 ### Kategorie przedmiotów do migracji AE2 na Rosharze
 
