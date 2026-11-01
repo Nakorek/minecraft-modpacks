@@ -97,12 +97,13 @@ Opis i wydanie: [AE2Colonies 1.2.4](https://www.curseforge.com/minecraft/mc-mods
 Przed instalacją sprawdzono start na osobnym pustym świecie z modami,
 konfiguracją i skryptami Rosharu oraz rejestrację i postawienie obu nowych bloków.
 
-### Przyspieszanie Crimson Iron przez AE2 na Rosharze
+### Przyspieszanie Crimson Iron i Azure Silver przez AE2 na Rosharze
 
 Własny skrypt `neoforge/atm10a/kubejs/server_scripts/modpack/crimson_iron_growth.js`
-dodaje `mysticalagriculture:crimson_iron_crop` do tagu bloków
-`ae2:growth_acceleratable`. Naprawia pominięcie tej niestandardowej uprawy
-w obsłudze Growth Acceleratorów AE2. Receptury i wymagania uprawy pozostają
+dodaje `mysticalagriculture:crimson_iron_crop` oraz
+`mysticalagriculture:azure_silver_crop` do tagu bloków
+`ae2:growth_acceleratable`. Naprawia pominięcie obu niestandardowych upraw
+w obsłudze Growth Acceleratorów AE2. Receptury i wymagania upraw pozostają
 takie jak w ATM10A 0.7.1.
 
 Skrypt jest śledzony przez packwiz i instalowany również na serwerze.

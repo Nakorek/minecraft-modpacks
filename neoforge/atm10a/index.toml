@@ -2,7 +2,7 @@ hash-format = "sha256"
 
 [[files]]
 file = "kubejs/server_scripts/modpack/crimson_iron_growth.js"
-hash = "43050d8eaff78e372d6868e142615cd4c5f72927e6e9ff1ee433cadbc50a98f8"
+hash = "c519dadc3c56cf837ad66dd5e1451bbbf8c916ee6c6f7da732befb4d46b03bd3"
 
 [[files]]
 file = "kubejs/server_scripts/modpack/storage_routing_tags.js"
