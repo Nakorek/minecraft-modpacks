@@ -1,0 +1,49 @@
+{
+  "date": "2026-11-04",
+  "decision": {
+    "status": "deferred",
+    "instruction": "Do not install on Roshar or add to the Prism pack without a new explicit user request.",
+    "considered_colonies": "3-4"
+  },
+  "artifact": {
+    "name": "minecoloniesmulticolony-1.0.0.jar",
+    "version": "1.0.0",
+    "curseforge_project_id": 1671716,
+    "curseforge_file_id": 8752957,
+    "url": "https://www.curseforge.com/minecraft/mc-mods/minecolonies-multi-colony-patch/files/8752957",
+    "sha256": "67315002dccd3839097c79c84f84c54c8f5a9198aed11ef687d65320edd0e43b"
+  },
+  "tested_versions": {
+    "minecraft": "1.21.1",
+    "neoforge": "21.1.250",
+    "minecolonies": "1.1.1403"
+  },
+  "scope": {
+    "world": "new disposable world with a copy of Roshar pack files",
+    "client_api_signatures_compared": true,
+    "production_installation": false,
+    "packwiz_entry_added": false
+  },
+  "test_result": {
+    "startup_succeeded": true,
+    "exit_code": 0,
+    "forced_shutdown": false,
+    "patch_loaded": true,
+    "fatal_errors": [],
+    "rain_work_script_loaded": true,
+    "rain_work_script_errors": [],
+    "production_world_opened": false,
+    "production_mods_changed": false,
+    "client_runtime_tested": false,
+    "multiple_colonies_gameplay_tested": false,
+    "patch_sha256": "67315002dccd3839097c79c84f84c54c8f5a9198aed11ef687d65320edd0e43b",
+    "configs": {
+      "config/minecolonies-multicolony": "[general]\n\t#Maximum number of colonies a single player can own at the same time.\n\t#Set to -1 for unlimited colonies.\n\t#Default: -1\n\t# Default: -1\n\t# Range: > -1\n\tmaxColoniesPerPlayer = -1\n\t#Allow players to delete any of their owned colonies individually.\n\t#Default: true\n\tallowIndividualColonyDeletion = true\n"
+    },
+    "command_help": [
+      "[19:19:08] [Server thread/INFO] [minecraft/MinecraftServer]: /mc home [<id>]"
+    ],
+    "success": true
+  },
+  "diagnostics_directory": "/crafty/import/roshar-multicolony-check-20261104/"
+}

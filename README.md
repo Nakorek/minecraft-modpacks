@@ -95,6 +95,38 @@ znajdować się ta sama kopia w `kubejs/server_scripts/modpack/`. Przy aktualiza
 oficjalnej paczki zachowaj ten skrypt razem z pozostałymi własnymi poprawkami.
 Pełne zastosowanie poprawki następuje przy uruchomieniu świata lub serwera.
 
+### Multi-Colony Patch: test i odłożona instalacja
+
+**Decyzja z 2026-11-04: nie instalować teraz.** Użytkownik chce przemyśleć
+dodanie moda; wdrożenie na Rosharze i dodanie do paczki Prisma wymaga jego
+nowego, wyraźnego polecenia.
+
+Sprawdzono [MineColonies Multi-Colony Patch 1.0.0](https://www.curseforge.com/minecraft/mc-mods/minecolonies-multi-colony-patch/files/8752957)
+(CurseForge: projekt `1671716`, plik `8752957`) z Minecraft `1.21.1`,
+NeoForge `21.1.250`, MineColonies `1.1.1403` i pozostałymi modami Rosharu.
+Wymagania dodatku to NeoForge co najmniej `21.1.235` i MineColonies co najmniej
+`1.1.1374-1.21.1-snapshot`.
+
+Próbny serwer z osobną kopią paczki i nowym, pustym światem uruchomił się,
+załadował dodatek i zakończył pracę poprawnie (kod wyjścia `0`). Nie wystąpiły
+błędy nakładania poprawek moda; zarejestrowano komendę `/mc home [<id>]`.
+Statyczne porównanie metod używanych przez poprawkę klientowego Clipboarda
+wykazało zgodne sygnatury API. **Nie uruchamiano klienta z dodatkiem i nie
+testowano rozgrywki z kilkoma działającymi koloniami.** Autor również zaznacza
+brak długotrwałych testów, więc potwierdzona jest zgodność startowa.
+
+W teście dodatek wygenerował plik `config/minecolonies-multicolony`
+(bez rozszerzenia `.toml`), z `maxColoniesPerPlayer = -1` (bez limitu)
+i `allowIndividualColonyDeletion = true`. Rozważany przez użytkownika limit
+to **3–4 kolonie**. Limit dodatku dotyczy pojedynczego gracza; mod pozwala
+jednemu graczowi posiadać kilka kolonii. Wymaga instalacji na kliencie i serwerze.
+
+[Zapis wyniku testu](docs/compatibility/roshar-multicolony-2026-11-04.json)
+zawiera sumę kontrolną pliku i szczegóły sprawdzenia. Pliki diagnostyczne na
+QNAP znajdują się w `/crafty/import/roshar-multicolony-check-20261104/`.
+Test nie otwierał świata produkcyjnego. Dodatek pozostaje wyłącznie w katalogu
+diagnostycznym, poza modami Rosharu i indeksem paczki packwiz.
+
 ### Integracja AE2 z MineColonies na Rosharze
 
 AE2Colonies `1.2.4` dodano do paczki klienta i serwera. Dodatek korzysta z
