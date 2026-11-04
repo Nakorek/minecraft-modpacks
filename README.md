@@ -81,6 +81,20 @@ Przy ponownym imporcie oficjalnej paczki zachowaj również te dodatkowe mody.
 Przed instalacją sprawdzono start na osobnym pustym świecie z modami,
 konfiguracją i skryptami serwera Roshar.
 
+### Praca kolonistów podczas deszczu na Rosharze
+
+Własny skrypt `neoforge/atm10a/kubejs/server_scripts/modpack/minecolonies_rain_work.js`
+przy uruchamianiu serwera lub świata ustawia i zapisuje
+`gameplay.workersalwaysworkinrain = true` w `config/minecolonies-server.toml`.
+Korzysta z API konfiguracji MineColonies i zachowuje pozostałe ustawienia.
+Dzięki temu opcja wraca również po ponownym wygenerowaniu konfiguracji.
+
+Skrypt jest śledzony przez packwiz. Klienci pobierają go przy kolejnym
+uruchomieniu Prisma; działa także w światach jednoosobowych. Na serwerze musi
+znajdować się ta sama kopia w `kubejs/server_scripts/modpack/`. Przy aktualizacji
+oficjalnej paczki zachowaj ten skrypt razem z pozostałymi własnymi poprawkami.
+Pełne zastosowanie poprawki następuje przy uruchomieniu świata lub serwera.
+
 ### Integracja AE2 z MineColonies na Rosharze
 
 AE2Colonies `1.2.4` dodano do paczki klienta i serwera. Dodatek korzysta z

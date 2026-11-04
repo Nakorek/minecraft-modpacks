@@ -5,6 +5,10 @@ file = "kubejs/server_scripts/modpack/crimson_iron_growth.js"
 hash = "c519dadc3c56cf837ad66dd5e1451bbbf8c916ee6c6f7da732befb4d46b03bd3"
 
 [[files]]
+file = "kubejs/server_scripts/modpack/minecolonies_rain_work.js"
+hash = "2046707d568215cd122b0497c2364169d67320d5b8a42e1b578b3d26c3ff2abe"
+
+[[files]]
 file = "kubejs/server_scripts/modpack/storage_routing_tags.js"
 hash = "29a58e718afcde0be340b89003f7dfa96ca4b1aa1e82559e0a3a3ededc022c1e"
 
