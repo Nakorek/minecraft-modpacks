@@ -323,6 +323,11 @@ hash = "88908286eebea979713b5626891f634317fcc4c5a5bd4ec0c9444a33863a4518"
 metafile = true
 
 [[files]]
+file = "mods/byzantine-styles-pack-for-minecolonies.pw.toml"
+hash = "c9bfb203572f19a1a6d02d1770fd35f5bc7fa55317a43e5637c5e1a14b383851"
+metafile = true
+
+[[files]]
 file = "mods/cable-tiers.pw.toml"
 hash = "f187d55fde0a0b8eb09d2b3b4ca6a9901dd9944927915271c37c679cd08fc740"
 metafile = true

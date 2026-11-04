@@ -1,0 +1,62 @@
+{
+  "date": "2026-11-04",
+  "artifact": {
+    "name": "Byzantine-1.21.1-51.1.jar",
+    "version": "51.1",
+    "curseforge_project_id": 974855,
+    "curseforge_file_id": 9002815,
+    "sha1": "88cc489d75b7e6447b34cdd84e66df5f533cd196",
+    "sha256": "9be27c2123d8128b55663b591e91cd90927c9e59de7ad951119afacba7dbfa4c"
+  },
+  "tested_versions": {
+    "minecraft": "1.21.1",
+    "neoforge": "21.1.250",
+    "minecolonies": "1.1.1403",
+    "structurize": "1.0.832"
+  },
+  "test_result": {
+    "startup_succeeded": true,
+    "exit_code": 0,
+    "forced_shutdown": false,
+    "style_pack_loaded": true,
+    "validation": {
+      "modLoaded": true,
+      "packs": [
+        {
+          "name": "Shogun",
+          "loaded": true,
+          "version": 23.4
+        },
+        {
+          "name": "Byzantine_for_1.20",
+          "loaded": true,
+          "version": 22.1
+        },
+        {
+          "name": "Nile",
+          "loaded": true,
+          "version": 1.15
+        },
+        {
+          "name": "Rebel_Base",
+          "loaded": true,
+          "version": 0.2
+        }
+      ],
+      "builderBytes": 2285,
+      "townhallBytes": 2684
+    },
+    "fatal_errors": [],
+    "rain_work_script_loaded": true,
+    "rain_work_script_errors": [],
+    "production_world_opened": false,
+    "production_mods_changed": false,
+    "client_runtime_tested": false,
+    "build_tool_client_runtime_tested": false,
+    "style_jar_sha256": "9be27c2123d8128b55663b591e91cd90927c9e59de7ad951119afacba7dbfa4c",
+    "multi_colony_patch_installed": false,
+    "success": true
+  },
+  "diagnostics_directory": "/crafty/import/roshar-shogun-check-20261104/",
+  "multi_colony_patch_decision": "Still deferred; this installation only adds the Byzantine style pack."
+}

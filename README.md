@@ -81,6 +81,24 @@ Przy ponownym imporcie oficjalnej paczki zachowaj również te dodatkowe mody.
 Przed instalacją sprawdzono start na osobnym pustym świecie z modami,
 konfiguracją i skryptami serwera Roshar.
 
+### Style Shogun, Byzantine i Nile na Rosharze
+
+Dodano [Byzantine Styles Pack 51.1](https://www.curseforge.com/minecraft/mc-mods/byzantine-styles-pack-for-minecolonies/files/9002815)
+autorstwa Spumantii: plik `Byzantine-1.21.1-51.1.jar`, CurseForge projekt
+`974855`, plik `9002815`. Pakiet udostępnia **Shogun 23.4** (1412 schematów),
+`Byzantine_for_1.20`, `Nile` oraz dodatkowy, oznaczony przez autora jako testowy
+`Rebel_Base`. Minecraft, NeoForge, MineColonies i biblioteki pozostają
+w dotychczasowych wersjach.
+
+Pakiet jest zainstalowany na serwerze. Prism pobiera tę samą wersję przez
+istniejący bootstrap packwiz. W Build Tool można wybrać Shogun do nowych
+budów i zlecanych przebudów. Samo dodanie schematów nie przebudowuje kolonii.
+Przy ponownym imporcie lub aktualizacji oficjalnej paczki zachowaj ten dodatek.
+
+Przed wdrożeniem sprawdzono start na osobnym pustym świecie i potwierdzono
+wczytanie czterech pakietów przez Structurize oraz odczyt schematów chaty
+budowniczego i ratusza Shogun. [Wynik próby](docs/compatibility/roshar-shogun-2026-11-04.json).
+
 ### Praca kolonistów podczas deszczu na Rosharze
 
 Własny skrypt `neoforge/atm10a/kubejs/server_scripts/modpack/minecolonies_rain_work.js`
