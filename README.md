@@ -113,6 +113,25 @@ znajdować się ta sama kopia w `kubejs/server_scripts/modpack/`. Przy aktualiza
 oficjalnej paczki zachowaj ten skrypt razem z pozostałymi własnymi poprawkami.
 Pełne zastosowanie poprawki następuje przy uruchomieniu świata lub serwera.
 
+### Wyłączone najazdy na kolonię Tilanary na Rosharze
+
+Stan na **2026-11-08**: najazdy MineColonies na kolonię **WisePeak**
+(Tilanara, ID `1`) są wyłączone. Użyta komenda operatora:
+
+```mcfunction
+/mc colony canSpawnRaiders 1 false
+```
+
+Ustawienie dotyczy kolonii `1` i jest zapisywane w danych świata. Komenda
+nie wymaga restartu serwera. W konsoli Crafty wpisuje się ją bez początkowego `/`.
+Aby ponownie włączyć najazdy dla tej kolonii:
+
+```mcfunction
+/mc colony canSpawnRaiders 1 true
+```
+
+[Opis komendy w dokumentacji MineColonies](https://minecolonies.com/wiki/misc/command/#colony-commands).
+
 ### Multi-Colony Patch: test i odłożona instalacja
 
 **Decyzja z 2026-11-04: nie instalować teraz.** Użytkownik chce przemyśleć
