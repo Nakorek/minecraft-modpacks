@@ -113,6 +113,32 @@ znajdować się ta sama kopia w `kubejs/server_scripts/modpack/`. Przy aktualiza
 oficjalnej paczki zachowaj ten skrypt razem z pozostałymi własnymi poprawkami.
 Pełne zastosowanie poprawki następuje przy uruchomieniu świata lub serwera.
 
+### Ładowanie całej kolonii na Rosharze
+
+Od **2026-11-11** Roshar używa ustawień w `config/minecolonies-server.toml`:
+
+```toml
+[gameplay]
+forceloadcolony = true
+colonyloadstrictness = 1
+```
+
+MineColonies utrzymuje wszystkie zajęte chunki kolonii, kiedy właściciel lub
+oficer przebywa w jej zasięgu. Może stać w jednym miejscu; dodatkowe ładowanie
+kolonii przez FTB Chunks nie jest potrzebne. Zachowano `loadtime = 20`, czyli
+20 minut dodatkowego ładowania po odejściu gracza. To ustawienie nie oznacza
+stałego działania kolonii bez obecności graczy.
+
+Własny skrypt `neoforge/atm10a/kubejs/server_scripts/modpack/minecolonies_chunk_loading.js`
+przy starcie serwera lub świata ustawia i zapisuje obie opcje przez API
+MineColonies, również po ponownym wygenerowaniu konfiguracji. Zachowuje czas
+ładowania i pozostałe ustawienia. Skrypt jest śledzony przez packwiz, więc
+Prism pobiera go przy następnym uruchomieniu. Na serwerze zachowaj tę samą kopię
+w `kubejs/server_scripts/modpack/` przy aktualizacjach oficjalnej paczki.
+Zmiany stosuj przy zatrzymanym serwerze; obowiązują po jego uruchomieniu.
+
+[Opis opcji ładowania w dokumentacji MineColonies](https://minecolonies.com/wiki/misc/configfile/).
+
 ### Wyłączone najazdy na kolonię Tilanary na Rosharze
 
 Stan na **2026-11-08**: najazdy MineColonies na kolonię **WisePeak**
