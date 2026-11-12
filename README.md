@@ -17,6 +17,12 @@ Stare światy Roshar i kTiliNakor zostały wycofane i usunięte z Crafty.
 Nowy Roshar to osobna instancja ATM10A bez migracji świata. Historia starej
 konfiguracji pozostaje w Git.
 
+## Poradniki do Rosharu
+
+- [Vibranium Arcanist — trzy zestawy nici](docs/roshar/vibranium-arcanist-nici.md):
+  pełne rozpiski slotów dla walki mieszanej, eksploracji i trudniejszych walk,
+  opisy efektów, porównanie oraz wspólna lista nici do przygotowania.
+
 ## ATM10A
 
 `neoforge/atm10a` zawiera listę modów klienta importowaną z oficjalnego
