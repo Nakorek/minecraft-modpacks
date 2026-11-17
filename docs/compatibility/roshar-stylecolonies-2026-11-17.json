@@ -1,0 +1,164 @@
+{
+  "startup_succeeded": true,
+  "exit_code": 0,
+  "forced_shutdown": false,
+  "style_pack_loaded": true,
+  "validation": {
+    "modLoaded": true,
+    "packs": [
+      {
+        "name": "Tropical",
+        "version": 2,
+        "blueprints": [
+          {
+            "path": "fundamentals/builder1.blueprint",
+            "bytes": 1928,
+            "parsed": true
+          },
+          {
+            "path": "fundamentals/builder5.blueprint",
+            "bytes": 7338,
+            "parsed": true
+          },
+          {
+            "path": "fundamentals/townhall1.blueprint",
+            "bytes": 2171,
+            "parsed": true
+          },
+          {
+            "path": "fundamentals/townhall5.blueprint",
+            "bytes": 18230,
+            "parsed": true
+          }
+        ]
+      },
+      {
+        "name": "Steampunk",
+        "version": 127,
+        "blueprints": [
+          {
+            "path": "fundamentals/builder1.blueprint",
+            "bytes": 1497,
+            "parsed": true
+          },
+          {
+            "path": "fundamentals/builder5.blueprint",
+            "bytes": 5194,
+            "parsed": true
+          },
+          {
+            "path": "fundamentals/townhall1.blueprint",
+            "bytes": 9217,
+            "parsed": true
+          },
+          {
+            "path": "fundamentals/townhall5.blueprint",
+            "bytes": 18343,
+            "parsed": true
+          }
+        ]
+      }
+    ],
+    "shogunLoaded": true
+  },
+  "fatal_errors": [],
+  "rain_work_script_loaded": true,
+  "rain_work_script_errors": [],
+  "production_world_opened": false,
+  "production_mods_changed": false,
+  "client_runtime_tested": false,
+  "build_tool_client_runtime_tested": false,
+  "style_jar_sha256": "c5a6075394a7e83b26f843e266f17762272b640ba5e7cff0f0d1860f058e3b62",
+  "multi_colony_patch_installed": false,
+  "success": true,
+  "test_scope": "isolated_full_pack_world",
+  "date": "2026-11-17",
+  "minecraft": "1.21.1",
+  "neoforge": "21.1.250",
+  "minecolonies": "1.1.1403",
+  "structurize": "1.0.832",
+  "stylecolonies": "1.15.68",
+  "curseforge": {
+    "project_id": 827507,
+    "file_id": 9447179
+  },
+  "filename": "stylecolonies-1.15.68-1.21.1.jar",
+  "sha1": "75c72f38afc02958a80c958555283e657d13c811",
+  "included_styles": [
+    {
+      "name": "Hive",
+      "version": 1,
+      "blueprints": 341
+    },
+    {
+      "name": "Steampunk",
+      "version": "127",
+      "blueprints": 562
+    },
+    {
+      "name": "Functional Fantasy",
+      "version": 1.6,
+      "blueprints": 457
+    },
+    {
+      "name": "FairyTale",
+      "version": "1",
+      "blueprints": 255
+    },
+    {
+      "name": "High Magic",
+      "version": 2,
+      "blueprints": 344
+    },
+    {
+      "name": "Underwater Base",
+      "version": 45,
+      "blueprints": 351
+    },
+    {
+      "name": "Frontier",
+      "version": "112",
+      "blueprints": 476
+    },
+    {
+      "name": "Antique",
+      "version": 6,
+      "blueprints": 375
+    },
+    {
+      "name": "Corrupted",
+      "version": "4",
+      "blueprints": 318
+    },
+    {
+      "name": "Crimson Keep",
+      "version": "6",
+      "blueprints": 363
+    },
+    {
+      "name": "Tropical",
+      "version": "2.0",
+      "blueprints": 307
+    },
+    {
+      "name": "Farthest Frontier",
+      "version": 1,
+      "blueprints": 527
+    },
+    {
+      "name": "Aquatica",
+      "version": "200",
+      "blueprints": 623
+    }
+  ],
+  "requested_blueprints_static_check": {
+    "parsed": 869,
+    "tropical": 307,
+    "steampunk": 562
+  },
+  "server_installation": {
+    "installed": true,
+    "sha256": "c5a6075394a7e83b26f843e266f17762272b640ba5e7cff0f0d1860f058e3b62",
+    "production_started": false
+  }
+}

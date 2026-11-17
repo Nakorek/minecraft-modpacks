@@ -105,6 +105,32 @@ Przed wdrożeniem sprawdzono start na osobnym pustym świecie i potwierdzono
 wczytanie czterech pakietów przez Structurize oraz odczyt schematów chaty
 budowniczego i ratusza Shogun. [Wynik próby](docs/compatibility/roshar-shogun-2026-11-04.json).
 
+### Style Tropical i Steampunk na Rosharze
+
+Dodatek [Stylecolonies 1.15.68](https://www.curseforge.com/minecraft/mc-mods/stylecolonies/files/9447179)
+zawiera **Tropical 2.0** (307 schematów) oraz **Steampunk 127** (562 schematy).
+Plik: `stylecolonies-1.15.68-1.21.1.jar`, CurseForge projekt `827507`, plik
+`9447179`. Dodatek zawiera również inne pakiety stylów; część z nich wymaga
+opcjonalnych modów. Tropical i Steampunk korzystają z bibliotek już obecnych
+na Rosharze: MineColonies, Structurize i Domum Ornamentum.
+
+Wersja jest przypięta w packwiz i przeznaczona dla Minecraft `1.21.1` oraz
+NeoForge. Klienci pobierają ją przy kolejnym uruchomieniu Prisma przez
+istniejący bootstrap. Taki sam plik musi znajdować się w katalogu `mods/`
+serwera. Po dodaniu wymagane jest ponowne uruchomienie gry i serwera.
+W Build Tool można wybrać Tropical lub Steampunk przy nowych budowach oraz
+przebudowach. Tropical jest stylem na palach nad płytką wodą.
+
+Przy aktualizacji lub ponownym imporcie oficjalnej paczki ATM10A zachowaj
+Stylecolonies razem z dotychczasowymi dodatkami MineColonies.
+
+Przed wdrożeniem sprawdzono start pełnej paczki na osobnym świecie, wczytanie
+obu pakietów oraz pełny odczyt ośmiu schematów: chat budowniczego i ratuszy
+na poziomach 1 i 5. Potwierdzono również dostępność dotychczasowego Shogun.
+Statycznie odczytano wszystkie 869 schematów Tropical i Steampunk.
+[Wynik próby](docs/compatibility/roshar-stylecolonies-2026-11-17.json).
+Nie wykonywano próby w interfejsie klienta.
+
 ### Praca kolonistów podczas deszczu na Rosharze
 
 Własny skrypt `neoforge/atm10a/kubejs/server_scripts/modpack/minecolonies_rain_work.js`

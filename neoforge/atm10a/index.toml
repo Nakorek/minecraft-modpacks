@@ -1947,6 +1947,11 @@ hash = "be50160d9d37a186eaf955f39f22a4e1a3d76fb4e61c63aaca25fd5ab2124f9e"
 metafile = true
 
 [[files]]
+file = "mods/stylecolonies.pw.toml"
+hash = "f04f42b37c442cb9eaa46bb6f3577b6409c052cfb1b29d534b07aed88278fcbd"
+metafile = true
+
+[[files]]
 file = "mods/super-factory-manager-retro.pw.toml"
 hash = "aed59b0b6f4b8406f7c26b292b4d44031c9dfb4cd1903ba20e8c84ed31f6ded9"
 metafile = true
