@@ -19,7 +19,7 @@ konfiguracji pozostaje w Git.
 
 ## Poradniki do Rosharu
 
-- [Vibranium Arcanist — trzy zestawy nici](docs/roshar/vibranium-arcanist-nici.md):
+- [Unobtainium Arcanist — trzy zestawy nici](docs/roshar/vibranium-arcanist-nici.md):
   pełne rozpiski slotów dla walki mieszanej, eksploracji i trudniejszych walk,
   opisy efektów, porównanie oraz wspólna lista nici do przygotowania.
 

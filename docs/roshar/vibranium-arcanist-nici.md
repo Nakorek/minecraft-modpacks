@@ -1,103 +1,120 @@
 [← Wróć do dokumentacji Rosharu](../../README.md#poradniki-do-rosharu)
 
-# Roshar — Vibranium Arcanist: 3 zestawy nici
+# Roshar — Unobtainium Arcanist: 3 zestawy nici
 
 **Dobór dla:** walki bronią i czarami Ars Nouveau mniej więcej po równo, z lataniem z nici Flight.
 
-**Data opracowania:** 12 listopada 2026 r.
+**Pierwsza wersja:** 12 listopada 2026 r. **Aktualizacja:** 19 listopada 2026 r.
+
+## Co zmieniliśmy
+
+- Zestawy są teraz rozpisane dla **Unobtainium Arcanist z odblokowanymi slotami IV, V i VI**.
+- **The Starbuncle usuwamy ze wszystkich wariantów.** Masz już wystarczającą szybkość z pozostałego wyposażenia i efektów.
+- Zwolnione miejsca przeznaczamy na leczenie czarami, kontrolę przeciwników oraz wykrywanie stworzeń.
+- Przeliczamy bonusy dla nowych poziomów: m.in. **6 dodatkowych serc**, **50% więcej maksymalnej many** oraz **100% albo 120% leczenia od obrażeń czarów Ars**.
+- Poprawiamy wskazówkę do JEI: nić z Ars Additions nazywa się po prostu **Reach**.
 
 ## Jak czytać rozpiski
 
-- Każda część zbroi Vibranium Arcanist w Waszej wersji ma trzy sloty: **III, IV i V**. Cały komplet mieści **12 nici**.
-- Cyfra oznacza **poziom slotu**, do którego wkładasz nić. Nie musisz osobno wytwarzać nici poziomu III, IV czy V.
-- W JEI szukaj poniższych nazw jako **Thread of…**, np. `Thread of Life Drain`.
-- Każdy rodzaj nici w danym zestawie występuje tylko raz. Powielanie tej samej nici nie daje prostego sumowania jej efektów.
-- Rozmieszczenie na częściach zbroi służy łatwemu odtworzeniu zestawu. Przy tych niciach najważniejszy jest **poziom slotu** i noszenie danej części.
+- Każda w pełni rozwinięta część tego kompletu ma **jeden slot IV, jeden V i jeden VI**. Łącznie to **12 nici**.
+- Poziom slotów zależy również od rozwinięcia zbroi w **Enchanting Apparatus**. Po ulepszeniu materiału sprawdź dostępne sloty w **Alteration Table**; jeśli nadal widzisz III, IV i V, potrzebne jest dalsze ulepszenie poziomu nici.
+- Cyfra w kolumnie oznacza **poziom slotu**, do którego wkładasz nić. Nie wytwarzasz osobnych wersji nici IV, V czy VI.
+- W JEI wpisuj nazwę efektu, np. `Life Drain`, `Flight` lub `Reach`. Dla Reach możesz użyć także `@ars_additions reach`.
+- Każdy rodzaj nici występuje w danym komplecie tylko raz. Powielanie tej samej nici nie daje prostego sumowania jej efektów.
+- Nici wkładasz i przekładasz w **Alteration Table**. Tabele pokazują cały komplet, żeby można było odtworzyć wybrany wariant bez składania go z kilku opisów.
 
-**Na początek polecam wariant 1.** Pozostałe dwa można przetestować, przekładając nici na tym samym komplecie w Alteration Table.
+**Na początek polecam wariant 1.** Pozostałe dwa służą do porównania na tym samym komplecie zbroi.
 
 ## 1. Hybryda — zestaw na co dzień
 
-**Zastosowanie:** zwykła walka, wyprawy, korzystanie z broni i czarów bez częstego zmieniania wyposażenia.
+**Zastosowanie:** zwykła walka, wyprawy oraz przeplatanie ataków bronią czarami.
 
-| Część zbroi | Slot III | Slot IV | Slot V |
+| Część zbroi | Slot IV | Slot V | Slot VI |
 | --- | --- | --- | --- |
-| Czapka — Hat | **Undying** | **True Sight** | **Vitality** |
-| Szata — Robes | **Life Drain** | **Flight** | **Spell Power** |
-| Spodnie — Leggings | **Reach** | **Magic Capacity** | **Warding** |
-| Buty — Boots | **Depths** | **The Starbuncle** | **The Amethyst Golem** |
+| Czapka — Hat | **True Sight** | **Magic Capacity** | **Vitality** |
+| Szata — Robes | **Flight** | **Life Drain** | **Spell Power** |
+| Spodnie — Leggings | **Undying** | **Reach** | **Warding** |
+| Buty — Boots | **Depths** | **Chilling** | **The Amethyst Golem** |
 
 ### Co daje ten komplet
 
 - **Flight IV:** swobodne latanie jak w trybie kreatywnym.
-- **True Sight IV:** widzenie nocą, ochronę przed Blindness i Darkness oraz lepszą widoczność w lawie.
-- **Vitality V:** bazowo **5 dodatkowych serc**.
-- **The Amethyst Golem V:** **75% odporności na odrzut** z tej nici.
-- **Life Drain III:** leczy za **60% obrażeń zadanych czarami Ars**. W walce mieszanej możesz odzyskiwać zdrowie czarami pomiędzy atakami bronią.
-- **Spell Power V:** wzmacnia obrażenia czarów Ars, a **Magic Capacity IV** zwiększa maksymalną manę o **40%**.
-- **Warding V:** zapewnia dodatkową ochronę przed obrażeniami magicznymi.
-- **Reach III:** dodaje **3 bloki** do zasięgu interakcji z blokami i istotami.
-- **The Starbuncle IV:** daje bonus **80% do szybkości poruszania się po ziemi**.
-- **Depths III:** zapewnia szybkie pływanie. Przywraca w ten sposób przydatną funkcję, którą dawały zwykłe spodnie Vibranium.
-- **Undying III:** jednorazowo ratuje przed śmiercią; odnawia się po Twoim śnie.
+- **True Sight IV:** widzenie nocą i pod wodą, ochronę przed Blindness i Darkness oraz lepszą widoczność w lawie.
+- **Vitality VI:** bazowo **6 dodatkowych serc**.
+- **Magic Capacity V:** **50% więcej maksymalnej many** z tej nici.
+- **Life Drain V:** leczy za **100% obrażeń zadanych czarami Ars**. Przykładowo 10 punktów obrażeń z czaru daje bazowo 10 punktów leczenia, czyli 5 serc, do limitu Twojego zdrowia.
+- **Spell Power VI:** dodatkową moc czarów Ars w najwyższym dostępnym slocie.
+- **Warding VI:** dodatkową ochronę przed obrażeniami magicznymi.
+- **Reach V:** **5 dodatkowych bloków zasięgu interakcji** z blokami i istotami.
+- **Depths IV:** szybkie pływanie. Przy tej zbroi jest przydatne głównie dla prędkości w wodzie, ponieważ ochronę przed utonięciem zapewnia już czapka.
+- **Chilling V:** efekty czarów zadające obrażenia nakładają **Freezing na 50 sekund** na podatne cele.
+- **The Amethyst Golem VI:** **90% odporności na odrzut** z tej nici.
+- **Undying IV:** jednorazowe ocalenie przed śmiercią, odnawiane po Twoim śnie. Slot IV nie daje dodatkowych ocalonych żyć względem progu III.
+
+Ten wariant łączy moc czarów, leczenie, odporność na odrzut i wygodę poruszania się w wodzie. Jest punktem wyjścia do pozostałych dwóch zestawów.
 
 ## 2. Eksploracja — odkrywanie świata i zbieranie łupów
 
-**Zastosowanie:** jaskinie, szukanie stworzeń, eksploracja struktur, zbieranie materiałów i wygodna obsługa bloków z większej odległości.
+**Zastosowanie:** jaskinie, szukanie stworzeń, eksploracja struktur i zbieranie materiałów z większej odległości.
 
-| Część zbroi | Slot III | Slot IV | Slot V |
+| Część zbroi | Slot IV | Slot V | Slot VI |
 | --- | --- | --- | --- |
-| Czapka — Hat | **Undying** | **True Sight** | **Vitality** |
-| Szata — Robes | **Life Drain** | **Flight** | **Reach** |
-| Spodnie — Leggings | **The Drygmy** | **Magic Capacity** | **Warding** |
-| Buty — Boots | **Depths** | **The Starbuncle** | **Spectral Sight** |
+| Czapka — Hat | **True Sight** | **Magic Capacity** | **Vitality** |
+| Szata — Robes | **Flight** | **Life Drain** | **Reach** |
+| Spodnie — Leggings | **Undying** | **The Drygmy** | **Warding** |
+| Buty — Boots | **Depths** | **The Amethyst Golem** | **Spectral Sight** |
 
 ### Co daje ten komplet
 
-- Zachowuje **latanie, True Sight, 5 dodatkowych serc, ochronę przed magią, szybkie pływanie i leczenie czarami** z wariantu 1.
-- **Reach V:** zwiększa bonus do zasięgu interakcji do **5 bloków**.
-- **Spectral Sight V:** pozwala widzieć stworzenia przez ściany; pomaga odnajdywać moby w jaskiniach i strukturach.
-- **The Drygmy III:** zwiększa łupy ze stworzeń.
-- **The Starbuncle IV** nadal przyspiesza przemieszczanie się po ziemi.
+- Zachowuje **Flight IV, True Sight IV, 6 dodatkowych serc, 50% więcej maksymalnej many, Life Drain V i Warding VI** z wariantu 1.
+- **Reach VI:** zwiększa bonus do zasięgu interakcji do **6 bloków**.
+- **Spectral Sight VI:** pozwala widzieć stworzenia przez ściany; najwyższy slot przeznaczamy na większy zasięg ich wykrywania.
+- **The Drygmy V:** zwiększa łupy ze stworzeń.
+- **Depths IV:** zachowuje szybkie pływanie.
+- **The Amethyst Golem V:** daje **75% odporności na odrzut** z tej nici.
 
-W tym wariancie sloty zajmowane przez Spell Power i Amethyst Golem służą większemu zasięgowi i wykrywaniu stworzeń. Zestaw zapewnia wygodę eksploracji kosztem dodatkowej mocy czarów i odporności na odrzut z tych nici.
+Sloty zajmowane przez Spell Power i Chilling służą tu większemu zasięgowi interakcji, wykrywaniu stworzeń i łupom. Leczenie czarami pozostaje na poziomie 100% zadanych obrażeń.
 
-### Zmiany względem wariantu 1
+### Przejście z wariantu 1
 
 | Miejsce | Zmiana |
 | --- | --- |
-| Szata, V | Spell Power → **Reach**; przełóż nić Reach ze spodni |
-| Spodnie, III | Reach → **The Drygmy** |
-| Buty, V | The Amethyst Golem → **Spectral Sight** |
+| Szata, VI | Spell Power → **Reach**; przełóż ze spodni |
+| Spodnie, V | Reach → **The Drygmy** |
+| Buty, V | Chilling → **The Amethyst Golem**; przełóż ze slotu VI |
+| Buty, VI | The Amethyst Golem → **Spectral Sight** |
 
-## 3. Trudniejsza walka — leczenie czarami i kontrola przeciwników
+## 3. Trudniejsza walka — moc czarów i silniejsze leczenie
 
-**Zastosowanie:** podziemia, większe grupy przeciwników i walki, w których często rzucasz czary zadające obrażenia.
+**Zastosowanie:** walki, w których regularnie trafiasz ofensywnymi czarami Ars i chcesz mocniej odbudowywać zdrowie między atakami bronią.
 
-| Część zbroi | Slot III | Slot IV | Slot V |
+| Część zbroi | Slot IV | Slot V | Slot VI |
 | --- | --- | --- | --- |
-| Czapka — Hat | **Undying** | **True Sight** | **Vitality** |
-| Szata — Robes | **The Starbuncle** | **Flight** | **Spell Power** |
-| Spodnie — Leggings | **Reach** | **Magic Capacity** | **Warding** |
-| Buty — Boots | **Chilling** | **Life Drain** | **The Amethyst Golem** |
+| Czapka — Hat | **True Sight** | **Magic Capacity** | **Vitality** |
+| Szata — Robes | **Flight** | **Spectral Sight** | **Spell Power** |
+| Spodnie — Leggings | **Undying** | **Reach** | **Warding** |
+| Buty — Boots | **Chilling** | **The Amethyst Golem** | **Life Drain** |
 
 ### Co daje ten komplet
 
-- **Life Drain IV:** zwiększa leczenie do **80% obrażeń zadanych czarami Ars**.
-- **Chilling III:** czary zadające obrażenia nakładają **Freezing II**, wspierając kontrolę przeciwników podatnych na ten efekt.
-- Zachowuje **Spell Power V, 5 dodatkowych serc, 75% odporności na odrzut, Warding, latanie i True Sight**.
-- **The Starbuncle III:** daje bonus **60% do szybkości poruszania się po ziemi**. Wolniejszy ruch niż w wariancie 1 może ułatwiać kontrolowanie pozycji podczas walki.
-- Slot Depths zajmuje Chilling, więc ten wariant nie zapewnia dodatkowego przyspieszenia pływania z nici.
+- **Life Drain VI:** leczy bazowo za **120% obrażeń zadanych czarami Ars**. Przykładowo 10 punktów obrażeń z czaru daje 12 punktów leczenia, czyli 6 serc, do limitu Twojego zdrowia.
+- Zachowuje **Spell Power VI, Vitality VI, Magic Capacity V, Warding VI, Reach V, Flight IV, True Sight IV i Undying IV**.
+- **Chilling IV:** nakłada Freezing na podatne cele na **40 sekund**. Wyższy slot wydłużyłby ten czas; tutaj przeznaczamy go na leczenie.
+- **Spectral Sight V:** pomaga wykrywać przeciwników za ścianami i przeszkodami.
+- **The Amethyst Golem V:** daje **75% odporności na odrzut** z tej nici.
 
-**Life Drain działa od obrażeń czarów Ars.** Leczenie wykorzystasz najlepiej, regularnie przeplatając ataki bronią czarami ofensywnymi.
+Względem hybrydy zwiększasz leczenie ze 100% do 120% obrażeń czarów i zyskujesz wykrywanie stworzeń. Rezygnujesz z szybkiego pływania z Depths, a bonus odporności na odrzut spada z 90% do 75%.
 
-### Zmiany względem wariantu 1
+**Life Drain działa od obrażeń czarów Ars.** Sama walka mieczem nie uruchamia leczenia z tej nici. Efekty zwiększające otrzymywane leczenie mogą dodatkowo zmienić rzeczywisty wynik.
+
+### Przejście z wariantu 1
 
 | Miejsce | Zmiana |
 | --- | --- |
-| Szata, III | Life Drain → **The Starbuncle**; przełóż ze slotu IV butów |
-| Buty, IV | The Starbuncle → **Life Drain**; przełóż ze slotu III szaty |
-| Buty, III | Depths → **Chilling** |
+| Szata, V | Life Drain → **Spectral Sight** |
+| Buty, IV | Depths → **Chilling**; przełóż ze slotu V |
+| Buty, V | Chilling → **The Amethyst Golem**; przełóż ze slotu VI |
+| Buty, VI | The Amethyst Golem → **Life Drain**; przełóż z szaty |
 
 ## Porównanie trzech wariantów
 
@@ -105,37 +122,38 @@ W tym wariancie sloty zajmowane przez Spell Power i Amethyst Golem służą wię
 | --- | --- | --- | --- |
 | Główne zastosowanie | Codzienna walka i wyprawy | Odkrywanie świata i łupy | Częste używanie ofensywnych czarów |
 | Swobodne latanie | Flight IV | Flight IV | Flight IV |
-| Widzenie nocą, ochrona przed Darkness, widoczność w lawie | True Sight IV | True Sight IV | True Sight IV |
-| Dodatkowe zdrowie z Vitality | +5 serc | +5 serc | +5 serc |
-| Leczenie od obrażeń czarów Ars | 60% | 60% | 80% |
-| Bonus do maksymalnej many | +40% | +40% | +40% |
-| Dodatkowa moc czarów z nici | Spell Power V | — | Spell Power V |
-| Ochrona przed magią z nici | Warding V | Warding V | Warding V |
-| Odporność na odrzut z nici | 75% | — | 75% |
-| Bonus do szybkości ruchu po ziemi | +80% | +80% | +60% |
-| Dodatkowy zasięg interakcji | +3 bloki | +5 bloków | +3 bloki |
-| Przyspieszone pływanie | Depths III | Depths III | — |
-| Widzenie stworzeń przez ściany | — | Spectral Sight V | — |
-| Więcej łupów z nici | — | The Drygmy III | — |
-| Zamrażanie przeciwników czarami | — | — | Chilling III |
-| Jednorazowe ocalenie odnawiane snem | Undying III | Undying III | Undying III |
+| Widzenie nocą i w lawie, ochrona przed Darkness | True Sight IV | True Sight IV | True Sight IV |
+| Dodatkowe zdrowie z Vitality | +6 serc | +6 serc | +6 serc |
+| Leczenie od obrażeń czarów Ars | **100% — Life Drain V** | **100% — Life Drain V** | **120% — Life Drain VI** |
+| Bonus do maksymalnej many | +50% | +50% | +50% |
+| Dodatkowa moc czarów z nici | Spell Power VI | — | Spell Power VI |
+| Ochrona przed magią z nici | Warding VI | Warding VI | Warding VI |
+| Odporność na odrzut z nici | 90% | 75% | 75% |
+| Dodatkowy zasięg interakcji | +5 bloków | +6 bloków | +5 bloków |
+| Przyspieszone pływanie | Depths IV | Depths IV | — |
+| Widzenie stworzeń przez ściany | — | Spectral Sight VI | Spectral Sight V |
+| Więcej łupów z nici | — | The Drygmy V | — |
+| Zamrażanie przeciwników czarami | Chilling V — 50 s | — | Chilling IV — 40 s |
+| Jednorazowe ocalenie odnawiane snem | Undying IV | Undying IV | Undying IV |
+| Dodatkowe przyspieszenie biegu z nici | Brak | Brak | Brak |
 
-Podane liczby opisują bonusy z nici. Końcowe statystyki postaci mogą dodatkowo zależeć od enchantów, klejnotów, afiksów, innych przedmiotów i efektów.
+Podane liczby opisują bonusy z nici. Końcowe statystyki mogą dodatkowo zależeć od enchantów, klejnotów, afiksów, innych przedmiotów i efektów. Odporność na odrzut ma limit — jeśli inne wyposażenie już go zapewnia, miejsce Golema można później przeznaczyć na inną nić.
 
 ## Dlaczego takie poziomy slotów
 
-- **Flight potrzebuje IV.** Slot V nie jest potrzebny do uzyskania swobodnego lotu.
-- **True Sight w IV** udostępnia już widoczność w lawie oraz wcześniejsze funkcje widzenia i odporności.
-- **Undying potrzebuje III.** Wyższy slot nie daje kolejnych ocalonych żyć przed następnym snem.
-- **Depths w III** osiąga próg przyspieszonego pływania.
-- **Chilling w III** osiąga próg Freezing II.
-- **Sloty V** wykorzystujemy na efekty, które korzystają z wyższego poziomu: zdrowie, moc czarów, Warding, odporność na odrzut, zasięg lub widzenie stworzeń.
+- **Flight i True Sight umieszczamy w IV:** ten poziom wystarcza do ich najważniejszych funkcji.
+- **Undying w IV:** to najniższy dostępny tu slot; wyższy nie zwiększa liczby ocalonych żyć przed kolejnym snem.
+- **Depths w IV:** próg szybkiego pływania jest już osiągnięty.
+- **Life Drain w V lub VI:** bezpośrednio zmieniamy udział obrażeń czarów zamieniany na leczenie: 100% albo 120%.
+- **Vitality w VI:** wykorzystujemy skalowanie zdrowia do 6 serc.
+- **Chilling w IV lub V:** oba sloty zapewniają zamrażanie; V wydłuża czas z 40 do 50 sekund.
+- Pozostałe **sloty VI** wykorzystujemy na moc czarów, Warding, odporność na odrzut albo zasięg interakcji i wykrywania stworzeń.
 
 ## Co przygotować i jak przełączać warianty
 
-Do testowania wszystkich wariantów na **jednym komplecie zbroi** wystarczy **15 różnych nici — po jednej sztuce każdego rodzaju**:
+Do testowania wszystkich wariantów na **jednym komplecie zbroi** wystarczy **14 różnych nici — po jednej sztuce każdego rodzaju**:
 
-| Nić | Warianty |
+| Nić — nazwa do wyszukania w JEI | Warianty |
 | --- | --- |
 | Undying | 1, 2, 3 |
 | True Sight | 1, 2, 3 |
@@ -147,30 +165,31 @@ Do testowania wszystkich wariantów na **jednym komplecie zbroi** wystarczy **15
 | Magic Capacity | 1, 2, 3 |
 | Warding | 1, 2, 3 |
 | Depths | 1, 2 |
-| The Starbuncle | 1, 2, 3 |
-| The Amethyst Golem | 1, 3 |
+| The Amethyst Golem | 1, 2, 3 |
 | The Drygmy | 2 |
-| Spectral Sight | 2 |
-| Chilling | 3 |
+| Spectral Sight | 2, 3 |
+| Chilling | 1, 3 |
 
-Nici przekładasz w **Alteration Table**. Przed zmianą wariantu wyjmij przenoszone nici z dotychczasowych slotów, a następnie umieść je zgodnie z pełną tabelą danego zestawu.
+Przed przekładaniem w **Alteration Table** wyjmij przenoszone nici z dotychczasowych slotów. Następnie odtwórz pełną tabelę wybranego wariantu.
 
-**Feather i Repairing pomijamy przy doborze dla samej zbroi:** Vibranium Arcanist już chroni przed upadkiem i jest niezniszczalne. Pozostaje też jego wbudowana ochrona przed utonięciem, ogniem, lawą, Witherem i zderzeniami podczas lotu elytrą, zapewniana przez odpowiednie założone części.
+**Feather i Repairing pomijamy przy doborze dla samej zbroi:** Unobtainium Arcanist chroni przed upadkiem i jest niezniszczalne. Odpowiednie założone części zapewniają też ochronę przed utonięciem, ogniem i lawą, Witherem, smoczym oddechem, Lewitacją i zderzeniami podczas lotu elytrą, zgodnie z konfiguracją paczki.
 
 ## Podstawa doboru
 
-Rozpiski sprawdzono na podstawie wersji z paczki Roshar:
+Rozpiski sprawdzono na podstawie lokalnej paczki Roshar:
 
 - **Ars Nouveau:** 5.13.2.
 - **All The Arcanist Gear:** 21.3.2.
 - **Ars Additions:** 21.3.0 — dodaje nić Reach.
 
-Dobór jest propozycją dla opisanego stylu gry. Nie obejmuje osobnej optymalizacji enchantów, klejnotów i afiksów ani próby porównawczej obrażeń w grze.
+Zweryfikowano układ slotów IV/V/VI oraz skalowanie zdrowia, leczenia, maksymalnej many, odporności na odrzut, zasięgu i czasu Freezing w plikach używanych wersji modów. Rozmieszczenie nici jest propozycją dla opisanego stylu gry; porównanie nie zastępuje próby obrażeń i wygody w grze.
 
 Źródła opisów mechanik:
 
-- [All The Arcanist Gear — wprowadzenie Flight, Vitality, Spectral Sight i True Sight](https://www.curseforge.com/minecraft/mc-mods/all-the-arcanist-gear/files/6126914).
+- [All The Arcanist Gear — rejestracja slotów nici, w tym IV/V/VI](https://github.com/Jarva/All-The-Arcanist-Gear/blob/main/src/main/java/com/github/jarva/allthearcanistgear/setup/registry/ArsNouveauRegistry.java).
+- [All The Arcanist Gear — wprowadzenie Flight, Vitality i True Sight](https://www.curseforge.com/minecraft/mc-mods/all-the-arcanist-gear/files/6126914).
 - [Ars Nouveau — stosowanie nici](https://ars.guide/book/armor/applying_perks/).
 - [Ars Nouveau — Life Drain](https://github.com/baileyholl/Ars-Nouveau/blob/1.21.x/src/main/java/com/hollingsworth/arsnouveau/common/perk/VampiricPerk.java).
+- [Ars Nouveau — Magic Capacity](https://github.com/baileyholl/Ars-Nouveau/blob/1.21.x/src/main/java/com/hollingsworth/arsnouveau/common/perk/MagicCapacityPerk.java).
 - [Ars Nouveau — Warding](https://github.com/baileyholl/Ars-Nouveau/blob/1.21.x/src/main/java/com/hollingsworth/arsnouveau/common/perk/MagicResistPerk.java).
 - [Ars Nouveau — Depths](https://github.com/baileyholl/Ars-Nouveau/blob/1.21.x/src/main/java/com/hollingsworth/arsnouveau/common/perk/DepthsPerk.java).
