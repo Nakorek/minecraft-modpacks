@@ -153,18 +153,21 @@ Od **2026-11-11** Roshar używa ustawień w `config/minecolonies-server.toml`:
 [gameplay]
 forceloadcolony = true
 colonyloadstrictness = 1
+loadtime = 1440
 ```
 
 MineColonies utrzymuje wszystkie zajęte chunki kolonii, kiedy właściciel lub
 oficer przebywa w jej zasięgu. Może stać w jednym miejscu; dodatkowe ładowanie
-kolonii przez FTB Chunks nie jest potrzebne. Zachowano `loadtime = 20`, czyli
-20 minut dodatkowego ładowania po odejściu gracza. To ustawienie nie oznacza
-stałego działania kolonii bez obecności graczy.
+kolonii przez FTB Chunks nie jest potrzebne. Od **2026-11-20** ustawiono
+`loadtime = 1440`, czyli maksymalnie 24 godziny dodatkowego ładowania po
+odejściu właściciela lub oficera. Licznik nie jest zachowywany po restarcie
+serwera; właściciel lub oficer musi ponownie odwiedzić kolonię. To ustawienie
+nie oznacza stałego działania kolonii bez obecności graczy.
 
 Własny skrypt `neoforge/atm10a/kubejs/server_scripts/modpack/minecolonies_chunk_loading.js`
-przy starcie serwera lub świata ustawia i zapisuje obie opcje przez API
-MineColonies, również po ponownym wygenerowaniu konfiguracji. Zachowuje czas
-ładowania i pozostałe ustawienia. Skrypt jest śledzony przez packwiz, więc
+przy starcie serwera lub świata ustawia i zapisuje wszystkie trzy opcje przez
+API MineColonies, również po ponownym wygenerowaniu konfiguracji. Zachowuje
+pozostałe ustawienia. Skrypt jest śledzony przez packwiz, więc
 Prism pobiera go przy następnym uruchomieniu. Na serwerze zachowaj tę samą kopię
 w `kubejs/server_scripts/modpack/` przy aktualizacjach oficjalnej paczki.
 Zmiany stosuj przy zatrzymanym serwerze; obowiązują po jego uruchomieniu.

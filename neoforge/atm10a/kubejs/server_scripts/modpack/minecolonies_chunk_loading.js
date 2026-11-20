@@ -1,4 +1,4 @@
-// Keep all claimed colony chunks loaded while an owner/officer is nearby.
+// Keep claimed colony chunks loaded while an owner/officer is nearby and for 24 hours after leaving.
 ServerEvents.loaded(event => {
   const api = Java.loadClass('com.minecolonies.api.IMinecoloniesAPI')
   const integer = Java.loadClass('java.lang.Integer')
@@ -13,5 +13,9 @@ ServerEvents.loaded(event => {
     configs.set(server.colonyLoadStrictness, integer.valueOf(1))
   }
 
-  console.info('[minecolonies-chunk-loading] forceloadcolony = true; colonyloadstrictness = 1')
+  if (server.loadtime.get() != 1440) {
+    configs.set(server.loadtime, integer.valueOf(1440))
+  }
+
+  console.info('[minecolonies-chunk-loading] forceloadcolony = true; colonyloadstrictness = 1; loadtime = 1440 minutes')
 })
