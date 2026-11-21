@@ -1,6 +1,10 @@
 hash-format = "sha256"
 
 [[files]]
+file = "config/minecolonies-client.toml"
+hash = "6923bcab009260339227ca4e25b54f9b489257d5a1938df72093742b9d8badba"
+
+[[files]]
 file = "kubejs/server_scripts/modpack/crimson_iron_growth.js"
 hash = "c519dadc3c56cf837ad66dd5e1451bbbf8c916ee6c6f7da732befb4d46b03bd3"
 
