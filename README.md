@@ -19,6 +19,8 @@ konfiguracji pozostaje w Git.
 
 ## Poradniki do Rosharu
 
+- [MineColonies — menu bez mleka i minimalne zapasy](docs/roshar/minecolonies-menu-i-zapasy.md):
+  dziewięć dań dla Wise Peak i gotowa rozpiska składników dla kuchni i piekarni.
 - [Unobtainium Arcanist — trzy zestawy nici](docs/roshar/vibranium-arcanist-nici.md):
   pełne rozpiski slotów dla walki mieszanej, eksploracji i trudniejszych walk,
   opisy efektów, porównanie oraz wspólna lista nici do przygotowania.
