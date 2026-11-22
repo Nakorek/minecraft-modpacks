@@ -396,8 +396,8 @@ hash = "107f1089debe869dc912e119eedbc3f6b523dbdd8193719ba51ce476914f4f5a"
 metafile = true
 
 [[files]]
-file = "mods/colony-report-0.2.0.jar"
-hash = "89e0c1d6e424c1ad3d2e10f4787e9e56177dd2011e5da02f4a2717a708199eb7"
+file = "mods/colony-report-0.2.1.jar"
+hash = "81666229c7175eed4899f9ec2be1082796126bc79c1d03a516bbac32a730e6b6"
 
 [[files]]
 file = "mods/colorful-hearts.pw.toml"
