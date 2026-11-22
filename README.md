@@ -19,6 +19,8 @@ konfiguracji pozostaje w Git.
 
 ## Poradniki do Rosharu
 
+- [Colony Report na Rosharze](docs/roshar/colony-report.md) opisuje crafting,
+  postęp budów, wykres dostaw i filtrowanie po budynku.
 - [MineColonies — menu bez mleka i minimalne zapasy](docs/roshar/minecolonies-menu-i-zapasy.md):
   dziewięć dań dla Wise Peak i gotowa rozpiska składników dla kuchni i piekarni.
 - [Unobtainium Arcanist — trzy zestawy nici](docs/roshar/vibranium-arcanist-nici.md):
