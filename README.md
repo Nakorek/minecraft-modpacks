@@ -36,12 +36,19 @@ Dodatkowo dodaliśmy Freecam 1.3.0, Gamma Tweaks 1.0.0 oraz Bobby ReNeoForged 5.
 Nowy serwer Roshar ma seed `-919282885`, ustawiony przed pierwszym startem.
 Adres serwera w sieci lokalnej: `roshar.lan:25570`.
 
-Paczka w tym repo śledzi **mody, dwa pakiety zasobów i własne skrypty
+Paczka w tym repo śledzi **mody, pakiety zasobów i własne skrypty
 integracyjne KubeJS**. Oficjalne konfiguracje, zadania, skrypty KubeJS i inne pliki
 paczki pochodzą z oficjalnego ZIP-a importowanego do Prisma. Zmiany tych plików
 przy kolejnych wydaniach ATM10A wymagają importu
 nowego oficjalnego ZIP-a; sam bootstrap aktualizuje pliki śledzone w packwiz.
 Nie publikujemy kopii plików ATM Team w tym repo.
+
+### Network Tool w Pattern Providerach
+
+Poprawka dodaje brakujący panel schowka, który powodował rozłączenie po otwarciu
+Pattern Providera z Network Tool w ekwipunku. Packwiz pobiera pakiet
+`config/openloader/packs/expanded-ae-network-tool-fix.zip`, a OpenLoader włącza go
+automatycznie przy starcie klienta. Wystarczy ponownie uruchomić grę w Prism.
 
 ### Instalacja ATM10A w Prism Launcherze
 

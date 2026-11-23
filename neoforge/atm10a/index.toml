@@ -5,6 +5,10 @@ file = "config/minecolonies-client.toml"
 hash = "6923bcab009260339227ca4e25b54f9b489257d5a1938df72093742b9d8badba"
 
 [[files]]
+file = "config/openloader/packs/expanded-ae-network-tool-fix.zip"
+hash = "c63fd6302591fa0da647e35aa8386669273758aec813c795d20263509db960e6"
+
+[[files]]
 file = "kubejs/server_scripts/modpack/crimson_iron_growth.js"
 hash = "c519dadc3c56cf837ad66dd5e1451bbbf8c916ee6c6f7da732befb4d46b03bd3"
 
