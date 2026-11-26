@@ -1,6 +1,10 @@
 hash-format = "sha256"
 
 [[files]]
+file = "config/bobby.conf"
+hash = "40c454b1be0074d95d6fcff6efcc33cf5ce70de3914091b4f9faf15283687142"
+
+[[files]]
 file = "config/minecolonies-client.toml"
 hash = "6923bcab009260339227ca4e25b54f9b489257d5a1938df72093742b9d8badba"
 
